@@ -24,8 +24,8 @@ export function Navbar() {
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt=""
               />*/}
-			  <p className="text-sm font-semibold leading-6 text-gray-900">
-			  Portfolio
+			  <p className="text-xl font-semibold leading-6 text-gray-100">
+			  Devansh Arora
 			  </p>
             </a>
           </div>
@@ -41,13 +41,13 @@ export function Navbar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <a key={item.name} href={item.href} className="text-lg font-semibold leading-6 text-gray-100">
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="#" className="text-xl font-semibold leading-6 text-gray-100">
               Contact
             </a>
           </div>
@@ -63,7 +63,7 @@ export function Navbar() {
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt=""
                 />*/}
-				<p className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+				<p className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50">
 				Portfolio
 				</p>
               </a>
@@ -83,7 +83,7 @@ export function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50"
                     >
                       {item.name}
                     </a>
@@ -92,7 +92,7 @@ export function Navbar() {
                 <div className="py-6">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50"
                   >
                     Contact
                   </a>
