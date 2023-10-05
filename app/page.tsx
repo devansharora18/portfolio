@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import { Navbar } from './components/Navbar'
 import ParticlesBackground from './components/ParticlesBackground'
+import About from './components/About'
 
 
 
@@ -13,9 +14,10 @@ export default function Home() {
   return (
     <div className="bg-white">
 		<ParticlesBackground />
+		<Navbar />
       <section className='h-[100vh]'>
 		
-		<Navbar />
+		
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -31,7 +33,7 @@ export default function Home() {
           />
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="text-center">
+          <div className="text-center pt-10">
 			<h2 className="text-2xl font-bold tracking-tight text-gray-100 sm:text-3xl">
 				Hello I am
 			</h2>
@@ -48,8 +50,8 @@ export default function Home() {
               >
                 Contact Me
               </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-100">
-                Learn more <span aria-hidden="true">→</span>
+              <a href="#about" className="text-sm font-semibold leading-6 text-gray-100">
+                Get to Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
@@ -68,6 +70,8 @@ export default function Home() {
         </div>
       </div>
 	  </section>
+	  <About />
+
     </div>
   )
 }
