@@ -36,3 +36,25 @@
 	  @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white
 	}*/
   }
+
+/* Hide the scrollbar track */
+::-webkit-scrollbar {
+	width: 8px; /* Set the width of the scrollbar */
+  }
+  
+  /* Define the scrollbar track */
+  ::-webkit-scrollbar-track {
+	background: transparent /* Background color of the scrollbar track */
+  }
+  
+  /* Define the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+	background: #888; /* Background color of the scrollbar thumb */
+	border-radius: 999px; /* Round the corners of the thumb */
+  }
+  
+  /* On hover, make the thumb darker */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555;
+  }
+  

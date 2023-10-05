@@ -15,11 +15,14 @@ const About = () => {
             <h1 className="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
               Who I am
             </h1>
-            <p className="mt-6 text-xl leading-8 text-gray-100">
-			Hello there! I'm not your average developer; I'm a true tech enthusiast with a passion for exploring the vast world of technology. Beyond writing code, I thrive on experimenting with different operating systems on both my phone and laptop, always eager to stay on the cutting edge of what's possible in the tech realm.
+            <p className="mt-6 text-lg lg:text-2xl leading-8 text-gray-100">
+			Hello there! I am not your average developer, I am a true tech enthusiast with a passion for exploring the world of technology. Beyond writing code, I like experimenting with different operating systems on both my phone and laptop. I am also a huge fan of the Linux family, and I am currently using Garuda Linux as my daily driver.
 
-When I'm not immersed in the world of software development, you'll often find me diving into thrilling video games like Valorant, where precision and strategy are key. But my competitive spirit doesn't stop there; I'm also a skilled chess player, having proudly represented my region in state-level chess tournaments.
+When I am not immersed in the world of tech, you'll often find me diving into video games like Valorant, where precision and strategy are key. But my competitive spirit doesn't stop there. I am also a skilled chess player, having proudly represented my region in state-level chess tournaments.
             </p>
+			<a href="" className="text-lg lg:text-2xl leading-8 text-gray-100 underline hover:text-indigo-600">
+				These are some of my skills
+			</a>
 			</div>
         <div className="flex justify-center items-center opacity-30 lg:opacity-100">
           <img
