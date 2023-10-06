@@ -9,12 +9,12 @@ const About = () => {
       {/*<h2 className="text-4xl font-bold mb-4 text-white">About</h2> Change text color to white*/}
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
-			<h1 className="text-4xl py-5 font-bold tracking-tight text-gray-100 sm:text-6xl">
-				About Me
-			</h1>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
+			<p className="text-xl tracking-widest uppercase text-indigo-600">
+				About
+			</p>
+            <h2 className="py-4 text-gray-100">
               Who I am
-            </h1>
+            </h2>
             <p className="mt-6 text-lg lg:text-2xl leading-8 text-gray-100">
 			Hello there! I am not your average developer, I am a true tech enthusiast with a passion for exploring the world of technology. Beyond writing code, I like experimenting with different operating systems on both my phone and laptop. I am also a huge fan of the Linux family, and I am currently using Garuda Linux as my daily driver.
 
@@ -36,6 +36,7 @@ When I am not immersed in the world of tech, you'll often find me diving into vi
             className="h-64 w-64 absolute bottom-2 right-2" // Enlarge chess.svg and move it to bottom right
           />
         </div>
+		
       </div>
     </section>
   );

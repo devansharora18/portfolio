@@ -19,6 +19,7 @@ const skills = [
 const Skills = () => {
   return (
     <div id='skills' className='w-full lg:h-screen p-2 relative z-5'>
+		<center>
       <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
         <p className='text-xl tracking-widest uppercase text-indigo-600'>
           Skills
@@ -43,11 +44,12 @@ const Skills = () => {
 		  
         </div>
 		<center className='pt-2'>
-		<a href="" className='text-sm lg:text-xl leading-8 text-gray-100 underline hover:text-indigo-600'>
+		<a href="#projects" className='text-sm lg:text-xl leading-8 text-gray-100 underline hover:text-indigo-600'>
 		  Here are some of my recent projects
 		  </a>
 		</center>
       </div>
+	  </center>
     </div>
   );
 };
