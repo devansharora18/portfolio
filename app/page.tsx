@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Navbar } from './components/Navbar'
 import ParticlesBackground from './components/ParticlesBackground'
 import About from './components/About'
+import Skills from './components/Skills'
 
 
 
@@ -71,6 +72,7 @@ export default function Home() {
       </div>
 	  </section>
 	  <About />
+	  <Skills />
 
     </div>
   )

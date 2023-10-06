@@ -5,9 +5,9 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
 	{ name: 'About', href: '#about' },
-	{ name: 'Skills', href: '#' },
+	{ name: 'Skills', href: '#skills' },
 	{ name: 'Projetcs', href: '#' },
-	{ name: 'Dev Setup', href: '#' },
+	{ name: 'Achievements', href: '#' },
   ]
 
  
@@ -83,7 +83,8 @@ export function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100"
+					  onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </a>

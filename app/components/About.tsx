@@ -20,7 +20,7 @@ const About = () => {
 
 When I am not immersed in the world of tech, you'll often find me diving into video games like Valorant, where precision and strategy are key. But my competitive spirit doesn't stop there. I am also a skilled chess player, having proudly represented my region in state-level chess tournaments.
             </p>
-			<a href="" className="text-lg lg:text-2xl leading-8 text-gray-100 underline hover:text-indigo-600">
+			<a href="#skills" className="text-lg lg:text-2xl leading-8 text-gray-100 underline hover:text-indigo-600">
 				These are some of my skills
 			</a>
 			</div>
