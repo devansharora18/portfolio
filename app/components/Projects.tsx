@@ -5,25 +5,29 @@ const projectData = [
   {
     title: 'Caress: Mental Health App',
     backgroundImg: '/caress.png',
-    projectUrl: '/caress',
+    code: 'https://github.com/ART3MISTICAL/caress',
+	demo: 'https://caress-app.vercel.app',
     tech: 'Next.js, Tailwind, Firebase, Pytorch',
   },
   {
     title: 'GSS.io: Garbage Management System',
     backgroundImg: '/gss.png',
-    projectUrl: '/gss',
+    code: 'https://github.com/ART3MISTICAL/Gss.io',
+	demo: 'https://github.com/ART3MISTICAL/Gss.io/releases/tag/v0.1.0',
     tech: 'Flutter Firebase',
   },
   {
     title: 'Youth Bussiness League Website',
     backgroundImg: '/ybl.png',
-    projectUrl: '/ybl',
+    code: 'https://github.com/ART3MISTICAL/youth-business-league-website',
+	demo: 'https://youth-business-league-website.vercel.app/',
     tech: 'Next.js, Tailwind',
   },
   {
     title: '3D Model of our Solar System',
     backgroundImg: '/solar-system.png',
-    projectUrl: '/solar-system',
+    code: 'https://github.com/ART3MISTICAL/3d-solarsystem-model',
+	demo: 'https://solarsystem-model.vercel.app/',
     tech: 'Three.js',
   },
 ];
@@ -34,7 +38,7 @@ const Projects = () => {
     <div id='projects' className='w-full relative z-5 '>
 		<center>
       <div className='max-w-[1240px] mx-auto px-2 py-16'>
-        <p className='text-xl tracking-widest uppercase text-[#5651e5]'>
+        <p className='text-xl tracking-widest uppercase text-indigo-600'>
           Projects
         </p>
         <h2 className='py-4 text-gray-100'>What I have Built</h2>
@@ -44,7 +48,8 @@ const Projects = () => {
               key={index}
               title={project.title}
               backgroundImg={project.backgroundImg}
-              projectUrl={project.projectUrl}
+              code = {project.code}
+			  demo = {project.demo}
               tech={project.tech}
             />
           ))}
