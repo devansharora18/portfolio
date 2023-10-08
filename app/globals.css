@@ -64,4 +64,67 @@
 	}
 }
 
-  
+.forms {
+	width: 70%;
+}
+
+@media (max-width: 767px) {
+	.forms {
+		width: 90%;
+	}
+}
+
+.forms label {
+	font-size: 1.2rem;
+}
+
+.input,
+textarea,
+.btn {
+	width: 100%;
+	padding: 0.5em;
+	border: none;
+	font-size: 1.2rem;
+	color: black;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+	margin: 0 0 1em;
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+textarea {
+	height: 6em;
+}
+
+input[type="submit"],
+.btn {
+	/*background: #4570f3;*/
+	color: #fff;
+	cursor: pointer;
+}
+
+
+label {
+	color: white;
+}
+
+.contact {
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+}
+
+.heading {
+	/*margin-top: 50px;*/
+	display: flex;
+	/*font-family: "Montserrat", sans-serif;*/
+	font-weight: 600;
+	font-size: 36px;
+	color: whitesmoke;
+	text-decoration: none;
+	justify-content: center;
+}
