@@ -1,9 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono} from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
-const jetbrainsmono = JetBrains_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Devansh Arora\'s Portfolio',
