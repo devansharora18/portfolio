@@ -30,6 +30,20 @@ const projectData = [
 	demo: 'https://solarsystem-model.vercel.app/',
     tech: 'Three.js',
   },
+  {
+    title: 'Hover Carousel (npm package)',
+    backgroundImg: '/hc.png',
+    code: 'https://github.com/ART3MISTICAL/hover-carousel',
+	demo: 'https://hover-carousel-demo.vercel.app/',
+    tech: 'React.js',
+  },
+  {
+    title: 'Youtube Video/Music Downloader with client side download',
+    backgroundImg: '/ytd.png',
+    code: 'https://github.com/ART3MISTICAL/Youtube-Video-Downloader-Django',
+	demo: 'https://youtube-video-downloader.devansharora.repl.co/',
+    tech: 'Django',
+  },
 ];
 
 const Projects = () => {
