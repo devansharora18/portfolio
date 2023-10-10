@@ -17,7 +17,7 @@ const projectData = [
     tech: 'Flutter Firebase',
   },
   {
-    title: 'Youth Bussiness League Website',
+    title: 'Youth Business League Website',
     backgroundImg: '/ybl.png',
     code: 'https://github.com/ART3MISTICAL/youth-business-league-website',
 	demo: 'https://youth-business-league-website.vercel.app/',
