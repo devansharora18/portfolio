@@ -49,7 +49,7 @@ const Contact = () => {
         <FaLinkedin size={32} />
       </a>
       <a
-        href="mailto:hsnaved.reverse@gmail.com"
+        href="mailto:mail@devansharora.tech"
 		target="_blank"
         rel="noopener noreferrer"
         className="text-gray-100 hover:text-indigo-600"
