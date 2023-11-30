@@ -17,6 +17,13 @@ const projectData = [
     tech: 'Flutter Firebase',
   },
   {
+    title: 'Color Palette',
+    backgroundImg: '/color-palette.png',
+    code: 'https://github.com/ART3MISTICAL/color_palette',
+	demo: 'https://github.com/ART3MISTICAL/color-palette/releases/tag/v0.2.0',
+    tech: 'Python',
+  },
+  {
     title: 'Youth Business League Website',
     backgroundImg: '/ybl.png',
     code: 'https://github.com/ART3MISTICAL/youth-business-league-website',
@@ -37,13 +44,7 @@ const projectData = [
 	demo: 'https://hover-carousel-demo.vercel.app/',
     tech: 'React.js',
   },
-  {
-    title: 'Youtube Video/Music Downloader with client side download',
-    backgroundImg: '/ytd.png',
-    code: 'https://github.com/ART3MISTICAL/Youtube-Video-Downloader-Django',
-	demo: 'https://youtube-video-downloader.devansharora.repl.co/',
-    tech: 'Django',
-  },
+  
 ];
 
 const Projects = () => {
