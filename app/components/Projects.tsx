@@ -4,14 +4,14 @@ import ProjectItem from './ProjectItem';
 const projectData = [
   {
     title: 'Caress: Mental Health App',
-    backgroundImg: '/caress.png',
+    backgroundImg: '/caress_new.png',
     code: 'https://github.com/ART3MISTICAL/caress',
 	demo: 'https://caress-app.vercel.app',
     tech: 'Next.js, Tailwind, Firebase, Pytorch',
   },
   {
     title: 'GSS.io: Garbage Management System',
-    backgroundImg: '/gss.png',
+    backgroundImg: '/gss_new.png',
     code: 'https://github.com/ART3MISTICAL/Gss.io',
 	demo: 'https://github.com/ART3MISTICAL/Gss.io/releases/tag/v0.1.0',
     tech: 'Flutter Firebase',
