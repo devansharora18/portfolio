@@ -18,7 +18,7 @@ const projectData = [
   },
   {
     title: 'Color Palette',
-    backgroundImg: '/color-palette.png',
+    backgroundImg: '/color_palette.png',
     code: 'https://github.com/ART3MISTICAL/color_palette',
 	demo: 'https://github.com/ART3MISTICAL/color-palette/releases/tag/v0.2.0',
     tech: 'Python',
