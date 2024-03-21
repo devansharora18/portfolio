@@ -44,7 +44,7 @@ export default function Home() {
               Devansh Arora
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-100">
-              An App Developer, programmer, chess player and a tech enthusiast.
+              An App Developer, programmer and a tech enthusiast.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
