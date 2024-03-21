@@ -20,7 +20,7 @@ const About = () => {
 
 			</p> 
 			<p className="mt-6 text-lg lg:text-2xl leading-8 text-gray-100">
-I am a high school student who started learning computer science through Harvard's CS50p course. Additionally, I'm a skilled chess player and have proudly represented my region in state-level chess tournaments.
+I am a high school student who started learning computer science through Harvard's CS50p course. After that I participated in multiple hackathons and also started a youtube channel.
             </p>
 			<br />
 			<a href="#skills" className="text-lg lg:text-2xl leading-8 text-gray-100 underline hover:text-indigo-600">
