@@ -19,7 +19,7 @@ const projectData = [
   {
     title: 'Color Palette',
     backgroundImg: '/color_palette.png',
-    code: 'https://github.com/devansharora18/color_palette',
+    code: 'https://github.com/devansharora18/color-palette',
 	demo: 'https://github.com/devansharora18/color-palette/releases/tag/v0.2.0',
     tech: 'Python',
   },
