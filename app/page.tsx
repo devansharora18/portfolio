@@ -59,7 +59,7 @@ export default function Home() {
             </div>
 			<div className="mt-4 flex justify-center items-center">
       <a
-        href="https://github.com/ART3MISTICAL"
+        href="https://github.com/devansharora18"
         target="_blank"
         rel="noopener noreferrer"
         className="text-gray-100 hover:text-indigo-600 mr-4"
