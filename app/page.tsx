@@ -92,7 +92,7 @@ export default function Home() {
               className="w-64 h-64 md:w-96 md:h-96 overflow-hidden border-[6px] border-indigo-600 shadow-lg morph-animation rounded-full relative"
             >
               <Image 
-                src="/pfp_enhanced.jpg" 
+                src="/pfp_enhanced (1).jpg" 
                 alt="Devansh Arora" 
                 width={224} 
                 height={224} 
