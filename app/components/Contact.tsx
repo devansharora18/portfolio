@@ -152,7 +152,7 @@ const Contact = () => {
           <FaLinkedin size={32} />
         </motion.a>
         <motion.a
-          href="mailto:hsnaved.reverse@gmail.com"
+          href="mailto:mail@devansharora.in"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-100 hover:text-indigo-600"

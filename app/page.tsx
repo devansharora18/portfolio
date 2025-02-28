@@ -77,7 +77,7 @@ export default function Home() {
               <motion.a variants={iconVariants} href="https://www.linkedin.com/in/devansh-arora-7b2395215/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
                 <FaLinkedin size={32} />
               </motion.a>
-              <motion.a variants={iconVariants} href="mailto:hsnaved.reverse@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
+              <motion.a variants={iconVariants} href="mailto:mail@devansharora.in" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400">
                 <FaEnvelope size={32} />
               </motion.a>
             </motion.div>
@@ -92,12 +92,11 @@ export default function Home() {
               className="w-64 h-64 md:w-96 md:h-96 overflow-hidden border-[6px] border-indigo-600 shadow-lg morph-animation rounded-full relative"
             >
               <Image 
-                src="/pfp_enhanced (1).jpg" 
+                src="/image.png" 
                 alt="Devansh Arora" 
-                width={224} 
-                height={224} 
+                width={524} 
+                height={524} 
                 className="object-cover w-full h-full"
-                unoptimized={true}
               />
             </motion.div>
           </div>
