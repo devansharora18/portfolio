@@ -13,7 +13,7 @@
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.2",
     "framer-motion": "^12.4.2",
-    "next": "13.5.4",
+    "next": "14.2.21",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
