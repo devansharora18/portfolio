@@ -77,7 +77,7 @@ const Projects = () => {
       <div id='projects' className='w-full relative z-5'>
         <div className='max-w-[1240px] mx-auto px-2 py-16'>
           <motion.p 
-            className='text-xl tracking-widest uppercase text-indigo-600 text-center'
+            className='text-xl tracking-widest uppercase text-indigo-600 text-center font-semibold'
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}

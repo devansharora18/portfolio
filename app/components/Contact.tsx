@@ -111,7 +111,7 @@ const Contact = () => {
             />
 
             <motion.input 
-              className="input rounded-lg bg-indigo-600" 
+              className="rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 mt-4 w-full" 
               type="submit" 
               value="Submit"
               initial={{ opacity: 0, y: 20 }}

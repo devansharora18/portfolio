@@ -3,141 +3,96 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins&display=swap');
 
+html {
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
 
-
-  html {
-	scroll-behavior: smooth;
-	font-family: 'Poppins', sans-serif;
+@layer base {
+  body {
+    @apply text-gray-200 tracking-wide bg-black bg-fixed bg-cover bg-center;
   }
 
-  @layer base {
-	body {
-	  @apply text-[#1f2937] tracking-wide bg-black bg-fixed bg-cover bg-center
-	}
-  
-	h1, h2, h3, h4, h5, h6 {
-	  @apply font-bold
-	}
-  
-	h1 {
-	  @apply text-4xl sm:text-5xl md:text-6xl
-	}
-  
-	h2 {
-	  @apply text-3xl sm:text-4xl
-	}
-	
-	li {
-	  @apply cursor-pointer
-	}
-  
-	/*button {
-	  @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white
-	}*/
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
   }
 
-/* Hide the scrollbar track */
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  li {
+    @apply cursor-pointer;
+  }
+}
+
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
-	width: 8px; /* Set the width of the scrollbar */
-  }
-  
-  /* Define the scrollbar track */
-  ::-webkit-scrollbar-track {
-	background: transparent /* Background color of the scrollbar track */
-  }
-  
-  /* Define the scrollbar thumb */
-  ::-webkit-scrollbar-thumb {
-	background: #888; /* Background color of the scrollbar thumb */
-	border-radius: 999px; /* Round the corners of the thumb */
-  }
-  
-  /* On hover, make the thumb darker */
-  ::-webkit-scrollbar-thumb:hover {
-	background: #555;
-  }
+  width: 8px;
+}
 
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Responsive Design */
 @media (max-width: 640px) {
-	html {
-		max-width: 100vw;
-	}
+  html {
+    max-width: 100vw;
+  }
 }
 
 .forms {
-	width: 70%;
+  @apply w-full max-w-xs md:max-w-3xl;
 }
 
-@media (max-width: 767px) {
-	.forms {
-		width: 90%;
-	}
-}
 
 .forms label {
-	font-size: 1.2rem;
+  @apply text-lg text-white;
 }
 
-.input,
-textarea,
-.btn {
-	width: 100%;
-	padding: 0.5em;
-	border: none;
-	font-size: 1.2rem;
-	color: black;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-	margin: 0 0 1em;
-	border: 1px solid #ccc;
-	outline: none;
+.input, textarea {
+  @apply w-full px-4 py-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 my-1 md:my-2;
 }
 
 textarea {
-	height: 6em;
+  @apply h-32;
 }
 
-input[type="submit"],
 .btn {
-	/*background: #4570f3;*/
-	color: #fff;
-	cursor: pointer;
-}
-
-
-label {
-	color: white;
+  @apply w-full bg-indigo-600 py-2 rounded-md text-white font-semibold hover:bg-indigo-700 transition duration-200;
 }
 
 .contact {
-	display: flex;
-	justify-content: center;
-	padding-top: 10px;
+  @apply flex justify-center pt-4;
 }
 
 .heading {
-	/*margin-top: 50px;*/
-	display: flex;
-	/*font-family: "Montserrat", sans-serif;*/
-	font-weight: 600;
-	font-size: 36px;
-	color: whitesmoke;
-	text-decoration: none;
-	justify-content: center;
+  @apply flex font-semibold text-3xl text-white justify-center;
 }
 
 @keyframes morph {
-	0%, 100% {
-	  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-	}
-	50% {
-	  border-radius: 30% 60% 70% 40% / 50% 60% 40% 70%;
-	}
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
-  
-  .morph-animation {
-	animation: morph 8s ease-in-out infinite;
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 40% 70%;
   }
-  
+}
+
+.morph-animation {
+  animation: morph 8s ease-in-out infinite;
+}

@@ -12,7 +12,7 @@ const skills = [
   { name: 'Next.js', imageSrc: '/next.png' },
   { name: 'Flutter', imageSrc: '/flutter.png' },
   { name: 'Tailwind', imageSrc: '/tailwind.png' },
-  { name: 'Bootstrap', imageSrc: '/bootstrap.png' },
+  { name: 'Redux', imageSrc: '/redux-icon.png' },
   { name: 'Django', imageSrc: '/django.png' },
   { name: 'Firebase', imageSrc: '/firebase.png' },
 ];
@@ -49,16 +49,16 @@ const Skills = () => {
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-black'>
           {skills.map((skill, index) => (
             <motion.div
-              key={index}
-              className='p-4 shadow-xl rounded-xl hover:scale-105 ease-in duration-300 bg-gray-300 hover:bg-gray-100 flex items-center justify-center'
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
+            key={index}
+            className='p-4 shadow-xl rounded-xl duration-300 bg-gray-300 hover:bg-gray-100 flex items-center justify-center transform hover:scale-110 ease-in-out'
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
               <div className='flex flex-col sm:flex-row items-center justify-center w-full'>
                 <div className='mb-2 sm:mb-0 sm:mr-4'>
-                  <Image src={skill.imageSrc} width={48} height={48} alt={skill.name} />
+                  <Image className='h-12 w-12' src={skill.imageSrc} width={48} height={48} alt={skill.name} />
                 </div>
                 <div className='text-center sm:text-left'>
                   <h3 className='text-sm sm:text-base font-semibold'>{skill.name}</h3>
