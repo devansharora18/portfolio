@@ -1,98 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Poppins&display=swap");
 
 html {
-  scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
+	scroll-behavior: smooth;
+	font-family: "Poppins", sans-serif;
 }
 
 @layer base {
-  body {
-    @apply text-gray-200 tracking-wide bg-black bg-fixed bg-cover bg-center;
-  }
+	body {
+		@apply text-gray-200 tracking-wide bg-black bg-fixed bg-cover bg-center;
+	}
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
-  }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold;
+	}
 
-  h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
-  }
+	h1 {
+		@apply text-4xl sm:text-5xl md:text-6xl;
+	}
 
-  h2 {
-    @apply text-3xl sm:text-4xl;
-  }
+	h2 {
+		@apply text-3xl sm:text-4xl;
+	}
 
-  li {
-    @apply cursor-pointer;
-  }
+	li {
+		@apply cursor-pointer;
+	}
 }
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 8px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 999px;
+	background: #555;
+	border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+	background: #333;
 }
 
 /* Responsive Design */
 @media (max-width: 640px) {
-  html {
-    max-width: 100vw;
-  }
-}
-
-.forms {
-  @apply w-full max-w-xs md:max-w-3xl;
-}
-
-
-.forms label {
-  @apply text-lg text-white;
-}
-
-.input, textarea {
-  @apply w-full px-4 py-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 my-1 md:my-2;
-}
-
-textarea {
-  @apply h-32;
-}
-
-.btn {
-  @apply w-full bg-indigo-600 py-2 rounded-md text-white font-semibold hover:bg-indigo-700 transition duration-200;
-}
-
-.contact {
-  @apply flex justify-center pt-4;
-}
-
-.heading {
-  @apply flex font-semibold text-3xl text-white justify-center;
-}
-
-@keyframes morph {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 40% 70%;
-  }
-}
-
-.morph-animation {
-  animation: morph 8s ease-in-out infinite;
+	html {
+		max-width: 100vw;
+	}
 }
