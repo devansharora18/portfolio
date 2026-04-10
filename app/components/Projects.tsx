@@ -37,6 +37,13 @@ function Section({ className, ...props }: SectionProps) {
 // ------------------ Projects ------------------
 const projects = [
 	{
+		title: "TardisJS",
+		link: "https://github.com/devansharora18/tardisjs",
+		description:
+			"A compiler-driven frontend framework built around a blueprint DSL that compiles .tardis files to plain JavaScript with a lightweight runtime.",
+		tech: ["TypeScript", "JavaScript", "Compiler", "CLI"],
+	},
+	{
 		title: "Devjams",
 		link: "https://devjams.dscvit.com",
 		description:
@@ -49,13 +56,6 @@ const projects = [
 		description:
 			"A web tool that lets developers quickly create and test page layouts. Split the screen into sections, adjust them, and instantly see generated code in JSX + Tailwind or HTML + CSS.",
 		tech: ["Next.js", "Redux"],
-	},
-	{
-		title: "CPU Controller",
-		link: "https://github.com/devansharora18/cpu-controller",
-		description:
-			"CPU Controller for Linux is a GUI application using PyQt6 that allows toggling individual CPU cores on/off to save battery life.",
-		tech: ["PyQt6"],
 	},
 ];
 
