@@ -1,0 +1,28 @@
+blueprint Home {
+  state {
+    hydrated: boolean = true
+  }
+
+  style(tailwind) {
+    page: "min-h-screen font-['Space_Grotesk'] bg-transparent text-[#2d251c] sm:bg-[linear-gradient(180deg,#f7f1e7_0%,#f3eee5_48%,#ede7db_100%)]"
+    shell: "mx-auto w-full max-w-none px-0 py-0 sm:max-w-4xl sm:px-6 sm:py-12"
+    document: "w-full rounded-none border-0 bg-transparent p-4 shadow-none sm:rounded-xl sm:border sm:border-[#d8cdbd] sm:bg-[#fbf7ef] sm:p-8 sm:shadow-[0_16px_40px_-30px_rgba(42,31,20,0.6)]"
+    footer: "mt-8 border-t border-[#d8cdbd] pt-6 text-center text-[0.74rem] font-semibold uppercase tracking-[0.16em] text-[#7a6447] sm:mt-10 sm:pt-7"
+    footerLink: "underline decoration-transparent underline-offset-4 transition-all duration-200 hover:text-[#4d4132] hover:decoration-[#4d4132]"
+  }
+  ui {
+    <main class={state.hydrated ? "page" : "page"}>
+      <div class={state.hydrated ? "shell" : "shell"}>
+        <article class={state.hydrated ? "document" : "document"}>
+          <Hero />
+          <ExperienceSection />
+          <ProjectsSection />
+          <SkillsSection />
+          <p class={state.hydrated ? "footer" : "footer"}>
+            Built using <a class={state.hydrated ? "footerLink" : "footerLink"} href="https://tardisjs.devansharora.in" target="_blank" rel="noopener noreferrer">TardisJS</a>
+          </p>
+        </article>
+      </div>
+    </main>
+  }
+}

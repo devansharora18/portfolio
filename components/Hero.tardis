@@ -1,0 +1,52 @@
+blueprint Hero {
+  state {
+    revealed: boolean = false
+  }
+
+  events {
+    onMount: () => {
+      setTimeout(() => {
+        $update(state.revealed, true)
+      }, 40)
+    }
+  }
+
+  style(tailwind) {
+    wrapHidden: "grid gap-8 pb-8 text-center opacity-0 translate-y-2 transition-all duration-700 ease-out md:grid-cols-[1fr_auto] md:items-center md:text-left"
+    wrapShown: "grid gap-8 pb-8 text-center opacity-100 translate-y-0 transition-all duration-700 ease-out md:grid-cols-[1fr_auto] md:items-center md:text-left"
+
+    kicker: "text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[#7a6447]"
+    title: "mt-3 font-['Cormorant_Garamond'] text-[2.6rem] leading-[0.9] text-[#1f1912] sm:text-[3.5rem]"
+    role: "mt-3 text-[1.15rem] font-medium text-[#4d4132]"
+    summary: "mt-4 max-w-[40rem] text-[0.98rem] leading-relaxed text-[#5c4f40] mx-auto md:mx-0"
+
+    links: "mt-6 flex flex-wrap justify-center gap-3 md:justify-start"
+    link: "rounded-md border border-[#d8cdbd] bg-[#f6efe2] px-3.5 py-1.5 text-sm text-[#3f3427] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#beac95] hover:bg-[#efe5d8]"
+
+    photoBox: "mx-auto h-52 w-40 overflow-hidden rounded-xl border border-[#d6c8b3] bg-[#efe4d3] p-1.5 transition-transform duration-500 hover:scale-[1.01] md:mx-0"
+    photo: "h-full w-full rounded-lg object-cover object-center"
+  }
+
+  ui {
+    <header class={state.revealed ? "wrapShown" : "wrapHidden"}>
+      <div>
+        <p class={state.revealed ? "kicker" : "kicker"}>Curriculum Vitae</p>
+        <h1 class={state.revealed ? "title" : "title"}>Devansh Arora</h1>
+        <p class={state.revealed ? "role" : "role"}>Software Developer</p>
+        <p class={state.revealed ? "summary" : "summary"}>
+          I like to build stuff.
+        </p>
+
+        <div class={state.revealed ? "links" : "links"}>
+          <a class={state.revealed ? "link" : "link"} href="https://github.com/devansharora18" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class={state.revealed ? "link" : "link"} href="https://www.linkedin.com/in/devansh-arora-7b2395215/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class={state.revealed ? "link" : "link"} href="mailto:mail@devansharora.in">Email</a>
+        </div>
+      </div>
+
+      <figure class={state.revealed ? "photoBox" : "photoBox"}>
+        <img class={state.revealed ? "photo" : "photo"} src="/pfp.jpg" alt="Devansh Arora"></img>
+      </figure>
+    </header>
+  }
+}

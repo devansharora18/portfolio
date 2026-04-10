@@ -1,0 +1,46 @@
+blueprint SkillsSection {
+  state {
+    revealed: boolean = false
+  }
+
+  events {
+    onMount: () => {
+      setTimeout(() => {
+        $update(state.revealed, true)
+      }, 240)
+    }
+  }
+
+  style(tailwind) {
+    sectionHidden: "mt-8 border-t border-[#d8cdbd] pt-8 opacity-0 translate-y-2 transition-all duration-700 ease-out sm:mt-9 sm:pt-9"
+    sectionShown: "mt-8 border-t border-[#d8cdbd] pt-8 opacity-100 translate-y-0 transition-all duration-700 ease-out sm:mt-9 sm:pt-9"
+
+    heading: "font-['Cormorant_Garamond'] text-[2rem] leading-none tracking-[0.03em] text-[#1f1912] sm:text-[2.2rem]"
+    copy: "mt-3 text-[0.96rem] leading-relaxed text-[#5c4f40]"
+
+    tags: "mt-4 flex flex-wrap gap-2"
+    tag: "rounded-md border border-[#cfc1ae] bg-[#f5edde] px-2.5 py-1 text-[0.76rem] text-[#4d4133] transition-colors duration-200 hover:bg-[#efe5d8]"
+  }
+
+  ui {
+    <section id="skills" class={state.revealed ? "sectionShown" : "sectionHidden"}>
+      <h2 class={state.revealed ? "heading" : "heading"}>Skills</h2>
+      <p class={state.revealed ? "copy" : "copy"}>Tools and technologies I use to design, build, and ship reliable interfaces.</p>
+
+      <div class={state.revealed ? "tags" : "tags"}>
+        <span class={state.revealed ? "tag" : "tag"}>JavaScript</span>
+        <span class={state.revealed ? "tag" : "tag"}>TypeScript</span>
+        <span class={state.revealed ? "tag" : "tag"}>C++</span>
+        <span class={state.revealed ? "tag" : "tag"}>Python</span>
+        <span class={state.revealed ? "tag" : "tag"}>Dart</span>
+        <span class={state.revealed ? "tag" : "tag"}>React</span>
+        <span class={state.revealed ? "tag" : "tag"}>Next.js</span>
+        <span class={state.revealed ? "tag" : "tag"}>Flutter</span>
+        <span class={state.revealed ? "tag" : "tag"}>Tailwind</span>
+        <span class={state.revealed ? "tag" : "tag"}>Redux</span>
+        <span class={state.revealed ? "tag" : "tag"}>Django</span>
+        <span class={state.revealed ? "tag" : "tag"}>Firebase</span>
+      </div>
+    </section>
+  }
+}

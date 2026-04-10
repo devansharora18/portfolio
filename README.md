@@ -1,6 +1,6 @@
 # Devansh Arora — CV / Portfolio
 
-A minimal personal CV site built with Next.js, Tailwind CSS, and Framer Motion.
+A personal CV site built with TardisJS blueprints.
 
 ## Setup
 
@@ -9,13 +9,17 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view.
+Open http://localhost:3000 to view.
 
-## Deployment
+## Build and Preview
 
 ```bash
 npm run build
-npm start
+npm run preview
 ```
 
-Or deploy directly on [Vercel](https://vercel.com).
+## Stack
+
+- TardisJS compiler + runtime
+- File-based routing via pages/index.tardis
+- Static assets from public/

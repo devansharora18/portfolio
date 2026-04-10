@@ -1,0 +1,78 @@
+blueprint ProjectsSection {
+  state {
+    revealed: boolean = false
+  }
+
+  events {
+    onMount: () => {
+      setTimeout(() => {
+        $update(state.revealed, true)
+      }, 180)
+    }
+  }
+
+  style(tailwind) {
+    sectionHidden: "mt-8 border-t border-[#d8cdbd] pt-8 opacity-0 translate-y-2 transition-all duration-700 ease-out sm:mt-9 sm:pt-9"
+    sectionShown: "mt-8 border-t border-[#d8cdbd] pt-8 opacity-100 translate-y-0 transition-all duration-700 ease-out sm:mt-9 sm:pt-9"
+
+    heading: "font-['Cormorant_Garamond'] text-[2rem] leading-none tracking-[0.03em] text-[#1f1912] sm:text-[2.2rem]"
+
+    entryFirst: "mt-5 border-l-2 border-[#cbbba5] pl-4 transition-transform duration-300 hover:-translate-y-0.5 sm:pl-5"
+    entryNext: "mt-4 border-l-2 border-[#cbbba5] pl-4 transition-transform duration-300 hover:-translate-y-0.5 sm:pl-5"
+
+    topRow: "flex flex-wrap items-baseline justify-between gap-2"
+    title: "font-['Cormorant_Garamond'] text-[1.35rem] text-[#1f1912] transition-colors duration-200 hover:text-[#7a6447]"
+    order: "text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#7a6447]"
+    copy: "mt-2 text-[0.96rem] leading-relaxed text-[#5c4f40]"
+
+    tags: "mt-3 flex flex-wrap gap-2"
+    tag: "rounded-md border border-[#cfc1ae] bg-[#f5edde] px-2.5 py-1 text-[0.76rem] text-[#4d4133] transition-colors duration-200 hover:bg-[#efe5d8]"
+  }
+
+  ui {
+    <section id="projects" class={state.revealed ? "sectionShown" : "sectionHidden"}>
+      <h2 class={state.revealed ? "heading" : "heading"}>Selected Projects</h2>
+
+      <article class={state.revealed ? "entryFirst" : "entryFirst"}>
+        <div class={state.revealed ? "topRow" : "topRow"}>
+          <h3><a class={state.revealed ? "title" : "title"} href="https://github.com/devansharora18/tardisjs" target="_blank" rel="noopener noreferrer">TardisJS</a></h3>
+          <span class={state.revealed ? "order" : "order"}>01</span>
+        </div>
+        <p class={state.revealed ? "copy" : "copy"}>A compiler-driven frontend framework built around a blueprint DSL that compiles .tardis files to plain JavaScript with a lightweight runtime.</p>
+        <div class={state.revealed ? "tags" : "tags"}>
+          <span class={state.revealed ? "tag" : "tag"}>TypeScript</span>
+          <span class={state.revealed ? "tag" : "tag"}>Compiler</span>
+          <span class={state.revealed ? "tag" : "tag"}>CLI</span>
+          <span class={state.revealed ? "tag" : "tag"}>Runtime</span>
+        </div>
+      </article>
+
+      <article class={state.revealed ? "entryNext" : "entryNext"}>
+        <div class={state.revealed ? "topRow" : "topRow"}>
+          <h3><a class={state.revealed ? "title" : "title"} href="https://devjams.dscvit.com" target="_blank" rel="noopener noreferrer">Devjams 25</a></h3>
+          <span class={state.revealed ? "order" : "order"}>02</span>
+        </div>
+        <p class={state.revealed ? "copy" : "copy"}>Official website for Devjams 25, a hackathon organized by GDG VITV.</p>
+        <div class={state.revealed ? "tags" : "tags"}>
+          <span class={state.revealed ? "tag" : "tag"}>React</span>
+          <span class={state.revealed ? "tag" : "tag"}>Vite</span>
+          <span class={state.revealed ? "tag" : "tag"}>Tailwind</span>
+          <span class={state.revealed ? "tag" : "tag"}>Three.js</span>
+        </div>
+      </article>
+
+      <article class={state.revealed ? "entryNext" : "entryNext"}>
+        <div class={state.revealed ? "topRow" : "topRow"}>
+          <h3><a class={state.revealed ? "title" : "title"} href="https://layout.devansharora.in" target="_blank" rel="noopener noreferrer">Layout</a></h3>
+          <span class={state.revealed ? "order" : "order"}>03</span>
+        </div>
+        <p class={state.revealed ? "copy" : "copy"}>A web tool to quickly create and test page layouts, with generated JSX + Tailwind or HTML + CSS output.</p>
+        <div class={state.revealed ? "tags" : "tags"}>
+          <span class={state.revealed ? "tag" : "tag"}>Next.js</span>
+          <span class={state.revealed ? "tag" : "tag"}>Redux</span>
+          <span class={state.revealed ? "tag" : "tag"}>Tooling</span>
+        </div>
+      </article>
+    </section>
+  }
+}

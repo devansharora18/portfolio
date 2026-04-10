@@ -1,0 +1,56 @@
+blueprint ExperienceSection {
+  state {
+    revealed: boolean = false
+  }
+
+  events {
+    onMount: () => {
+      setTimeout(() => {
+        $update(state.revealed, true)
+      }, 120)
+    }
+  }
+
+  style(tailwind) {
+    sectionHidden: "mt-8 border-t border-[#d8cdbd] pt-8 opacity-0 translate-y-2 transition-all duration-700 ease-out sm:mt-9 sm:pt-9"
+    sectionShown: "mt-8 border-t border-[#d8cdbd] pt-8 opacity-100 translate-y-0 transition-all duration-700 ease-out sm:mt-9 sm:pt-9"
+
+    heading: "font-['Cormorant_Garamond'] text-[2rem] leading-none tracking-[0.03em] text-[#1f1912] sm:text-[2.2rem]"
+
+    entryFirst: "mt-5 border-l-2 border-[#cbbba5] pl-4 transition-transform duration-300 hover:-translate-y-0.5 sm:pl-5"
+    entryNext: "mt-4 border-l-2 border-[#cbbba5] pl-4 transition-transform duration-300 hover:-translate-y-0.5 sm:pl-5"
+
+    topRow: "flex flex-wrap items-baseline justify-between gap-2"
+    role: "font-['Cormorant_Garamond'] text-[1.35rem] text-[#1f1912]"
+    duration: "text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-[#7a6447]"
+    org: "mt-1 text-sm text-[#6b5b48]"
+    meta: "mt-1 text-[0.74rem] uppercase tracking-[0.16em] text-[#86745e]"
+    copy: "mt-2 text-[0.96rem] leading-relaxed text-[#5c4f40]"
+  }
+
+  ui {
+    <section id="experience" class={state.revealed ? "sectionShown" : "sectionHidden"}>
+      <h2 class={state.revealed ? "heading" : "heading"}>Experience</h2>
+
+      <article class={state.revealed ? "entryFirst" : "entryFirst"}>
+        <div class={state.revealed ? "topRow" : "topRow"}>
+          <h3 class={state.revealed ? "role" : "role"}>Frontend Developer</h3>
+          <span class={state.revealed ? "duration" : "duration"}>Apr 2025 - Present</span>
+        </div>
+        <p class={state.revealed ? "org" : "org"}>Google Developer Group VIT · Full-time</p>
+        <p class={state.revealed ? "meta" : "meta"}>Vellore, Tamil Nadu, India</p>
+        <p class={state.revealed ? "copy" : "copy"}>Developing front-end features and interfaces for club projects and events using React.js and Tailwind.</p>
+      </article>
+
+      <article class={state.revealed ? "entryNext" : "entryNext"}>
+        <div class={state.revealed ? "topRow" : "topRow"}>
+          <h3 class={state.revealed ? "role" : "role"}>Frontend Developer</h3>
+          <span class={state.revealed ? "duration" : "duration"}>Dec 2024 - Jan 2025</span>
+        </div>
+        <p class={state.revealed ? "org" : "org"}>KalkiNi · AI surveillance system · Internship</p>
+        <p class={state.revealed ? "meta" : "meta"}>Tamil Nadu, India · Hybrid</p>
+        <p class={state.revealed ? "copy" : "copy"}>Worked on front-end development using React.js, implementing interactive UI components.</p>
+      </article>
+    </section>
+  }
+}
