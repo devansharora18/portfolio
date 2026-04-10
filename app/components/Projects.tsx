@@ -1,40 +1,6 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "../lib/utils";
-
-// ------------------ Badge ------------------
-interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-function Badge({ className, ...props }: BadgeProps) {
-	return (
-		<span
-			className={cn(
-				"inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-mono text-gray-300 border-gray-700",
-				className,
-			)}
-			{...props}
-		/>
-	);
-}
-
-// ------------------ Section ------------------
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {}
-
-function Section({ className, ...props }: SectionProps) {
-	return (
-		<section
-			className={cn(
-				"relative flex items-center justify-center px-6 pt-5",
-				className,
-			)}
-			{...props}
-		/>
-	);
-}
-
-// ------------------ Projects ------------------
 const projects = [
 	{
 		title: "TardisJS",
@@ -61,55 +27,63 @@ const projects = [
 
 const Projects = () => {
 	return (
-		<Section id="projects">
+		<section id="projects" className="cv-section">
 			<motion.div
-				className="max-w-5xl w-full flex flex-col"
+				className="flex flex-col"
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.5 }}
+				transition={{ duration: 0.45 }}
 				viewport={{ once: true }}
 			>
 				<motion.h2
-					className="pt-4 text-3xl md:text-4xl font-bold text-gray-100"
-					initial={{ opacity: 0, y: -20 }}
+					className="cv-section-title"
+					initial={{ opacity: 0, y: -16 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.3 }}
+					transition={{ duration: 0.4, delay: 0.1 }}
 					viewport={{ once: true }}
 				>
-					Projects
+					Selected Projects
 				</motion.h2>
 
-				<div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+				<div className="mt-5 space-y-4 sm:mt-6">
 					{projects.map((project, index) => (
-						<motion.div
+						<motion.article
 							key={project.title}
-							className="border border-gray-800 rounded-lg p-4 hover:border-gray-600 transition-colors bg-black"
+							className="cv-entry"
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.4, delay: index * 0.05 }}
+							transition={{ duration: 0.35, delay: index * 0.07 }}
 							viewport={{ once: true }}
 						>
-							<a
-								href={project.link}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="text-lg font-semibold text-gray-200 hover:underline"
-							>
-								{project.title}
-							</a>
-							<p className="mt-2 text-sm text-gray-400">
+							<div className="flex flex-wrap items-center justify-between gap-3">
+								<a
+									href={project.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-[1.2rem] leading-tight text-[#31261a] transition-colors hover:text-[#7a6447]"
+								>
+									{project.title}
+								</a>
+								<span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#7a6447]">
+									{String(index + 1).padStart(2, "0")}
+								</span>
+							</div>
+
+							<p className="cv-copy mt-2">
 								{project.description}
 							</p>
 							<div className="mt-3 flex flex-wrap gap-2">
 								{project.tech.map((t) => (
-									<Badge key={t}>{t}</Badge>
+									<span key={t} className="cv-chip">
+										{t}
+									</span>
 								))}
 							</div>
-						</motion.div>
+						</motion.article>
 					))}
 				</div>
 			</motion.div>
-		</Section>
+		</section>
 	);
 };
 

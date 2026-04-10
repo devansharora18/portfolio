@@ -1,40 +1,6 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "../lib/utils";
-
-// ------------------ Badge ------------------
-interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-function Badge({ className, ...props }: BadgeProps) {
-	return (
-		<span
-			className={cn(
-				"inline-flex items-center rounded-md border border-gray-700 px-2.5 py-0.5 text-xs sm:text-sm font-mono text-gray-300",
-				className,
-			)}
-			{...props}
-		/>
-	);
-}
-
-// ------------------ Section ------------------
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {}
-
-function Section({ className, ...props }: SectionProps) {
-	return (
-		<section
-			className={cn(
-				"relative flex items-center justify-center px-6 pt-5",
-				className,
-			)}
-			{...props}
-		/>
-	);
-}
-
-// ------------------ Skills ------------------
 const skills = [
 	"Javascript",
 	"Typescript",
@@ -52,39 +18,44 @@ const skills = [
 
 const Skills = () => {
 	return (
-		<Section id="skills">
+		<section id="skills" className="cv-section">
 			<motion.div
-				className="max-w-5xl w-full flex flex-col"
+				className="flex flex-col"
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.5 }}
+				transition={{ duration: 0.45 }}
 				viewport={{ once: true }}
 			>
 				<motion.h2
-					className="pt-4 text-3xl md:text-4xl font-bold text-gray-100"
-					initial={{ opacity: 0, y: -20 }}
+					className="cv-section-title"
+					initial={{ opacity: 0, y: -16 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.3 }}
+					transition={{ duration: 0.4, delay: 0.1 }}
 					viewport={{ once: true }}
 				>
-					Skills & Technologies
+					Skills
 				</motion.h2>
 
-				<div className="mt-5 flex flex-wrap gap-2 sm:gap-3">
+				<p className="cv-copy mt-3 max-w-2xl">
+					Tools and technologies I use to design, build, and ship reliable
+					interfaces.
+				</p>
+
+				<div className="mt-4 flex flex-wrap gap-2.5 sm:mt-5 sm:gap-3">
 					{skills.map((skill, index) => (
-						<motion.div
+						<motion.span
 							key={skill}
 							initial={{ opacity: 0, scale: 0.9 }}
 							whileInView={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.3, delay: index * 0.04 }}
+							transition={{ duration: 0.25, delay: index * 0.03 }}
 							viewport={{ once: true }}
 						>
-							<Badge>{skill}</Badge>
-						</motion.div>
+							<span className="cv-chip">{skill}</span>
+						</motion.span>
 					))}
 				</div>
 			</motion.div>
-		</Section>
+		</section>
 	);
 };
 

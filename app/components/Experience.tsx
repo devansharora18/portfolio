@@ -1,24 +1,7 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "../lib/utils";
 
-// ------------------ Section ------------------
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {}
-function Section({ className, ...props }: SectionProps) {
-	return (
-		<section
-			className={cn(
-				"relative flex flex-col items-center justify-center px-6 pt-5",
-				className,
-			)}
-			{...props}
-		/>
-	);
-}
-
-// ------------------ Experience ------------------
 interface Experience {
 	company: string;
 	role: string;
@@ -48,52 +31,52 @@ const experiences: Experience[] = [
 
 const WorkExperience = () => {
 	return (
-		<Section id="experience">
+		<section id="experience" className="cv-section">
 			<motion.div
-				className="max-w-5xl w-full flex flex-col"
+				className="flex flex-col"
 				initial={{ opacity: 0 }}
 				whileInView={{ opacity: 1 }}
-				transition={{ duration: 0.5 }}
+				transition={{ duration: 0.45 }}
 				viewport={{ once: true }}
 			>
-				{/* Heading */}
 				<motion.h2
-					className="pt-4 text-3xl md:text-4xl font-bold text-gray-100"
-					initial={{ opacity: 0, y: -20 }}
+					className="cv-section-title"
+					initial={{ opacity: 0, y: -16 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.3 }}
+					transition={{ duration: 0.4, delay: 0.1 }}
 					viewport={{ once: true }}
 				>
 					Experience
 				</motion.h2>
 
-				{/* Experience List */}
-				<div className="mt-6 flex flex-col gap-6">
+				<div className="mt-5 flex flex-col gap-4 sm:mt-6">
 					{experiences.map((exp, index) => (
-						<motion.div
+						<motion.article
 							key={exp.company}
-							className="border border-gray-800 rounded-lg p-4 hover:border-gray-600 transition-colors bg-black"
+							className="cv-entry"
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.4, delay: index * 0.05 }}
+							transition={{ duration: 0.35, delay: index * 0.07 }}
 							viewport={{ once: true }}
 						>
-							<div className="flex flex-col md:flex-row md:justify-between md:items-center">
-								<h3 className="text-lg font-semibold text-gray-200">
-									{exp.company}
+							<div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+								<h3 className="text-xl font-semibold text-[#34291e]">
+									{exp.role}
 								</h3>
-								<span className="text-sm text-gray-400 mt-1 md:mt-0">
+								<span className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#7a6447]">
 									{exp.duration}
 								</span>
 							</div>
-							<p className="text-sm text-gray-300 font-mono mt-1">{exp.role}</p>
-							<p className="mt-2 text-sm text-gray-400">{exp.description}</p>
-							<p className="mt-1 text-xs text-gray-500">{exp.location}</p>
-						</motion.div>
+							<p className="mt-1 text-sm text-[#6b5b48]">{exp.company}</p>
+							<p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#86745e]">
+								{exp.location}
+							</p>
+							<p className="cv-copy mt-3">{exp.description}</p>
+						</motion.article>
 					))}
 				</div>
 			</motion.div>
-		</Section>
+		</section>
 	);
 };
 

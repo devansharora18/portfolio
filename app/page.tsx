@@ -9,75 +9,76 @@ import Projects from "./components/Projects";
 
 export default function Home() {
 	return (
-		<div className="bg-black text-white pb-20">
-			<section className="relative mt-10 flex items-center justify-center px-6 pt-12">
-				<div className="max-w-5xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
-					{/* Text Section */}
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8 }}
-						className="text-left flex-1"
-					>
-						<h1 className="text-3xl md:text-4xl font-bold text-white">
-							Devansh Arora
-						</h1>
-
-						<p className="mt-2 text-lg text-gray-300 max-w-lg">
-							A Software Developer with a passion for building impactful digital
-							experiences.
-						</p>
-
-						{/* Social Icons */}
-						<div className="mt-5 flex flex-wrap justify-center md:justify-start gap-4">
-							<a
-								href="https://github.com/devansharora18"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="p-2 rounded-lg hover:bg-gray-800 transition"
-							>
-								<FaGithub size={22} />
-							</a>
-							<a
-								href="https://www.linkedin.com/in/devansh-arora-7b2395215/"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="p-2 rounded-lg hover:bg-gray-800 transition"
-							>
-								<FaLinkedin size={22} />
-							</a>
-							<a
-								href="mailto:mail@devansharora.in"
-								className="p-2 rounded-lg hover:bg-gray-800 transition"
-							>
-								<FaEnvelope size={22} />
-							</a>
-						</div>
-					</motion.div>
-
-					{/* Image Section */}
-					<div className="flex justify-end flex-1">
+		<main className="pb-14 pt-8 sm:pb-20 sm:pt-10">
+			<div className="cv-shell">
+				<section className="cv-document">
+					<div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
 						<motion.div
-							initial={{ scale: 0.8 }}
-							animate={{ scale: 1 }}
-							transition={{ type: "spring", stiffness: 100 }}
-							className="w-40 h-40 md:w-50 md:h-50 overflow-hidden rounded-xl shadow-lg"
+							initial={{ opacity: 0, y: 16 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.65 }}
 						>
-							<Image
-								src="/pfp.jpg"
-								alt="Devansh Arora"
-								width={400}
-								height={400}
-								className="object-cover w-full h-full scale-[1.2]"
-							/>
+							<p className="cv-kicker">Curriculum Vitae</p>
+							<h1 className="mt-3 text-[2.8rem] leading-[0.9] sm:text-[3.4rem]">
+								Devansh Arora
+							</h1>
+							<p className="mt-3 text-lg font-medium text-[#4d4132] sm:text-xl">
+								Software Developer
+							</p>
+							<p className="cv-copy mt-4 max-w-2xl">
+								I build thoughtful digital products with clean front-end
+								execution and strong attention to detail. My focus is turning
+								complex ideas into clear, fast, and usable experiences.
+							</p>
+
+							<div className="mt-6 flex flex-wrap gap-3">
+								<a
+									href="https://github.com/devansharora18"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="cv-link"
+								>
+									<FaGithub className="text-sm" />
+									GitHub
+								</a>
+								<a
+									href="https://www.linkedin.com/in/devansh-arora-7b2395215/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="cv-link"
+								>
+									<FaLinkedin className="text-sm" />
+									LinkedIn
+								</a>
+								<a href="mailto:mail@devansharora.in" className="cv-link">
+									<FaEnvelope className="text-sm" />
+									Email
+								</a>
+							</div>
+						</motion.div>
+
+						<motion.div
+							initial={{ opacity: 0, scale: 0.94 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={{ duration: 0.6, delay: 0.08 }}
+							className="mx-auto md:mx-0"
+						>
+							<div className="h-48 w-40 overflow-hidden rounded-[22px] border border-[#d6c8b3] bg-[#efe4d3] p-1.5 shadow-[0_20px_40px_-30px_rgba(30,23,16,0.8)] sm:h-52 sm:w-44">
+								<Image
+									src="/pfp.jpg"
+									alt="Devansh Arora"
+									width={400}
+									height={480}
+									className="h-full w-full rounded-[16px] object-cover object-center scale-[1.08]"
+								/>
+							</div>
 						</motion.div>
 					</div>
-				</div>
-			</section>
-
-			<Skills />
-			<Experience />
-			<Projects />
-		</div>
+					<Experience />
+					<Projects />
+					<Skills />
+				</section>
+			</div>
+		</main>
 	);
 }
