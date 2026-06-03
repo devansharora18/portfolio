@@ -45,7 +45,7 @@ export default function HomeSection() {
               Devansh Arora
             </h1>
             <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-lg mb-6">
-              Full-stack developer passionate about building elegant, performant products. Currently shaping the future of developer tooling.
+              Full-stack developer passionate about building stuff.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
               {skills.map((skill) => (
