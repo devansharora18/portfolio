@@ -1,4 +1,5 @@
 import pfp from "../assets/pfp.png";
+import OrbitingArcs from "./OrbitingArcs";
 
 const skills = [
   "JavaScript",
@@ -31,11 +32,12 @@ export default function HomeSection() {
       <div className="mx-auto w-full max-w-[1200px] px-5 md:px-16">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
           <div className="shrink-0">
-            <div className="relative">
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl md:rounded-[2rem] overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/50">
+            <div className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
+              <OrbitingArcs />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/50">
                 <img src={pfp} alt="Devansh Arora" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -inset-1 rounded-2xl md:rounded-[2rem] bg-gradient-to-b from-tertiary/20 to-lavender/20 blur-xl -z-10" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-tertiary/10 to-lavender/10 blur-xl -z-10" style={{ width: "calc(100% + 8px)", height: "calc(100% + 8px)" }} />
             </div>
           </div>
           <div className="flex-1 min-w-0">

@@ -9,7 +9,7 @@ export default function ContactSection() {
           Have a project in mind or just want to say hello? Drop me a message.
         </p>
         <form
-          action="https://formsubmit.co/your@email.com"
+          action="https://formsubmit.co/mail@devansharora.in"
           method="POST"
           className="space-y-6"
         >
