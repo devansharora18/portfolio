@@ -6,6 +6,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
 import StarsBackground from "./components/StarsBackground";
+import CustomCursor from "./components/CustomCursor";
 
 function App() {
   const mainRef = useRef<HTMLElement>(null);
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       <StarsBackground warpEnabled={warpEnabled} />
       <Topbar
         warpEnabled={warpEnabled}

@@ -18,10 +18,11 @@ const skills = [
 ];
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/devansharora18" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/devansh-arora-7b2395215/" },
-  { label: "Twitter", href: "https://x.com/devansharora_18" },
-  { label: "Email", href: "mailto:mail@devansharora.in" },
+  { label: "GitHub", href: "#" },
+  { label: "LinkedIn", href: "#" },
+  { label: "Twitter", href: "#" },
+  { label: "Email", href: "mailto:hello@devansharora.in" },
+  { label: "CV", href: "https://cv.devansharora.in/" },
 ];
 
 export default function HomeSection() {

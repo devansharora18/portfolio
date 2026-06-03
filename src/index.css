@@ -37,4 +37,9 @@ body {
   background-color: var(--color-surface);
   color: var(--color-on-surface);
   font-family: var(--font-body);
+  cursor: none;
+}
+
+a, button, input, textarea, [role="button"] {
+  cursor: none;
 }
