@@ -21,7 +21,7 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="min-h-[calc(100vh-64px)] py-24 border-b border-white/5">
       <div className="mx-auto w-full max-w-[1200px] px-5 md:px-16">
-        <h2 className="font-display text-4xl md:text-5xl font-medium mb-16">
+          <h2 className="font-display text-4xl md:text-5xl font-medium mb-16">
           Experience
         </h2>
         <div className="space-y-8">
