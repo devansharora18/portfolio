@@ -58,7 +58,7 @@ export default function FireflySwarm() {
       });
     }
 
-    const resetTimer = () => {
+    const resetIdle = () => {
       idleRef.current = false;
       if (timerRef.current) clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => {
@@ -68,11 +68,13 @@ export default function FireflySwarm() {
 
     const onMouse = (e: MouseEvent) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
-      resetTimer();
+      resetIdle();
     };
 
     window.addEventListener("mousemove", onMouse);
-    resetTimer();
+    window.addEventListener("scroll", resetIdle);
+    window.addEventListener("touchmove", resetIdle, { passive: true });
+    resetIdle();
 
     let time = 0;
     const draw = () => {
@@ -143,6 +145,8 @@ export default function FireflySwarm() {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMouse);
+      window.removeEventListener("scroll", resetIdle);
+      window.removeEventListener("touchmove", resetIdle);
       if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
