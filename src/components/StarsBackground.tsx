@@ -9,6 +9,17 @@ interface Star {
   twinklePhase: number;
 }
 
+interface Meteor {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+  trail: { x: number; y: number }[];
+  trailMax: number;
+}
+
 interface Props {
   warpEnabled: boolean;
 }
@@ -27,6 +38,7 @@ export default function StarsBackground({ warpEnabled }: Props) {
 
     let animId: number;
     let stars: Star[] = [];
+    const meteors: Meteor[] = [];
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -58,6 +70,30 @@ export default function StarsBackground({ warpEnabled }: Props) {
     const maxDisplacement = 60;
     const maxScale = 3;
 
+    let meteorTimer = 0;
+    const meteorInterval = 120 + Math.floor(Math.random() * 200);
+
+    const spawnMeteor = () => {
+      const w = canvas.width;
+      const h = canvas.height;
+      const fromTop = Math.random() < 0.5;
+
+      const x = Math.random() * w;
+      const y = fromTop ? 0 : Math.random() * h * 0.5;
+      const angle = (Math.random() * 0.5 + 0.25) * Math.PI;
+      const speed = 8 + Math.random() * 10;
+
+      meteors.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed * 0.3 + speed * 0.5,
+        life: 0,
+        maxLife: 60 + Math.random() * 40,
+        trail: [],
+        trailMax: 15 + Math.floor(Math.random() * 20),
+      });
+    };
+
     let time = 0;
     const draw = () => {
       time++;
@@ -88,6 +124,43 @@ export default function StarsBackground({ warpEnabled }: Props) {
         ctx.beginPath();
         ctx.arc(px, py, star.size * scale, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(229, 226, 225, ${star.opacity * twinkle})`;
+        ctx.fill();
+      }
+
+      meteorTimer++;
+      if (meteorTimer >= meteorInterval) {
+        spawnMeteor();
+        meteorTimer = 0;
+      }
+
+      for (let i = meteors.length - 1; i >= 0; i--) {
+        const m = meteors[i];
+        m.life++;
+        m.x += m.vx;
+        m.y += m.vy;
+        m.trail.push({ x: m.x, y: m.y });
+        if (m.trail.length > m.trailMax) m.trail.shift();
+
+        if (m.life > m.maxLife || m.y > canvas.height + 50 || m.x < -50 || m.x > canvas.width + 50) {
+          meteors.splice(i, 1);
+          continue;
+        }
+
+        const progress = m.life / m.maxLife;
+        const alpha = progress < 0.3 ? progress / 0.3 : 1 - progress;
+
+        for (let j = 0; j < m.trail.length; j++) {
+          const tp = j / m.trail.length;
+          const t = m.trail[j];
+          ctx.beginPath();
+          ctx.arc(t.x, t.y, 1 + tp * 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(233, 195, 73, ${alpha * tp * 0.8})`;
+          ctx.fill();
+        }
+
+        ctx.beginPath();
+        ctx.arc(m.x, m.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(233, 195, 73, ${alpha})`;
         ctx.fill();
       }
 
