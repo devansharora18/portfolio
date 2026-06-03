@@ -6,6 +6,7 @@ import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
 import StarsBackground from "./components/StarsBackground";
 import CustomCursor from "./components/CustomCursor";
+import SmoothScroll from "./components/SmoothScroll";
 import ParallaxWrapper from "./components/ParallaxWrapper";
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <SmoothScroll />
       <StarsBackground warpEnabled={warpEnabled} />
       <Topbar
         warpEnabled={warpEnabled}

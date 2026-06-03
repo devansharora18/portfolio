@@ -28,7 +28,10 @@ export default function StarsBackground({ warpEnabled }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const warpRef = useRef(warpEnabled);
-  warpRef.current = warpEnabled;
+
+  useEffect(() => {
+    warpRef.current = warpEnabled;
+  }, [warpEnabled]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
