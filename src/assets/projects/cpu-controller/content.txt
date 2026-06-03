@@ -1,0 +1,1 @@
+This is a PyQt6 application to control the state of CPU cores on a Linux system. The application allows you to enable or disable individual CPU cores or a range of CPU cores.

@@ -1,0 +1,1 @@
+ARGOS is an AI-powered Incident Commander designed specifically for hospitality venues. Unlike traditional emergency systems that merely broadcast alerts, ARGOS builds a shared, intelligent understanding of reality to ensure every stakeholder—guests, staff, and management—knows exactly what to do and why during a crisis.

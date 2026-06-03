@@ -1,0 +1,1 @@
+AgroStat predicts the best crop to grow based on an Indian state/union territory, temperature, and humidity. It uses an XGBoost classifier trained on soil nutrient profiles and climate data.

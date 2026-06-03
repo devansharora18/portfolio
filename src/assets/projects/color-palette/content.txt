@@ -1,0 +1,1 @@
+The Color Palette is a Python-based application that simplifies color management. It offers a user-friendly interface for adding, organizing, importing and copying colors. You can also conveniently save and laod different color palettes according to your workflow. You can import colors directly from a css file.

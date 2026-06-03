@@ -1,0 +1,1 @@
+A compiler-driven frontend framework built around a blueprint DSL. TardisJS compiles .tardis files to plain JavaScript modules plus a small runtime (~5KB). It uses Proxy-based reactivity with direct DOM bindings (no virtual DOM reconciliation). 
