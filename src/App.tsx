@@ -8,6 +8,8 @@ import StarsBackground from "./components/StarsBackground";
 import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
 import ParallaxWrapper from "./components/ParallaxWrapper";
+import ScrollProgress from "./components/ScrollProgress";
+import Footer from "./components/Footer";
 
 function App() {
   const mainRef = useRef<HTMLElement>(null);
@@ -61,6 +63,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <ScrollProgress />
       <SmoothScroll />
       <StarsBackground warpEnabled={warpEnabled} />
       <Topbar
@@ -85,6 +88,7 @@ function App() {
           <ContactSection />
         </ParallaxWrapper>
       </main>
+      <Footer />
     </>
   );
 }
