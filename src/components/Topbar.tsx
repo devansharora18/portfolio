@@ -7,7 +7,12 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Topbar() {
+interface Props {
+  warpEnabled: boolean;
+  onToggleWarp: () => void;
+}
+
+export default function Topbar({ warpEnabled, onToggleWarp }: Props) {
   const [active, setActive] = useState("Home");
 
   useEffect(() => {
@@ -33,7 +38,7 @@ export default function Topbar() {
         <a href="#home" className="text-on-surface font-display text-xl font-medium tracking-tight">
           devansharora.in
         </a>
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-6">
           {links.map((link) => (
             <li key={link.label}>
               <a
@@ -51,6 +56,19 @@ export default function Topbar() {
               </a>
             </li>
           ))}
+          <li>
+            <button
+              onClick={onToggleWarp}
+              className={`font-mono text-xs tracking-[0.1em] uppercase px-3 py-1.5 rounded-full border transition-colors duration-300 ${
+                warpEnabled
+                  ? "border-tertiary/50 text-tertiary bg-tertiary/10"
+                  : "border-white/10 text-on-surface-variant hover:border-white/20"
+              }`}
+              title="Toggle gravity warp"
+            >
+              {warpEnabled ? "Warp On" : "Warp Off"}
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
