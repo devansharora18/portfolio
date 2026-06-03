@@ -40,7 +40,7 @@ const allProjects: Project[] = [
   },
   {
     title: "Layout",
-    description: "A layout design project.",
+    description: "A web tool to quickly create and test page layouts, with generated JSX + Tailwind or HTML + CSS output.",
     image: layoutImg,
     type: "desktop",
     tags: ["Next.js", "Redux"],
