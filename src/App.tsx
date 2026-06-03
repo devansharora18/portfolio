@@ -9,6 +9,9 @@ import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
 import ParallaxWrapper from "./components/ParallaxWrapper";
 import ScrollProgress from "./components/ScrollProgress";
+import MoonPhase from "./components/MoonPhase";
+import StardustClick from "./components/StardustClick";
+import FireflySwarm from "./components/FireflySwarm";
 import Footer from "./components/Footer";
 
 function App() {
@@ -64,6 +67,9 @@ function App() {
     <>
       <CustomCursor />
       <ScrollProgress />
+      <MoonPhase />
+      <StardustClick />
+      <FireflySwarm />
       <SmoothScroll />
       <StarsBackground warpEnabled={warpEnabled} />
       <Topbar
