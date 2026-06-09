@@ -10,6 +10,7 @@ import agrostatImg from "../assets/projects/agrostat/image.png";
 import wt26Img from "../assets/projects/wt26/image.png";
 import argosImg from "../assets/projects/argos/image.png";
 import aetherImg from "../assets/projects/aether/image.png";
+import nocapnewsImg from "../assets/projects/nocapnews/image.png";
 
 interface Link {
   label: string;
@@ -39,14 +40,14 @@ const allProjects: Project[] = [
     ],
   },
   {
-    title: "Layout",
-    description: "A web tool to quickly create and test page layouts, with generated JSX + Tailwind or HTML + CSS output.",
-    image: layoutImg,
-    type: "desktop",
-    tags: ["Next.js", "Redux"],
+    title: "Nocap",
+    description:
+      "A Gen-Z focused news aggregator with multi-source RSS feeds, featuring pull-to-refresh, article reading, bookmarking, tab-based navigation, and scroll-to-top across a curated set of sources covering World, Tech, Entertainment, and Sports.",
+    image: nocapnewsImg,
+    type: "phone",
+    tags: ["Flutter", "Riverpod", "RSS"],
     links: [
-      { label: "Website", href: "https://layout.devansharora.in" },
-      { label: "GitHub", href: "https://github.com/devansharora18/layout" },
+      { label: "GitHub", href: "https://github.com/devansharora18/nocap" },
     ],
   },
   {
@@ -56,6 +57,17 @@ const allProjects: Project[] = [
     type: "desktop",
     tags: ["React", "Vite", "Tailwind", "Three.js"],
     links: [{ label: "Website", href: "https://devjams.dscvit.com/" }],
+  },
+  {
+    title: "Layout",
+    description: "A web tool to quickly create and test page layouts, with generated JSX + Tailwind or HTML + CSS output.",
+    image: layoutImg,
+    type: "desktop",
+    tags: ["Next.js", "Redux"],
+    links: [
+      { label: "Website", href: "https://layout.devansharora.in" },
+      { label: "GitHub", href: "https://github.com/devansharora18/layout" },
+    ],
   },
   {
     title: "Aether",
@@ -139,7 +151,7 @@ const allProjects: Project[] = [
   },
 ];
 
-const initialProjectTitles = ["TardisJS", "Layout", "Devjams 25", "Aether", "ARGOS", "WT26"];
+const initialProjectTitles = ["TardisJS", "Nocap", "Devjams 25", "Layout", "Aether", "ARGOS"];
 
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
