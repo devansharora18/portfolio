@@ -32,16 +32,22 @@ export default function Footer() {
         </span>
         <div className="flex items-center gap-6">
           <a
-            href="#"
+            href="https://github.com/devansharora18"
             className="font-mono text-xs tracking-[0.1em] uppercase text-on-surface-variant hover:text-tertiary transition-colors duration-300"
           >
             GitHub
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/devansh-arora-7b2395215/"
             className="font-mono text-xs tracking-[0.1em] uppercase text-on-surface-variant hover:text-tertiary transition-colors duration-300"
           >
             LinkedIn
+          </a>
+          <a
+            href="https://twitter.com/devansharora_18"
+            className="font-mono text-xs tracking-[0.1em] uppercase text-on-surface-variant hover:text-tertiary transition-colors duration-300"
+          >
+            Twitter
           </a>
           <a
             href="https://cv.devansharora.in/"
