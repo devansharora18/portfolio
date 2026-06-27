@@ -49,11 +49,11 @@ export default function Footer() {
           >
             Twitter
           </a>
-          <a
-            href="https://cv.devansharora.in/"
+            <a
+            href="/resume.pdf"
             className="font-mono text-xs tracking-[0.1em] uppercase text-on-surface-variant hover:text-tertiary transition-colors duration-300"
           >
-            CV
+            Resume
           </a>
         </div>
       </div>

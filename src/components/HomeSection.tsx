@@ -23,7 +23,7 @@ const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/devansh-arora-7b2395215/" },
   { label: "Twitter", href: "https://twitter.com/devansharora_18" },
   { label: "Email", href: "mailto:hello@devansharora.in" },
-  { label: "CV", href: "https://cv.devansharora.in/" },
+  { label: "Resume", href: "/resume.pdf" },
 ];
 
 export default function HomeSection() {

@@ -1,0 +1,259 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+\documentclass[letterpaper,11pt]{article}
+\usepackage{fontawesome5}
+\usepackage{latexsym}
+
+\usepackage{xcolor}
+\usepackage{ifthen}
+\definecolor{CustomPurple}{RGB}{56,5,145} 
+\definecolor{customGray}{RGB}{46,46,46}
+\definecolor{lightGray}{RGB}{75,75,75}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=CustomPurple,
+  pdfnewwindow=true,
+  pdflinkattr={target="_blank"}
+}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins - further tightened to fit more content
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textheight}{1.2in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - improved spacing
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands with optimized spacing
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2.7pt}}
+  }
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{CustomPurple}\linespread{1.15}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2.8pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[3]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 \hspace{0.2cm} #3 & #2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-2.5pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{
+  \vspace{-1pt} % Reduce top margin when starting a new section list
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1.5pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+% Fixed href command with SMALLER external link symbol
+\let\hrefWithoutArrow\href
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\underline{#2}\,\raisebox{.15ex}{\scriptsize \faExternalLink*}} }
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+    
+%----------HEADING----------
+
+\begin{header}
+        \fontsize{28pt}{28pt}\textbf{\textcolor{customGray}{DEVANSH ARORA}}\\[0.05cm]
+        \normalsize
+        {\footnotesize\faMapMarker* \hspace*{0.1cm}Faridabad}\kern0.2cm\AND\kern0.2cm
+        {\footnotesize\faEnvelope[regular] \hspace*{0.1cm}\hrefWithoutArrow{mailto:mail@devansharora.in}{mail@devansharora.in}}\kern0.2cm\AND\kern0.2cm
+        {\footnotesize\faPhone* \hspace*{0.1cm}\hrefWithoutArrow{tel:+91-9990992200}{9990992200}}\kern0.2cm\AND\kern0.2cm
+        {\footnotesize\faLinkedinIn \hspace*{0.1cm}\hrefWithoutArrow{https://www.linkedin.com/in/devansh-arora-7b2395215}{devansharora}}\kern0.2cm\AND\kern0.2cm
+        {\footnotesize\faGithub \hspace*{0.1cm}\hrefWithoutArrow{https://github.com/devansharora18}{devansharora18}}\kern0.2cm\AND\kern0.2cm
+        {\footnotesize\faLink \hspace*{0.1cm}\hrefWithoutArrow{https://devansharora.in/}{devansharora.in}}
+\end{header}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Vellore Institute of Technology}{Jul 2024 -- Jun 2028}
+      {B.Tech in Information Technology}{Vellore, Tamil Nadu}
+    \resumeSubheading
+      {Delhi Public School}{Apr 2010 -- May 2024}
+      {PCM + Computer Science}{Faridabad, Haryana}
+  \resumeSubHeadingListEnd
+\vspace{-8pt} 
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {\textcolor{lightGray}{Inner Core}, Google Developer Groups on Campus (GDG-VIT)}{Apr 2025 -- Present}
+      {Technical Domain Member}{Vellore}
+      \resumeItemListStart
+        \resumeItem{Selected for the inner core team across Web and App domains; built and maintained event websites using React, Three.js, and GSAP}
+      \resumeItemListEnd
+      \vspace{3pt}
+    \resumeSubheading
+      {Kalkini (Boardly.in)}{Dec 2024 -- Jan 2025}
+      {Frontend Developer}{Remote}
+      \resumeItemListStart
+        \resumeItem{Architected and deployed the production website for the Boardly.in platform from Figma mockups}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+          {\textbf{Ember}}{Jun 2026 -- Present}
+          {\href{https://devansharora18.github.io/ember/}{Landing} \hspace{0.2cm} \href{https://github.com/devansharora18/ember}{GitHub}}
+          \resumeSubSubheading{EPUB Reader with RSVP Speed Reading}{\itshape\color{customGray}%
+    Flutter,\hspace{6.5pt}%
+    Riverpod,\hspace{6.5pt}%
+    React,\hspace{6.5pt}%
+    Tailwind%
+    }
+          \resumeItemListStart
+            \resumeItem{Developed a full-featured EPUB reader for Android with RSVP speed reading, bookmarks, highlights, and persistent progress tracking}
+            \resumeItem{Engineered a custom pagination engine supporting bold/italic formatting, font scaling, and dark/light theme switching}
+            \resumeItem{Built a responsive landing page in React + Tailwind and implemented full library export/import functionality}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Aether}}{Mar 2026 -- May 2026}
+          {\href{https://github.com/devansharora18/aether}{GitHub}}
+          \resumeSubSubheading{TUI Package Manager Wrapper}{\itshape\color{customGray}%
+    Go,\hspace{6.5pt}%
+    Bubble Tea,\hspace{6.5pt}%
+    Linux%
+    }
+          \resumeItemListStart
+            \resumeItem{Developed a modern, interactive terminal UI wrapper for Linux package managers with support for both apt and dnf}
+            \resumeItem{Designed an intuitive keyboard-driven interface for searching, installing, updating, and removing system packages}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{TardisJS}}{Mar 2026 -- Mar 2026}
+          {\href{https://tardisjs.devansharora.in/}{Website} \hspace{0.2cm} \href{https://github.com/devansharora18/tardisjs}{GitHub}}
+          \resumeSubSubheading{Lightweight Frontend Framework}{\itshape\color{customGray}%
+    TypeScript,\hspace{6.5pt}%
+    Rollup,\hspace{6.5pt}%
+    Vitest%
+    }
+          \resumeItemListStart
+            \resumeItem{Built a jQuery-inspired frontend framework with fine-grained Proxy-based reactivity and a \textasciitilde5KB runtime}
+            \resumeItem{Implemented a custom \texttt{.tardis} blueprint file format, file-based routing, and a full lexer/parser/compiler pipeline}
+            \resumeItem{Shipped with 200+ passing tests covering the selector engine, runtime modules, and compiler stages}
+            \resumeItem{Gained 1K+ downloads within the first week of release}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Layout}}{Sept 2025 -- Oct 2025}
+          {\href{https://layout.devansharora.in}{Website} \hspace{0.2cm} \href{https://github.com/devansharora18/layout}{GitHub}}
+          \resumeSubSubheading{Responsive Layout Builder}{\itshape\color{customGray}%
+    Next.js,\hspace{6.5pt}%
+    TypeScript,\hspace{6.5pt}%
+    Redux,\hspace{6.5pt}%
+    Tailwind%
+    }
+          \resumeItemListStart
+            \resumeItem{Developed a split-pane interactive canvas for developers to prototype and test responsive page layouts in real-time}
+            \resumeItem{Implemented instant dual-output code generation producing JSX + Tailwind and HTML + CSS for rapid prototyping}
+            \resumeItem{Crossed 50+ GitHub stars and received positive feedback from the developer community}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+ 
+\vspace{-4pt}
+    \small{\item{
+     \textbf{Languages}{: TypeScript, JavaScript, Go, Python, C++, Dart} \\[1pt]
+     \textbf{Frameworks \& Libraries}{: React, Next.js, Flutter, Riverpod, Redux, Tailwind, FastAPI} \\[1pt]
+     \textbf{Tools \& Platforms}{: Git, Firebase, Linux, Docker, Node.js, REST APIs}
+    }}
+ \end{itemize}
+\vspace{-8pt}
+
+
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+  \resumeSubHeadingListStart
+    \resumeItemListStart
+     \vspace{-4pt} 
+      \resumeItem{\textbf{Best Freshers Award} in DevSoc 2025 organized by \textbf{Codechef-VIT}}
+      \resumeItem{Cleared ZCO \textbf{2 times}}
+      \resumeItem{Secured \textbf{AIR 69} in HPE CodeWars 2023}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-8pt}
+
+%-------------------------------------------
+\end{document}
