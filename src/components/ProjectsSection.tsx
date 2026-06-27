@@ -6,6 +6,7 @@ import hoverCarouselImg from "../assets/projects/hover-carousel/image.png";
 import colorPaletteImg from "../assets/projects/color-palette/image.png";
 import cpuControllerImg from "../assets/projects/cpu-controller/image.png";
 import rogiSahyogiImg from "../assets/projects/rogi-sahyogi/image.png";
+import emberImg from "../assets/projects/ember/image.png";
 import agrostatImg from "../assets/projects/agrostat/image.png";
 import wt26Img from "../assets/projects/wt26/image.png";
 import argosImg from "../assets/projects/argos/image.png";
@@ -51,23 +52,24 @@ const allProjects: Project[] = [
     ],
   },
   {
+    title: "Ember",
+    description:
+      "An EPUB reader with RSVP speed reading, bookmarks, highlights, and progress tracking. Features a custom pagination engine, bold/italic formatting, dark/light mode, and full library export/import. Built for Android with a landing page in React + Tailwind.",
+    image: emberImg,
+    type: "phone",
+    tags: ["Flutter", "Riverpod"],
+    links: [
+      { label: "Landing", href: "https://devansharora18.github.io/ember/" },
+      { label: "GitHub", href: "https://github.com/devansharora18/ember" },
+    ],
+  },
+  {
     title: "Devjams 25",
     description: "Official website for Devjams 25, a hackathon organized by GDG VITV.",
     image: devjams25Img,
     type: "desktop",
     tags: ["React", "Vite", "Tailwind", "Three.js"],
     links: [{ label: "Website", href: "https://devjams.dscvit.com/" }],
-  },
-  {
-    title: "Layout",
-    description: "A web tool to quickly create and test page layouts, with generated JSX + Tailwind or HTML + CSS output.",
-    image: layoutImg,
-    type: "desktop",
-    tags: ["Next.js", "Redux"],
-    links: [
-      { label: "Website", href: "https://layout.devansharora.in" },
-      { label: "GitHub", href: "https://github.com/devansharora18/layout" },
-    ],
   },
   {
     title: "Aether",
@@ -88,6 +90,17 @@ const allProjects: Project[] = [
     links: [
       { label: "Website", href: "https://argos-omega.vercel.app/" },
       { label: "GitHub", href: "https://github.com/devansharora18/argos" },
+    ],
+  },
+  {
+    title: "Layout",
+    description: "A web tool to quickly create and test page layouts, with generated JSX + Tailwind or HTML + CSS output.",
+    image: layoutImg,
+    type: "desktop",
+    tags: ["Next.js", "Redux"],
+    links: [
+      { label: "Website", href: "https://layout.devansharora.in" },
+      { label: "GitHub", href: "https://github.com/devansharora18/layout" },
     ],
   },
   {
@@ -151,7 +164,7 @@ const allProjects: Project[] = [
   },
 ];
 
-const initialProjectTitles = ["TardisJS", "Nocap", "Devjams 25", "Layout", "Aether", "ARGOS"];
+const initialProjectTitles = ["TardisJS", "Nocap", "Ember", "Devjams 25", "Aether", "ARGOS"];
 
 export default function ProjectsSection() {
   const [showAll, setShowAll] = useState(false);
