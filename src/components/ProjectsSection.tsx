@@ -69,7 +69,7 @@ const allProjects: Project[] = [
     image: devjams25Img,
     type: "desktop",
     tags: ["React", "Vite", "Tailwind", "Three.js"],
-    links: [{ label: "Website", href: "https://devjams.dscvit.com/" }],
+    links: [{ label: "Website", href: "https://devjams.devansharora.in/" }],
   },
   {
     title: "Aether",
