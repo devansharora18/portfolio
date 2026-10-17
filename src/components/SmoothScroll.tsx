@@ -13,37 +13,42 @@ declare global {
 
 export default function SmoothScroll() {
   useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.05,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.6,
     });
 
     window.__lenis = lenis;
-
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time: number) => {
-      lenis.raf(time * 1000);
-    });
+    const raf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
-    const handleClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest("a[href^='#']");
-      if (!target) return;
-      const href = target.getAttribute("href");
+    const onClick = (event: MouseEvent) => {
+      const anchor = (event.target as HTMLElement | null)?.closest<HTMLAnchorElement>(
+        'a[href^="#"]'
+      );
+      if (!anchor) return;
+      const href = anchor.getAttribute("href");
       if (!href || href === "#") return;
-      e.preventDefault();
-      const el = document.querySelector(href) as HTMLElement | null;
-      if (el) {
-        lenis.scrollTo(el, { offset: -64 });
-      }
+      const target = document.querySelector<HTMLElement>(href);
+      if (!target) return;
+      event.preventDefault();
+      lenis.scrollTo(target, { offset: -70 });
     };
 
-    document.addEventListener("click", handleClick);
+    document.addEventListener("click", onClick);
 
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener("click", onClick);
+      gsap.ticker.remove(raf);
       window.__lenis = undefined;
       lenis.destroy();
     };
