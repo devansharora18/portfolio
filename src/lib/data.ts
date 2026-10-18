@@ -11,6 +11,7 @@ import wt26 from "../assets/projects/wt26/image.png";
 import argos from "../assets/projects/argos/image.png";
 import aether from "../assets/projects/aether/image.png";
 import nocap from "../assets/projects/nocapnews/image.png";
+import ash from "../assets/projects/ash/image.png";
 
 export interface Link {
   label: string;
@@ -31,29 +32,6 @@ export interface Project {
 export const projects: Project[] = [
   {
     no: "001",
-    title: "TardisJS",
-    description:
-      "A frontend framework built around a blueprint DSL. Your .tardis files are built down to plain JavaScript modules plus a small ~5KB runtime, using Proxy-based reactivity with direct DOM bindings instead of virtual-DOM reconciliation.",
-    image: tardisjs,
-    shape: "plate",
-    tags: ["TypeScript", "Framework", "Build tool"],
-    links: [
-      { label: "Website", href: "https://tardisjs.devansharora.in" },
-      { label: "Source", href: "https://github.com/devansharora18/tardisjs" },
-    ],
-  },
-  {
-    no: "002",
-    title: "Nocap",
-    description:
-      "A Gen-Z news aggregator with multi-source RSS feeds: pull-to-refresh, article reading, bookmarking, tab navigation and scroll-to-top across World, Tech, Entertainment and Sports.",
-    image: nocap,
-    shape: "slab",
-    tags: ["Flutter", "Riverpod", "RSS"],
-    links: [{ label: "Source", href: "https://github.com/devansharora18/nocap" }],
-  },
-  {
-    no: "003",
     title: "Ember",
     description:
       "An EPUB reader with RSVP speed reading, bookmarks, highlights and progress tracking. Custom pagination engine, dark/light modes and full library export. Android-first, with a React landing page.",
@@ -66,14 +44,40 @@ export const projects: Project[] = [
     ],
   },
   {
-    no: "004",
-    title: "Devjams 25",
+    no: "002",
+    title: "TardisJS",
     description:
-      "Official site for Devjams 25, the flagship hackathon run by GDG VIT. Built around a WebGL hero and a lot of scroll choreography.",
-    image: devjams25,
+      "A frontend framework built around a blueprint DSL. Your .tardis files are built down to plain JavaScript modules plus a small ~5KB runtime, using Proxy-based reactivity with direct DOM bindings instead of virtual-DOM reconciliation.",
+    image: tardisjs,
     shape: "plate",
-    tags: ["React", "Vite", "Three.js"],
-    links: [{ label: "Website", href: "https://devjams.dscvit.com/" }],
+    tags: ["TypeScript", "Framework", "Build tool"],
+    links: [
+      { label: "Website", href: "https://tardisjs.devansharora.in" },
+      { label: "Source", href: "https://github.com/devansharora18/tardisjs" },
+    ],
+  },
+  {
+    no: "003",
+    title: "Layout",
+    description:
+      "A web tool to sketch and test page layouts fast, emitting ready-to-paste JSX + Tailwind or plain HTML + CSS from the same canvas.",
+    image: layout,
+    shape: "plate",
+    tags: ["Next.js", "Redux"],
+    links: [
+      { label: "Website", href: "https://layout.devansharora.in" },
+      { label: "Source", href: "https://github.com/devansharora18/layout" },
+    ],
+  },
+  {
+    no: "004",
+    title: "Ash",
+    description:
+      "Disposable, end-to-end encrypted peer-to-peer chat. No accounts, no message history and no central database — a room lives only in memory while at least one peer is connected, then evaporates. Peers talk directly over a WebRTC data channel, with keys exchanged client-side.",
+    image: ash,
+    shape: "plate",
+    tags: ["TypeScript", "WebRTC", "FastAPI", "Flutter"],
+    links: [{ label: "Source", href: "https://github.com/devansharora18/ash" }],
   },
   {
     no: "005",
@@ -87,6 +91,16 @@ export const projects: Project[] = [
   },
   {
     no: "006",
+    title: "Nocap",
+    description:
+      "A Gen-Z news aggregator with multi-source RSS feeds: pull-to-refresh, article reading, bookmarking, tab navigation and scroll-to-top across World, Tech, Entertainment and Sports.",
+    image: nocap,
+    shape: "slab",
+    tags: ["Flutter", "Riverpod", "RSS"],
+    links: [{ label: "Source", href: "https://github.com/devansharora18/nocap" }],
+  },
+  {
+    no: "007",
     title: "ARGOS",
     description:
       "An AI incident commander for hospitality venues. Argos builds a shared, intelligent understanding of reality during a crisis and keeps every responder on the same page.",
@@ -99,20 +113,17 @@ export const projects: Project[] = [
     ],
   },
   {
-    no: "007",
-    title: "Layout",
+    no: "008",
+    title: "Devjams 25",
     description:
-      "A web tool to sketch and test page layouts fast, emitting ready-to-paste JSX + Tailwind or plain HTML + CSS from the same canvas.",
-    image: layout,
+      "Official site for Devjams 25, the flagship hackathon run by GDG VIT. Built around a WebGL hero and a lot of scroll choreography.",
+    image: devjams25,
     shape: "plate",
-    tags: ["Next.js", "Redux"],
-    links: [
-      { label: "Website", href: "https://layout.devansharora.in" },
-      { label: "Source", href: "https://github.com/devansharora18/layout" },
-    ],
+    tags: ["React", "Vite", "Three.js"],
+    links: [{ label: "Website", href: "https://devjams.dscvit.com/" }],
   },
   {
-    no: "008",
+    no: "009",
     title: "WT26",
     description:
       "Official site for Women Techies 26, a hackathon organised by GDG VITV. Type-led layout with staggered Anime.js sequencing.",
@@ -120,19 +131,6 @@ export const projects: Project[] = [
     shape: "plate",
     tags: ["React", "TypeScript", "Anime.js"],
     links: [{ label: "Website", href: "https://womentechies26-frontend-three.vercel.app/" }],
-  },
-  {
-    no: "009",
-    title: "AgroStat",
-    description:
-      "Predicts the best crop to grow for a given Indian state or union territory from temperature and humidity, using an XGBoost classifier behind a small React front end.",
-    image: agrostat,
-    shape: "plate",
-    tags: ["React", "XGBoost", "ML"],
-    links: [
-      { label: "Website", href: "https://agrostat.vercel.app" },
-      { label: "Source", href: "https://github.com/devansharora18/agrostat" },
-    ],
   },
   {
     no: "010",
@@ -146,6 +144,19 @@ export const projects: Project[] = [
   },
   {
     no: "011",
+    title: "AgroStat",
+    description:
+      "Predicts the best crop to grow for a given Indian state or union territory from temperature and humidity, using an XGBoost classifier behind a small React front end.",
+    image: agrostat,
+    shape: "plate",
+    tags: ["React", "XGBoost", "ML"],
+    links: [
+      { label: "Website", href: "https://agrostat.vercel.app" },
+      { label: "Source", href: "https://github.com/devansharora18/agrostat" },
+    ],
+  },
+  {
+    no: "012",
     title: "Color Palette",
     description:
       "A desktop colour manager: add, organise, import and copy swatches without leaving the keyboard. Built in Python with a Qt interface.",
@@ -155,7 +166,7 @@ export const projects: Project[] = [
     links: [{ label: "Source", href: "https://github.com/devansharora18/color-palette" }],
   },
   {
-    no: "012",
+    no: "013",
     title: "Hover Carousel",
     description:
       "An npm package that scrubs through a row of images as you move the mouse horizontally across the container. No clicks, no dots.",
@@ -168,7 +179,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    no: "013",
+    no: "014",
     title: "Rogi Sahyogi",
     description:
       "An AI healthcare assistant built to make medical support easier to reach. Next.js and Firebase in front, a fine-tuned LLaMA 3.2 behind.",

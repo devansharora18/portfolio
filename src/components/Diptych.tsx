@@ -19,25 +19,6 @@ const artList = [
   "Details nobody asked for",
 ];
 
-function Schematic() {
-  return (
-    <svg viewBox="0 0 320 190" className="w-full" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-      <rect x="8" y="12" width="132" height="78" />
-      <rect x="22" y="26" width="104" height="50" strokeDasharray="5 4" />
-      <path d="M8 122h300" strokeDasharray="4 5" />
-      <path d="M8 112v20M308 112v20" />
-      <path d="M156 12v78" />
-      <circle cx="156" cy="12" r="4" fill="currentColor" stroke="none" />
-      <circle cx="156" cy="90" r="4" fill="currentColor" stroke="none" />
-      <circle cx="240" cy="50" r="36" />
-      <circle cx="240" cy="50" r="16" />
-      <circle cx="240" cy="50" r="5" fill="currentColor" stroke="none" />
-      <path d="M176 146l26 26h54" />
-      <rect x="46" y="146" width="80" height="34" />
-      <path d="M126 163h40" strokeDasharray="3 4" />
-    </svg>
-  );
-}
 
 export default function Diptych() {
   const [ready, setReady] = useState(false);
@@ -103,9 +84,6 @@ export default function Diptych() {
                 <li>postgres · firebase</li>
                 <li>tests, ci, then ship</li>
               </ul>
-              <div className="hidden w-[42%] max-w-[250px] opacity-70 sm:block">
-                <Schematic />
-              </div>
             </div>
           </div>
         </div>
