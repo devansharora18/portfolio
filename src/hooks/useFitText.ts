@@ -19,7 +19,18 @@ export function useFitText<T extends HTMLElement>() {
       node.style.fontSize = "100px";
       const width = node.getBoundingClientRect().width;
       if (!width) return;
-      node.style.fontSize = `${((target / width) * 100).toFixed(3)}px`;
+      let size = (target / width) * 100;
+      node.style.fontSize = `${size}px`;
+
+      // A single pass drifts: webfont metrics, font swaps and sub-pixel
+      // rounding all shift the result. Converge against what actually rendered.
+      for (let pass = 0; pass < 3; pass++) {
+        const actual = node.getBoundingClientRect().width;
+        if (!actual) break;
+        if (Math.abs(target - actual) < 0.5) break;
+        size = size * (target / actual);
+        node.style.fontSize = `${size}px`;
+      }
     });
   }, []);
 

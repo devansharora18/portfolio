@@ -233,15 +233,33 @@ export const socials: Link[] = [
 ];
 
 export const sections = [
-  { id: "cover", label: "Title", no: "I" },
-  { id: "work", label: "Work", no: "II" },
-  { id: "ledger", label: "Credits", no: "III" },
-  { id: "contact", label: "Transmission", no: "IV" },
+  { id: "cover", label: "Start", no: "01" },
+  { id: "work", label: "Wall", no: "02" },
+  { id: "ledger", label: "Ledger", no: "03" },
+  { id: "stickers", label: "Stickers", no: "04" },
+  { id: "contact", label: "Postcard", no: "05" },
 ];
 
 export const CONTACT_EMAIL = "hello@devansharora.in";
 /* FormSubmit endpoint — must stay in sync with the activated inbox. */
 export const FORM_ENDPOINT = "https://formsubmit.co/mail@devansharora.in";
-export const TAGLINE = "The Long Exposure";
+export const TAGLINE = "Systems & Splendour";
 export const LOCATION = "Vellore, Tamil Nadu";
 export const COORDS = "12.97°N · 79.13°E";
+
+/* Short alt-copy for each project, used on the wall placards. */
+export const mediums: Record<string, string> = {
+  TardisJS: "Compiler · 5KB runtime",
+  Nocap: "RSS aggregator · Flutter",
+  Ember: "EPUB reader · pagination engine",
+  "Devjams 25": "Hackathon site · WebGL",
+  Aether: "TUI package manager · Go",
+  ARGOS: "Incident commander · ML",
+  Layout: "Layout tool · JSX emitter",
+  WT26: "Hackathon site · motion",
+  AgroStat: "XGBoost classifier",
+  "CPU Controller": "PyQt6 · kernel toggles",
+  "Color Palette": "Qt swatch manager",
+  "Hover Carousel": "npm package · scrub",
+  "Rogi Sahyogi": "Healthcare assistant · LLaMA",
+};

@@ -9,7 +9,7 @@ const base = (size: number, className?: string) => ({
   viewBox: "0 0 24 24",
   fill: "none" as const,
   stroke: "currentColor",
-  strokeWidth: 1.6,
+  strokeWidth: 2.2,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
   className,

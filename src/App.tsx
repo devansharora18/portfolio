@@ -1,13 +1,13 @@
-import Nav from "./components/Nav";
-import Hud from "./components/Hud";
-import Starfield from "./components/Starfield";
-import TitleCard from "./components/TitleCard";
-import Stills from "./components/Stills";
-import ContactSheet from "./components/ContactSheet";
-import Credits from "./components/Credits";
-import Transmission from "./components/Transmission";
-import EndCard from "./components/EndCard";
+import Topbar from "./components/Topbar";
+import Diptych from "./components/Diptych";
+import Wall from "./components/Wall";
+import Ledger from "./components/Ledger";
+import Stickers from "./components/Stickers";
+import Postcard from "./components/Postcard";
+import Placard from "./components/Placard";
+import Tape from "./components/Tape";
 import SmoothScroll from "./components/SmoothScroll";
+import { WobbleDefs } from "./components/Art";
 import { useReveal } from "./hooks/useReveal";
 
 function App() {
@@ -15,24 +15,22 @@ function App() {
 
   return (
     <>
-      <Starfield />
+      <WobbleDefs />
       <SmoothScroll />
+      <Topbar />
 
       <main className="relative z-10">
-        <TitleCard />
-        <Stills />
-        <ContactSheet />
-        <Credits />
-        <Transmission />
+        <Diptych />
+        <Wall />
+        <Ledger />
+        <Stickers />
+        <Postcard />
       </main>
 
-      <EndCard />
+      <Placard />
+      <Tape tone="verm" reverse />
 
-      <div className="gate" aria-hidden="true" />
-      <Hud />
-      <Nav />
       <div className="grain" aria-hidden="true" />
-      <div className="shutter" aria-hidden="true" />
     </>
   );
 }

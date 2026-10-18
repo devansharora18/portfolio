@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
-const KEY = "da-theme";
+const KEY = "da-art-theme";
 
 function readInitial(): Theme {
   const attr = document.documentElement.dataset.theme;
