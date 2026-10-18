@@ -1,5 +1,5 @@
 import { CONTACT_EMAIL, sections, socials } from "../lib/data";
-import { Asterisk, Brush, Spark, Target } from "./Art";
+import { Spark, Target } from "./Art";
 import { ArrowUp } from "./icons";
 
 function backToTop() {
@@ -76,26 +76,8 @@ export default function Placard() {
           </nav>
         </div>
 
-        {/* closing flourish */}
-        <div className="relative mt-14 border-t-2 pt-12 md:mt-20" style={{ borderColor: "var(--ink)" }}>
-          <span
-            className="pointer-events-none absolute right-2 -top-7 hidden text-4xl md:block"
-            style={{ color: "var(--ultra)" }}
-            aria-hidden="true"
-          >
-            <Brush size={44} />
-          </span>
-          <p className="wonk" style={{ fontSize: "clamp(2.4rem, 0.5rem + 9vw, 9rem)", lineHeight: 0.9 }}>
-            systems
-            <span style={{ color: "var(--verm-text)" }}>
-              <Asterisk size={44} />
-            </span>
-            &amp; splendour
-          </p>
-        </div>
-
         <div
-          className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 border-t-2 pt-6"
+          className="mt-16 flex flex-wrap items-center justify-between gap-x-6 gap-y-4 border-t-2 pt-6 md:mt-24"
           style={{ borderColor: "var(--ink)" }}
         >
           <span className="anno-sm dim">© {year} Devansh Arora — all rights reserved</span>

@@ -25,9 +25,10 @@ const HANG: { title: string; span: number }[] = [
 const ROTS = [-2.1, 1.5, -1.2, 2.3, -1.7, 0.9, -2.5, 1.8, -0.7, 2.0, -1.4, 1.1, -1.6, 1.3];
 const INSETS = [0, -5, 5, 0, -7, 7, 0, -4, 4, 0, -6, 6, 0, -3];
 const FRAMES = ["f-thin", "f-fat", "f-double", "f-blue", "f-pop", "f-raw"];
-/* The pin ink is picked against the frame ink, so a pin never disappears into
-   the frame it holds. f-fat is vermillion, f-blue ultramarine, f-pop pink. */
-const PINS = ["", "pin--pop", "pin--ultra", "", "pin--ultra", "pin--pop"];
+/* Tape tone is picked against the frame ink, so tape never disappears into the
+   frame it holds. f-fat is vermillion, f-blue ultramarine, f-pop pink. */
+const TAPES = ["", "washi--ultra", "", "washi--verm", "washi--ultra", ""];
+const TAPE_ROTS = [-3, 2.4, -1.6, 3.2, -2.2, 1.8, -2.8, 2.8, -1.2, 3.6, -2.6, 1.4, -3.2, 2.2];
 const YEARS = [
   "2025", "2025", "2024", "2026", "2025", "2025", "2025", "2025",
   "2025", "2024", "2024", "2023", "2023", "2024",
@@ -77,9 +78,11 @@ export default function Wall() {
               }}
             >
               <div className="hang">
-                <span className={`pin ${PINS[i % FRAMES.length]}`} aria-hidden="true">
-                  <i />
-                </span>
+                <span
+                  className={`washi washi--stick ${TAPES[i % FRAMES.length]}`}
+                  style={{ ["--tape-rot" as string]: `${TAPE_ROTS[i % TAPE_ROTS.length]}deg` }}
+                  aria-hidden="true"
+                />
                 <div
                   className={`fig ${FRAMES[i % FRAMES.length]}${
                     project.shape === "slab" ? " fig--slab" : ""

@@ -21,11 +21,10 @@ export function Bracket({ size = 20, className }: Props) {
   );
 }
 
-export function Brush({ size = 20, className }: Props) {
+export function Squiggle({ size = 120, className }: Props) {
   return (
-    <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17.5 3.5 21 7l-8.4 8.4-3.5-3.5z" />
-      <path d="M9.1 11.9c-1.6-.6-3.4.1-4.1 1.8-.5 1.2-1.6 2.2-3 2.6 1.4 1.6 4.4 2.2 6.4.8 1.5-1 2-2.9 1.4-4.4z" />
+    <svg {...svg(size, className)} viewBox="0 0 160 20" fill="none" stroke="currentColor" strokeWidth={3.4} strokeLinecap="round" style={{ width: "auto" }}>
+      <path d="M3 13c11-11 21 8 32 0s21 10 32 1 22 9 33 0 22 8 27 2" />
     </svg>
   );
 }
@@ -47,14 +46,6 @@ export function Spark({ size = 16, className }: Props) {
 }
 
 /* --- hand-drawn marks ----------------------------------------------------- */
-
-export function Squiggle({ size = 120, className }: Props) {
-  return (
-    <svg {...svg(size, className)} viewBox="0 0 160 20" fill="none" stroke="currentColor" strokeWidth={3.4} strokeLinecap="round" style={{ width: "auto" }}>
-      <path d="M3 13c11-11 21 8 32 0s21 10 32 1 22 9 33 0 22 8 27 2" />
-    </svg>
-  );
-}
 
 export function Burst({ size = 90, className }: Props) {
   return (
@@ -102,10 +93,10 @@ export function Postmark({ size = 92, className }: Props) {
       <circle cx="50" cy="50" r="45" />
       <circle cx="50" cy="50" r="36" strokeDasharray="3 4" />
       <text x="50" y="45" textAnchor="middle" fontFamily="var(--font-anno)" fontSize="10" fontWeight="700" letterSpacing="0.6" fill="currentColor" stroke="none">
-        SYSTEMS
+        PORTFOLIO
       </text>
       <text x="50" y="62" textAnchor="middle" fontFamily="var(--font-anno)" fontSize="10" fontWeight="700" letterSpacing="0.6" fill="currentColor" stroke="none">
-        SPLENDOUR
+        2026
       </text>
     </svg>
   );

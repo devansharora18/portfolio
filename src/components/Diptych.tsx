@@ -3,7 +3,7 @@ import pfp from "../assets/pfp.png";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
 import { CONTACT_EMAIL, socials } from "../lib/data";
-import { Asterisk, Bracket, Brush, Burst, Spark, Squiggle, Target } from "./Art";
+import { Asterisk, Bracket, Burst, Spark, Squiggle, Target } from "./Art";
 import { ArrowDown, ArrowUpRight, socialIcons } from "./icons";
 
 const buildList = [
@@ -12,6 +12,7 @@ const buildList = [
   "Cross-platform mobile apps",
   "Profiling, caching, load times",
 ];
+
 const artList = [
   "Interaction & motion",
   "Type, colour and rhythm",
@@ -120,7 +121,6 @@ export default function Diptych() {
             style={{ ["--rot-in" as string]: "2.6deg", ["--d" as string]: "120ms" }}
           >
             <div className="hang" style={{ ["--rot" as string]: "2.6deg" }}>
-              <span className="pin" />
               <div className="washi" style={{ top: -10, left: -26, transform: "rotate(-28deg)" }} aria-hidden="true" />
               <span
                 className="washi washi--verm"
@@ -131,16 +131,12 @@ export default function Diptych() {
                 <img src={pfp} alt="Devansh Arora in the studio" style={{ objectPosition: "50% 26%" }} />
               </div>
             </div>
-            <figcaption className="anno-sm mt-3 text-center dim">
-              Fig. A — the author, mid-build
-            </figcaption>
           </figure>
 
           <div data-reveal style={{ ["--rot-in" as string]: "1.4deg", ["--d" as string]: "200ms" }}>
-            <div className="mb-4 flex items-center gap-2.5">
-              <Brush size={20} />
-              <span className="anno">I love art</span>
-            </div>
+            {/* the "I love art" label was here — a same-height spacer keeps the
+                two headings on one line now that it is gone */}
+            <div className="mb-4 h-5" aria-hidden="true" />
             <h2 className="wonk" style={{ fontSize: "clamp(1.7rem, 1rem + 2.3vw, 2.9rem)" }}>
               and things that
               <br />

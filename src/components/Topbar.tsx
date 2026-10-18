@@ -56,9 +56,25 @@ export default function Topbar() {
         <a href="#cover" className="flex items-center gap-2.5 no-underline" onClick={() => setOpen(false)}>
           <span
             aria-hidden="true"
-            className="block h-5 w-5 shrink-0 border-2"
-            style={{ background: "var(--verm)", borderColor: "var(--ink)" }}
-          />
+            className="grid h-[26px] w-[26px] shrink-0 place-items-center border-2"
+            style={{
+              background: "var(--verm)",
+              borderColor: "var(--ink)",
+              boxShadow: "2px 2px 0 var(--ink)",
+            }}
+          >
+            <span
+              className="loud"
+              style={{
+                fontSize: "0.62rem",
+                lineHeight: 1,
+                color: "var(--on-verm)",
+                letterSpacing: "-0.03em",
+              }}
+            >
+              DA
+            </span>
+          </span>
           <span className="loud text-[0.95rem] md:text-[1.05rem]" style={{ letterSpacing: "-0.01em" }}>
             Devansh Arora
           </span>

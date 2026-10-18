@@ -120,7 +120,7 @@ export const projects: Project[] = [
     image: devjams25,
     shape: "plate",
     tags: ["React", "Vite", "Three.js"],
-    links: [{ label: "Website", href: "https://devjams.dscvit.com/" }],
+    links: [{ label: "Website", href: "https://devjams.devansharora.in" }],
   },
   {
     no: "009",
@@ -237,7 +237,7 @@ export const socials: Link[] = [
   { label: "GitHub", href: "https://github.com/devansharora18" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/devansh-arora-7b2395215/" },
   { label: "Twitter", href: "https://twitter.com/devansharora_18" },
-  { label: "Email", href: "mailto:hello@devansharora.in" },
+  { label: "Email", href: "mailto:mail@devansharora.in" },
   { label: "Résumé", href: "/resume.pdf" },
 ];
 
@@ -249,10 +249,9 @@ export const sections = [
   { id: "contact", label: "Postcard", no: "05" },
 ];
 
-export const CONTACT_EMAIL = "hello@devansharora.in";
+export const CONTACT_EMAIL = "mail@devansharora.in";
 /* FormSubmit endpoint — must stay in sync with the activated inbox. */
 export const FORM_ENDPOINT = "https://formsubmit.co/mail@devansharora.in";
-export const TAGLINE = "Systems & Splendour";
 
 /* Short alt-copy for each project, used on the wall placards. */
 export const mediums: Record<string, string> = {
