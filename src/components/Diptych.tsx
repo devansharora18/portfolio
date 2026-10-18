@@ -71,32 +71,27 @@ export default function Diptych() {
     };
   }, []);
 
-  /* The cover acts as a lid: it pins to the top of the viewport and slides up
-     off the screen as you scroll, uncovering the wall underneath it. */
+  /* The cover holds still while the wall climbs over the top of it. Pinning
+     only starts once the cover has been fully read — its bottom is below the
+     fold on short viewports, and pinning from the top would bury it — then the
+     wall rides up over it for exactly one viewport. */
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: hero,
-            start: "top top",
-            /* tie the pin to the panel's own height, so the lid travels at
-               roughly the speed you scroll it on every screen size */
-            end: () => `+=${Math.round(hero.offsetHeight * 0.95)}`,
-            scrub: 0.35,
-            pin: true,
-            /* no spacer: the wall has to travel up *under* the lid, not sit
-               after a reserved gap */
-            pinSpacing: false,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        })
-        .to(hero, { yPercent: -100, ease: "none" });
+      ScrollTrigger.create({
+        trigger: hero,
+        start: () => `top+=${Math.max(0, hero.offsetHeight - window.innerHeight)} top`,
+        end: "+=100%",
+        pin: true,
+        /* no spacer: the wall has to travel up over the cover, not sit after a
+           reserved gap */
+        pinSpacing: false,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      });
     }, hero);
 
     const refresh = () => ScrollTrigger.refresh();

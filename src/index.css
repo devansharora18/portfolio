@@ -593,12 +593,18 @@
   }
 
   /* ----------------------------------------------------------------- hero -- */
-  /* The cover pins and lifts, so it must be an opaque panel with an edge. */
+  /* The cover pins while the wall climbs over it, so it sits *under* the wall
+     in paint order and the wall has to be opaque to hide it. */
   .hero {
     position: relative;
-    z-index: 5;
-    background: var(--paper);
-    box-shadow: 0 22px 44px -32px color-mix(in oklab, var(--ink) 42%, transparent);
+    z-index: 1;
+    background: var(--gesso);
+  }
+  #work {
+    position: relative;
+    z-index: 2;
+    background: var(--gesso);
+    box-shadow: 0 -22px 44px -34px color-mix(in oklab, var(--ink) 40%, transparent);
   }
 
   /* ------------------------------------------------------------- nameband -- */
