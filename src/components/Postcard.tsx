@@ -1,11 +1,11 @@
 import Head from "./Head";
-import { CONTACT_EMAIL, COORDS, FORM_ENDPOINT, socials } from "../lib/data";
+import { CONTACT_EMAIL, FORM_ENDPOINT, socials } from "../lib/data";
 import { ArrowUpRight, socialIcons } from "./icons";
 import { Asterisk, Postmark, Spark } from "./Art";
 
 const direct: { label: string; value: string; href?: string }[] = [
   { label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
-  { label: "Where", value: "Vellore, Tamil Nadu · IST" },
+  { label: "Currently", value: "Open to new work" },
   { label: "Replies", value: "Within a day or two" },
   { label: "Open to", value: "Internships · freelance · collabs" },
 ];
@@ -98,7 +98,12 @@ export default function Postcard() {
                 {/* stamp */}
                 <div
                   className="relative grid h-[86px] w-[70px] shrink-0 place-items-center border-2"
-                  style={{ borderColor: "var(--ink)", background: "var(--chart)", transform: "rotate(-3deg)" }}
+                  style={{
+                    borderColor: "var(--ink)",
+                    background: "var(--pop)",
+                    color: "var(--on-pop)",
+                    transform: "rotate(-3deg)",
+                  }}
                 >
                   <div
                     className="absolute inset-1.5 border-2 border-dashed"
@@ -112,7 +117,7 @@ export default function Postcard() {
                     </span>
                   </span>
                 </div>
-                <div className="shrink-0 opacity-80" style={{ color: "var(--verm)" }}>
+                <div className="shrink-0 opacity-80" style={{ color: "var(--verm-text)" }}>
                   <Postmark size={92} />
                 </div>
               </div>
@@ -158,7 +163,9 @@ export default function Postcard() {
                 })}
               </ul>
 
-              <p className="anno-sm mt-auto dim">{COORDS} — Vellore, India</p>
+              <p className="anno-sm mt-auto dim">
+                No trackers, no newsletter — just a reply.
+              </p>
             </aside>
           </div>
         </div>

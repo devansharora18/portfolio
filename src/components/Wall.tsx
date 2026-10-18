@@ -23,7 +23,7 @@ const HANG: { title: string; span: number }[] = [
 
 const ROTS = [-2.1, 1.5, -1.2, 2.3, -1.7, 0.9, -2.5, 1.8, -0.7, 2.0, -1.4, 1.1, -1.6];
 const INSETS = [0, -5, 5, 0, -7, 7, 0, -4, 4, 0, -6, 6, 0];
-const FRAMES = ["f-thin", "f-fat", "f-double", "f-blue", "f-chart", "f-raw"];
+const FRAMES = ["f-thin", "f-fat", "f-double", "f-blue", "f-pop", "f-raw"];
 const YEARS = ["2025", "2025", "2025", "2025", "2024", "2025", "2025", "2024", "2025", "2024", "2023", "2023", "2023"];
 
 /* Row height as a fraction of the content width, per orientation. */
@@ -52,9 +52,9 @@ export default function Wall() {
           }
         >
           <p className="prose mt-5 max-w-[54ch]">
-            Thirteen pieces, each in its own frame. Compilers, command-line tools,
-            a TUI, an EPUB reader, an npm package and a couple of hackathon sites.
-            Hover a piece to straighten it.
+            Thirteen pieces, each in its own frame. Frontend frameworks, a TUI, an
+            EPUB reader, a colour tool, an npm package and a couple of hackathon
+            sites. Hover a piece to straighten it.
           </p>
         </Head>
       </div>
@@ -82,7 +82,7 @@ export default function Wall() {
                 <div className="hang">
                   <span className="wire" aria-hidden="true" />
                   <span
-                    className={`pin${i % 3 === 0 ? " pin--ultra" : i % 3 === 2 ? " pin--chart" : ""}`}
+                    className={`pin${i % 3 === 0 ? " pin--ultra" : i % 3 === 2 ? " pin--pop" : ""}`}
                     aria-hidden="true"
                   />
                   <div className={`fig ${FRAMES[i % FRAMES.length]}${portrait ? " fig--slab" : ""}`}>
@@ -92,7 +92,7 @@ export default function Wall() {
 
                 <figcaption className="placard mt-4" style={{ transform: `rotate(${(-ROTS[i % ROTS.length] * 0.45).toFixed(2)}deg)` }}>
                   <div className="flex items-baseline justify-between gap-3">
-                    <span className="anno" style={{ color: "var(--verm)" }}>
+                    <span className="anno" style={{ color: "var(--verm-text)" }}>
                       {project.no}
                     </span>
                     <span className="anno-sm dim">{YEARS[i % YEARS.length]}</span>

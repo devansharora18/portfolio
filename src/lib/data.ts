@@ -33,10 +33,10 @@ export const projects: Project[] = [
     no: "001",
     title: "TardisJS",
     description:
-      "A compiler-driven frontend framework built around a blueprint DSL. TardisJS compiles .tardis files to plain JavaScript modules plus a small runtime (~5KB), using Proxy-based reactivity with direct DOM bindings instead of virtual-DOM reconciliation.",
+      "A frontend framework built around a blueprint DSL. Your .tardis files are built down to plain JavaScript modules plus a small ~5KB runtime, using Proxy-based reactivity with direct DOM bindings instead of virtual-DOM reconciliation.",
     image: tardisjs,
     shape: "plate",
-    tags: ["TypeScript", "Compiler", "Framework"],
+    tags: ["TypeScript", "Framework", "Build tool"],
     links: [
       { label: "Website", href: "https://tardisjs.devansharora.in" },
       { label: "Source", href: "https://github.com/devansharora18/tardisjs" },
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     no: "004",
     title: "Devjams 25",
     description:
-      "Official site for Devjams 25, the flagship hackathon run by GDG VIT Vellore. Built around a WebGL hero and a lot of scroll choreography.",
+      "Official site for Devjams 25, the flagship hackathon run by GDG VIT. Built around a WebGL hero and a lot of scroll choreography.",
     image: devjams25,
     shape: "plate",
     tags: ["React", "Vite", "Three.js"],
@@ -193,14 +193,14 @@ export const skills = [
   "Django",
   "Firebase",
   "React Native",
-  "Compilers",
+  "REST APIs",
+  "Design systems",
 ];
 
 export interface Job {
   period: string;
   role: string;
   org: string;
-  place: string;
   body: string;
   stack: string[];
 }
@@ -210,7 +210,6 @@ export const experience: Job[] = [
     period: "Apr 2025 — Now",
     role: "Frontend Developer",
     org: "Google Developer Group, VIT",
-    place: "Vellore, Tamil Nadu",
     body: "Front end for club projects and event sites — component systems, scroll choreography and the unglamorous performance work that makes a heavy landing page feel instant.",
     stack: ["React", "Tailwind", "Vite"],
   },
@@ -218,7 +217,6 @@ export const experience: Job[] = [
     period: "Dec 2024 — Jan 2025",
     role: "Frontend Developer",
     org: "KalkiNi · AI surveillance · Internship",
-    place: "Tamil Nadu · Hybrid",
     body: "Shipped interactive interface components for an AI surveillance console, wiring live detection state into a React UI the operators could actually read at a glance.",
     stack: ["React", "TypeScript"],
   },
@@ -244,12 +242,10 @@ export const CONTACT_EMAIL = "hello@devansharora.in";
 /* FormSubmit endpoint — must stay in sync with the activated inbox. */
 export const FORM_ENDPOINT = "https://formsubmit.co/mail@devansharora.in";
 export const TAGLINE = "Systems & Splendour";
-export const LOCATION = "Vellore, Tamil Nadu";
-export const COORDS = "12.97°N · 79.13°E";
 
 /* Short alt-copy for each project, used on the wall placards. */
 export const mediums: Record<string, string> = {
-  TardisJS: "Compiler · 5KB runtime",
+  TardisJS: "Frontend framework · 5KB runtime",
   Nocap: "RSS aggregator · Flutter",
   Ember: "EPUB reader · pagination engine",
   "Devjams 25": "Hackathon site · WebGL",

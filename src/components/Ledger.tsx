@@ -32,7 +32,7 @@ export default function Ledger() {
         <div className="ledger hard" data-reveal>
           <div
             className="flex flex-wrap items-center justify-between gap-3 border-b-2 px-4 py-3"
-            style={{ borderColor: "var(--ink)", background: "var(--chart)" }}
+            style={{ borderColor: "var(--ink)", background: "var(--pop)", color: "var(--on-pop)" }}
           >
             <span className="anno">Account of work</span>
             <span className="anno dim">Kept in the open · updated as it happens</span>
@@ -56,7 +56,6 @@ export default function Ledger() {
                   <Paperclip size={15} />
                   <span className="anno">{job.org}</span>
                 </p>
-                <p className="anno-sm mt-1.5 dim">{job.place}</p>
                 <span className={`stamp mt-3 ${STAMPS[i % STAMPS.length].tone}`}>
                   <Spark size={11} />
                   {STAMPS[i % STAMPS.length].label}
@@ -82,7 +81,7 @@ export default function Ledger() {
 
         <p className="anno mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 dim">
           <span>Also on the bench →</span>
-          <span className="tag tag--chart">Side projects</span>
+          <span className="tag tag--pop">Side projects</span>
           <span className="tag">Open source</span>
           <span className="tag tag--ink">Whatever's interesting</span>
         </p>

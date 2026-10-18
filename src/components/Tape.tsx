@@ -1,24 +1,39 @@
-import { Asterisk, Bracket, Brush, Spark, Target } from "./Art";
+import { Asterisk, Bracket, Browser, Device, Server, Spark, Target } from "./Art";
 
 interface Props {
-  tone?: "ink" | "verm" | "chart";
+  tone?: "ink" | "verm" | "pop";
   reverse?: boolean;
 }
 
-const SEQ: { w: string; icon: "bracket" | "brush" | "asterisk" | "spark" | "target" }[] = [
-  { w: "I love to build", icon: "bracket" },
-  { w: "I love art", icon: "brush" },
-  { w: "Compilers", icon: "asterisk" },
-  { w: "Collage", icon: "target" },
-  { w: "Type & colour", icon: "spark" },
-  { w: "Ship it", icon: "asterisk" },
+type Kind = "browser" | "server" | "device" | "bracket" | "spark" | "target" | "asterisk";
+
+/* A capability ticker, not a slogan: what actually gets built. */
+const SEQ: { w: string; icon: Kind }[] = [
+  { w: "Frontend", icon: "browser" },
+  { w: "Backend", icon: "server" },
+  { w: "Mobile", icon: "device" },
+  { w: "TypeScript", icon: "bracket" },
+  { w: "React", icon: "asterisk" },
+  { w: "Next.js", icon: "browser" },
+  { w: "Go", icon: "bracket" },
+  { w: "Python", icon: "bracket" },
+  { w: "Flutter", icon: "device" },
+  { w: "Django", icon: "server" },
+  { w: "Firebase", icon: "target" },
+  { w: "React Native", icon: "device" },
+  { w: "REST & APIs", icon: "server" },
+  { w: "Design systems", icon: "spark" },
+  { w: "Tailwind", icon: "browser" },
+  { w: "Accessibility", icon: "target" },
 ];
 
-function Glyph({ kind, size }: { kind: string; size: number }) {
+function Glyph({ kind, size }: { kind: Kind; size: number }) {
+  if (kind === "browser") return <Browser size={size} />;
+  if (kind === "server") return <Server size={size} />;
+  if (kind === "device") return <Device size={size} />;
   if (kind === "bracket") return <Bracket size={size} />;
-  if (kind === "brush") return <Brush size={size} />;
-  if (kind === "target") return <Target size={size} />;
   if (kind === "spark") return <Spark size={size} />;
+  if (kind === "target") return <Target size={size} />;
   return <Asterisk size={size} />;
 }
 
@@ -36,9 +51,9 @@ function Run() {
 }
 
 export default function Tape({ tone = "ink", reverse = false }: Props) {
-  const toneClass = tone === "verm" ? " tape--verm" : tone === "chart" ? " tape--chart" : "";
+  const toneClass = tone === "verm" ? " tape--verm" : tone === "pop" ? " tape--pop" : "";
   return (
-    <div className={`tape${toneClass}`} aria-label="I love to build. I love art.">
+    <div className={`tape${toneClass}`} aria-label="What I build: frontend, backend, mobile and everything around it">
       <div className={`tape__track${reverse ? " tape__track--rev" : ""}`} aria-hidden="true">
         <Run />
         <Run />

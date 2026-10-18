@@ -73,8 +73,8 @@ export default function Topbar() {
                   className="anno block border-2 px-2.5 py-1.5 no-underline transition-colors"
                   style={{
                     borderColor: active === s.id ? "var(--ink)" : "transparent",
-                    background: active === s.id ? "var(--chart)" : "transparent",
-                    color: active === s.id ? "var(--ink)" : "var(--ink-2)",
+                    background: active === s.id ? "var(--pop)" : "transparent",
+                    color: active === s.id ? "var(--on-pop)" : "var(--ink-2)",
                   }}
                   onMouseEnter={(e) => {
                     if (active !== s.id) e.currentTarget.style.background = "var(--gesso-2)";
@@ -83,7 +83,10 @@ export default function Topbar() {
                     if (active !== s.id) e.currentTarget.style.background = "transparent";
                   }}
                 >
-                  <span style={{ color: "var(--verm)" }}>{s.no}</span> {s.label}
+                  <span style={{ color: active === s.id ? "var(--on-pop)" : "var(--verm-text)" }}>
+                    {s.no}
+                  </span>{" "}
+                  {s.label}
                 </a>
               </li>
             ))}
@@ -104,13 +107,13 @@ export default function Topbar() {
             type="button"
             onClick={() => setOpen((v) => !v)}
             className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] border-2 lg:hidden"
-            style={{ borderColor: "var(--ink)", background: "var(--chart)", boxShadow: "3px 3px 0 var(--ink)" }}
+            style={{ borderColor: "var(--ink)", background: "var(--pop)", boxShadow: "3px 3px 0 var(--ink)" }}
             aria-label="Toggle menu"
             aria-expanded={open}
           >
-            <span className="block h-[2.5px] w-4" style={{ background: "var(--ink)" }} />
-            <span className="block h-[2.5px] w-4" style={{ background: "var(--ink)", opacity: open ? 0 : 1 }} />
-            <span className="block h-[2.5px] w-4" style={{ background: "var(--ink)" }} />
+            <span className="block h-[2.5px] w-4" style={{ background: "var(--on-pop)" }} />
+            <span className="block h-[2.5px] w-4" style={{ background: "var(--on-pop)", opacity: open ? 0 : 1 }} />
+            <span className="block h-[2.5px] w-4" style={{ background: "var(--on-pop)" }} />
           </button>
         </div>
       </div>
@@ -125,7 +128,7 @@ export default function Topbar() {
                   onClick={() => setOpen(false)}
                   className="flex items-baseline justify-between py-3.5 no-underline"
                 >
-                  <span className="loud text-2xl" style={{ color: active === s.id ? "var(--verm)" : "var(--ink)" }}>
+                  <span className="loud text-2xl" style={{ color: active === s.id ? "var(--verm-text)" : "var(--ink)" }}>
                     {s.label}
                   </span>
                   <span className="anno dim">{s.no}</span>

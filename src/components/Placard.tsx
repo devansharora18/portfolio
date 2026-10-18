@@ -50,7 +50,7 @@ export default function Placard() {
               {sections.map((s) => (
                 <li key={s.id}>
                   <a href={`#${s.id}`} className="tlink">
-                    <span style={{ color: "var(--verm)" }}>{s.no}</span> {s.label}
+                    <span style={{ color: "var(--verm-text)" }}>{s.no}</span> {s.label}
                   </a>
                 </li>
               ))}
@@ -87,7 +87,7 @@ export default function Placard() {
           </span>
           <p className="wonk" style={{ fontSize: "clamp(2.4rem, 0.5rem + 9vw, 9rem)", lineHeight: 0.9 }}>
             systems
-            <span style={{ color: "var(--verm)" }}>
+            <span style={{ color: "var(--verm-text)" }}>
               <Asterisk size={44} />
             </span>
             &amp; splendour

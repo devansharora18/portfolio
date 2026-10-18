@@ -127,11 +127,11 @@ export function Postmark({ size = 92, className }: Props) {
     <svg {...svg(size, className)} viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth={2.2}>
       <circle cx="50" cy="50" r="45" />
       <circle cx="50" cy="50" r="36" strokeDasharray="3 4" />
-      <text x="50" y="44" textAnchor="middle" fontFamily="var(--font-anno)" fontSize="13" fontWeight="700" fill="currentColor" stroke="none">
-        VELLORE
+      <text x="50" y="45" textAnchor="middle" fontFamily="var(--font-anno)" fontSize="10" fontWeight="700" letterSpacing="0.6" fill="currentColor" stroke="none">
+        SYSTEMS
       </text>
-      <text x="50" y="62" textAnchor="middle" fontFamily="var(--font-anno)" fontSize="13" fontWeight="700" fill="currentColor" stroke="none">
-        12.97N
+      <text x="50" y="62" textAnchor="middle" fontFamily="var(--font-anno)" fontSize="10" fontWeight="700" letterSpacing="0.6" fill="currentColor" stroke="none">
+        SPLENDOUR
       </text>
     </svg>
   );
@@ -145,8 +145,38 @@ export function Paperclip({ size = 22, className }: Props) {
   );
 }
 
-export function Aperture({ size = 30, className }: Props) {
+/* --- technical marks ------------------------------------------------------ */
+
+export function Server({ size = 20, className }: Props) {
   return (
+    <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="6.5" rx="1.5" />
+      <rect x="3" y="13.5" width="18" height="6.5" rx="1.5" />
+      <path d="M7 7.2h.01M7 16.7h.01" />
+    </svg>
+  );
+}
+
+export function Device({ size = 20, className }: Props) {
+  return (
+    <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="7" y="2" width="10" height="20" rx="2.5" />
+      <path d="M11 18.6h2" />
+    </svg>
+  );
+}
+
+export function Browser({ size = 20, className }: Props) {
+  return (
+    <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M6.6 6.5h.01M9.6 6.5h.01" />
+    </svg>
+  );
+}
+
+export function Aperture({ size = 30, className }: Props) {  return (
     <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.9} strokeLinecap="round">
       <circle cx="12" cy="12" r="9.2" />
       <path d="M12 2.8 15.4 9M21.2 12l-6.4 3.4M14.6 21.2 12 15M2.8 12l6.4-3.4M9.4 2.8 12 9M21.2 12 14.6 2.9M2.8 12l6.6 9.1" />

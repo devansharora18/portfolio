@@ -2,12 +2,22 @@ import { useEffect, useState } from "react";
 import pfp from "../assets/pfp.png";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
-import { CONTACT_EMAIL, COORDS, LOCATION, socials } from "../lib/data";
+import { CONTACT_EMAIL, socials } from "../lib/data";
 import { ArrowCurve, Aperture, Asterisk, Bracket, Brush, Burst, Spark, Squiggle, Target } from "./Art";
 import { ArrowDown, ArrowUpRight, socialIcons } from "./icons";
 
-const buildList = ["Compilers", "Command-line tools", "Interfaces", "Fast, boring performance work"];
-const artList = ["Collage & print", "Colour systems", "Type as architecture", "Things made purely to delight"];
+const buildList = [
+  "Frontend & design systems",
+  "Backend services & REST APIs",
+  "Cross-platform mobile apps",
+  "Profiling, caching, load times",
+];
+const artList = [
+  "Interaction & motion",
+  "Type, colour and rhythm",
+  "Accessibility as the default",
+  "Details nobody asked for",
+];
 
 function Schematic() {
   return (
@@ -67,7 +77,7 @@ export default function Diptych() {
           </div>
           <div className="relative flex h-full flex-col justify-between gap-6 p-5 md:p-8">
             <div className="flex items-start justify-between gap-4">
-              <span className="anno" style={{ color: "var(--chart)" }}>
+              <span className="anno" style={{ color: "var(--pop)" }}>
                 01 / System
               </span>
               <Aperture size={30} />
@@ -76,24 +86,24 @@ export default function Diptych() {
             <div className="max-w-[30ch]">
               <p
                 className="loud"
-                style={{ fontSize: "clamp(1.35rem, 0.9rem + 1.5vw, 2.3rem)", color: "var(--gesso)" }}
+                style={{ fontSize: "clamp(1.3rem, 0.9rem + 1.4vw, 2.15rem)", color: "var(--gesso)" }}
               >
-                A blueprint is
+                Types in, pixels
                 <br />
-                just affection
+                out, no
                 <br />
-                with a ruler.
+                surprises.
               </p>
             </div>
 
             <div className="flex flex-wrap items-end justify-between gap-6">
               <ul className="anno space-y-1" style={{ color: "color-mix(in oklab, var(--gesso) 78%, transparent)" }}>
-                <li>compiles .tardis → js</li>
-                <li>proxy reactivity</li>
-                <li>no virtual dom</li>
-                <li>5kb runtime</li>
+                <li>react · next.js · typescript</li>
+                <li>go &amp; python services</li>
+                <li>postgres · firebase</li>
+                <li>tests, ci, then ship</li>
               </ul>
-              <div className="hidden w-[46%] max-w-[280px] opacity-70 sm:block">
+              <div className="hidden w-[42%] max-w-[250px] opacity-70 sm:block">
                 <Schematic />
               </div>
             </div>
@@ -109,27 +119,33 @@ export default function Diptych() {
           <div className="relative flex h-full flex-col justify-between gap-6 p-5 md:p-8">
             <div className="flex items-start justify-between gap-4">
               <Aperture size={30} />
-              <span className="anno" style={{ color: "var(--verm)" }}>
+              <span className="anno" style={{ color: "var(--verm-text)" }}>
                 02 / Splendour
               </span>
             </div>
 
-            <p className="wonk" style={{ fontSize: "clamp(1.9rem, 1rem + 3.4vw, 4.1rem)" }}>
-              and then
+            <p className="wonk" style={{ fontSize: "clamp(1.8rem, 1rem + 3.1vw, 3.7rem)" }}>
+              and then it has to
               <br />
-              you paint on it.
+              feel like something.
             </p>
 
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div className="swatch-row" aria-hidden="true">
                 <span className="swatch" style={{ background: "var(--ultra)" }} />
+                <span className="swatch" style={{ background: "var(--pop)" }} />
                 <span className="swatch" style={{ background: "var(--verm)" }} />
-                <span className="swatch" style={{ background: "var(--chart)" }} />
                 <span className="swatch" style={{ background: "var(--ink)" }} />
                 <span className="swatch" style={{ background: "var(--gesso-3)" }} />
               </div>
-              <div className="hidden opacity-70 sm:block" style={{ color: "var(--verm)" }}>
-                <ArrowCurve size={70} />
+              <ul className="anno space-y-1 dim-2">
+                <li>design systems</li>
+                <li>motion &amp; interaction</li>
+                <li>keyboard &amp; screen readers</li>
+                <li>type, colour, rhythm</li>
+              </ul>
+              <div className="hidden opacity-70 lg:block" style={{ color: "var(--verm-text)" }}>
+                <ArrowCurve size={56} />
               </div>
             </div>
           </div>
@@ -215,7 +231,7 @@ export default function Diptych() {
                 </li>
               ))}
             </ul>
-            <div className="mt-5" style={{ color: "var(--verm)" }}>
+            <div className="mt-5" style={{ color: "var(--verm-text)" }}>
               <Squiggle size={150} />
             </div>
           </div>
@@ -234,10 +250,10 @@ export default function Diptych() {
           </div>
           <div className="anno flex flex-wrap items-center gap-x-5 gap-y-2">
             <span className="counter">
-              <Target size={13} /> {LOCATION}
+              <Target size={13} /> Open to new work
             </span>
             <span className="counter">
-              <Asterisk size={12} /> {COORDS}
+              <Asterisk size={12} /> Frontend · Backend · Mobile
             </span>
           </div>
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-3 md:ml-auto">

@@ -10,7 +10,7 @@ const SHAPES = [
   "999px",
   "3px",
 ];
-const TONES = ["sticker--verm", "sticker--ultra", "sticker--chart", "sticker--ink", "sticker--gesso"];
+const TONES = ["sticker--verm", "sticker--ultra", "sticker--pop", "sticker--ink", "sticker--gesso"];
 const ROTS = [-7, 4, -3, 8, -5, 2, 6, -8, 3, -2, 5, -6, 7, -4];
 
 export default function Stickers() {
@@ -60,7 +60,7 @@ export default function Stickers() {
               </span>
             ))}
             <span
-              className="sticker sticker--chart"
+              className="sticker sticker--pop"
               style={{ borderRadius: "999px", transform: "rotate(-4deg)" }}
             >
               <Asterisk size={16} /> and more
