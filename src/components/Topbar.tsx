@@ -9,21 +9,28 @@ export default function Topbar() {
   const [open, setOpen] = useState(false);
   const barRef = useRef<HTMLDivElement>(null);
 
+  /* One observer for all sections, and the LAST one in view wins: sections stack
+     over one another on this page, and a pinned section can still intersect the
+     band while being hidden behind the next one. */
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+    const inView = new Set<string>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = (entry.target as HTMLElement).id;
+          if (entry.isIntersecting) inView.add(id);
+          else inView.delete(id);
+        }
+        const next = [...sections].reverse().find((s) => inView.has(s.id));
+        if (next) setActive(next.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
     for (const { id } of sections) {
       const el = document.getElementById(id);
-      if (!el) continue;
-      const io = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(id);
-        },
-        { rootMargin: "-42% 0px -52% 0px" }
-      );
-      io.observe(el);
-      observers.push(io);
+      if (el) io.observe(el);
     }
-    return () => observers.forEach((o) => o.disconnect());
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {

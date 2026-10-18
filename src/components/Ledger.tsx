@@ -24,17 +24,29 @@ export default function Ledger() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
+      const next = document.getElementById("stickers");
+      const st = ScrollTrigger.create({
         trigger: el,
         start: () => `top+=${Math.max(0, el.offsetHeight - window.innerHeight)} top`,
         end: "+=100%",
         pin: true,
-        /* no spacer: the sheet has to travel up over this section, not sit
-           after a reserved gap */
-        pinSpacing: false,
+        /* keep the spacing: without it ScrollTrigger leaves the pinned section
+           displaced down the page by the pin distance, so its tail ends up
+           rendering *after* the sticker sheet. Instead reserve the space and
+           pull the next section up by exactly that distance, which slides it
+           over the pinned ledger and lands it cleanly afterwards. */
+        pinSpacing: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        onRefresh: (self) => {
+          if (next) next.style.marginTop = `${-Math.round(self.end - self.start)}px`;
+        },
       });
+
+      return () => {
+        if (next) next.style.marginTop = "";
+        st.kill();
+      };
     }, el);
 
     const refresh = () => ScrollTrigger.refresh();
