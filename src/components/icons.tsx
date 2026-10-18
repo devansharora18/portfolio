@@ -25,15 +25,6 @@ export function ArrowUpRight({ size = 14, className }: IconProps) {
   );
 }
 
-export function ArrowRight({ size = 14, className }: IconProps) {
-  return (
-    <svg {...base(size, className)}>
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
-}
-
 export function ArrowDown({ size = 14, className }: IconProps) {
   return (
     <svg {...base(size, className)}>
@@ -48,15 +39,6 @@ export function ArrowUp({ size = 14, className }: IconProps) {
     <svg {...base(size, className)}>
       <path d="M12 19V5" />
       <path d="m6 11 6-6 6 6" />
-    </svg>
-  );
-}
-
-export function Plus({ size = 14, className }: IconProps) {
-  return (
-    <svg {...base(size, className)}>
-      <path d="M12 5v14" />
-      <path d="M5 12h14" />
     </svg>
   );
 }

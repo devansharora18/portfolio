@@ -21,15 +21,6 @@ export function Bracket({ size = 20, className }: Props) {
   );
 }
 
-export function Wrench({ size = 20, className }: Props) {
-  return (
-    <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14.5 4.2a4.6 4.6 0 0 0 5.9 5.9L21 9.5l-.4 3.6-9 9-3.6.4.4-3.6 9-9z" />
-      <path d="M6.5 13.5 3.4 10.4a2 2 0 0 1 0-2.8l2-2a2 2 0 0 1 2.8 0l3.1 3.1" />
-    </svg>
-  );
-}
-
 export function Brush({ size = 20, className }: Props) {
   return (
     <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
@@ -56,15 +47,6 @@ export function Spark({ size = 16, className }: Props) {
 }
 
 /* --- hand-drawn marks ----------------------------------------------------- */
-
-export function ArrowCurve({ size = 60, className }: Props) {
-  return (
-    <svg {...svg(size, className)} viewBox="0 0 90 60" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" style={{ width: "auto" }}>
-      <path d="M4 8c22-6 44 2 52 20 3 7 3 15 1 22" />
-      <path d="M48 42l9 10 8-11" />
-    </svg>
-  );
-}
 
 export function Squiggle({ size = 120, className }: Props) {
   return (
@@ -100,14 +82,6 @@ export function Target({ size = 70, className }: Props) {
       <circle cx="50" cy="50" r="46" />
       <circle cx="50" cy="50" r="30" />
       <circle cx="50" cy="50" r="14" fill="currentColor" />
-    </svg>
-  );
-}
-
-export function Zigzag({ size = 220, className }: Props) {
-  return (
-    <svg {...svg(size, className)} viewBox="0 0 300 14" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="square" preserveAspectRatio="none" style={{ width: "100%", height: "auto" }}>
-      <path d="M0 7l14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6 14-6 14 6" />
     </svg>
   );
 }
@@ -176,14 +150,6 @@ export function Browser({ size = 20, className }: Props) {
   );
 }
 
-export function Aperture({ size = 30, className }: Props) {  return (
-    <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.9} strokeLinecap="round">
-      <circle cx="12" cy="12" r="9.2" />
-      <path d="M12 2.8 15.4 9M21.2 12l-6.4 3.4M14.6 21.2 12 15M2.8 12l6.4-3.4M9.4 2.8 12 9M21.2 12 14.6 2.9M2.8 12l6.6 9.1" />
-    </svg>
-  );
-}
-
 export function Sun({ size = 18, className }: Props) {
   return (
     <svg {...svg(size, className)} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
@@ -202,19 +168,3 @@ export function Moon({ size = 18, className }: Props) {
 }
 
 /* Hand-wobbled edges: one shared filter, applied by class. */
-export function WobbleDefs() {
-  return (
-    <svg width="0" height="0" aria-hidden="true" focusable="false" style={{ position: "absolute" }}>
-      <defs>
-        <filter id="wob" x="-8%" y="-8%" width="116%" height="116%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.024" numOctaves="3" seed="9" result="n" />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-        <filter id="wob-2" x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="4" seed="3" result="n" />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="11" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-      </defs>
-    </svg>
-  );
-}

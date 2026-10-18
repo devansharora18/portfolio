@@ -7,7 +7,6 @@ import Postcard from "./components/Postcard";
 import Placard from "./components/Placard";
 import Tape from "./components/Tape";
 import SmoothScroll from "./components/SmoothScroll";
-import { WobbleDefs } from "./components/Art";
 import { useReveal } from "./hooks/useReveal";
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
 
   return (
     <>
-      <WobbleDefs />
       <SmoothScroll />
       <Topbar />
 

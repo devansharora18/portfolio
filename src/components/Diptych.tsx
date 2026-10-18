@@ -3,7 +3,7 @@ import pfp from "../assets/pfp.png";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
 import { CONTACT_EMAIL, socials } from "../lib/data";
-import { ArrowCurve, Aperture, Asterisk, Bracket, Brush, Burst, Spark, Squiggle, Target } from "./Art";
+import { Asterisk, Bracket, Brush, Burst, Spark, Squiggle, Target } from "./Art";
 import { ArrowDown, ArrowUpRight, socialIcons } from "./icons";
 
 const buildList = [
@@ -18,7 +18,6 @@ const artList = [
   "Accessibility as the default",
   "Details nobody asked for",
 ];
-
 
 export default function Diptych() {
   const [ready, setReady] = useState(false);
@@ -48,96 +47,11 @@ export default function Diptych() {
         <Tape tone="ink" />
       </div>
 
-      {/* ------------------------------------------------------- the diptych */}
-      <div className="diptych">
-        {/* SYSTEM */}
-        <div className="diptych__half diptych__system">
-          <div className="p-grid absolute inset-0 opacity-40" aria-hidden="true" style={{ filter: "url(#wob)" }} />
-          <div className="absolute inset-0 opacity-10" aria-hidden="true">
-            <div className="p-rays absolute -left-24 -top-24 h-72 w-72" />
-          </div>
-          <div className="relative flex h-full flex-col justify-between gap-6 p-5 md:p-8">
-            <div className="flex items-start justify-between gap-4">
-              <span className="anno" style={{ color: "var(--pop)" }}>
-                01 / System
-              </span>
-              <Aperture size={30} />
-            </div>
-
-            <div className="max-w-[30ch]">
-              <p
-                className="loud"
-                style={{ fontSize: "clamp(1.3rem, 0.9rem + 1.4vw, 2.15rem)", color: "var(--gesso)" }}
-              >
-                Types in, pixels
-                <br />
-                out, no
-                <br />
-                surprises.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <ul className="anno space-y-1" style={{ color: "color-mix(in oklab, var(--gesso) 78%, transparent)" }}>
-                <li>react · next.js · typescript</li>
-                <li>go &amp; python services</li>
-                <li>postgres · firebase</li>
-                <li>tests, ci, then ship</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* SPLENDOUR */}
-        <div className="diptych__half diptych__splendour">
-          <div className="p-blobs absolute inset-0 opacity-25" aria-hidden="true" />
-          <div className="absolute inset-0 opacity-[0.14]" aria-hidden="true">
-            <div className="p-dots absolute inset-0" style={{ color: "var(--ink)" }} />
-          </div>
-          <div className="relative flex h-full flex-col justify-between gap-6 p-5 md:p-8">
-            <div className="flex items-start justify-between gap-4">
-              <Aperture size={30} />
-              <span className="anno" style={{ color: "var(--verm-text)" }}>
-                02 / Splendour
-              </span>
-            </div>
-
-            <p className="wonk" style={{ fontSize: "clamp(1.8rem, 1rem + 3.1vw, 3.7rem)" }}>
-              and then it has to
-              <br />
-              feel like something.
-            </p>
-
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <div className="swatch-row" aria-hidden="true">
-                <span className="swatch" style={{ background: "var(--ultra)" }} />
-                <span className="swatch" style={{ background: "var(--pop)" }} />
-                <span className="swatch" style={{ background: "var(--verm)" }} />
-                <span className="swatch" style={{ background: "var(--ink)" }} />
-                <span className="swatch" style={{ background: "var(--gesso-3)" }} />
-              </div>
-              <ul className="anno space-y-1 dim-2">
-                <li>design systems</li>
-                <li>motion &amp; interaction</li>
-                <li>keyboard &amp; screen readers</li>
-                <li>type, colour, rhythm</li>
-              </ul>
-              <div className="hidden opacity-70 lg:block" style={{ color: "var(--verm-text)" }}>
-                <ArrowCurve size={56} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <span className="diptych__seam" aria-hidden="true" />
-
-        {/* the name, slashed across the seam */}
-        <div className="diptych__name">
-          <div className="wrap py-4 md:py-5">
-            <h1 className="name loud" ref={fitRef} aria-label="Devansh Arora — Systems and Splendour">
-              <span data-fit>Devansh Arora</span>
-            </h1>
-          </div>
+      <div className="nameband">
+        <div className="wrap py-6 md:py-8">
+          <h1 className="name loud" ref={fitRef}>
+            <span data-fit>Devansh Arora</span>
+          </h1>
         </div>
       </div>
 

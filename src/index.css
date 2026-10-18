@@ -295,59 +295,6 @@
     scroll-margin-top: calc(var(--nav) + 46px);
   }
 
-  /* ------------------------------------------------------------ patterns -- */
-  .p-grid {
-    background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-    background-size: 26px 26px;
-  }
-  .p-grid-fine {
-    background-image: linear-gradient(to right, var(--hair) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--hair) 1px, transparent 1px);
-    background-size: 13px 13px;
-  }
-  .p-dots {
-    background-image: radial-gradient(currentColor 1.6px, transparent 1.9px);
-    background-size: 11px 11px;
-  }
-  .p-stripes {
-    background-image: repeating-linear-gradient(
-        45deg,
-        var(--verm) 0 11px,
-        transparent 11px 22px
-      ),
-      repeating-linear-gradient(-45deg, var(--ultra) 0 11px, transparent 11px 22px);
-  }
-  .p-check {
-    background-image: linear-gradient(45deg, var(--ink) 25%, transparent 25% 75%, var(--ink) 75%),
-      linear-gradient(45deg, var(--ink) 25%, transparent 25% 75%, var(--ink) 75%);
-    background-size: 18px 18px;
-    background-position: 0 0, 9px 9px;
-  }
-  .p-rays {
-    background-image: repeating-conic-gradient(
-      from 0deg at 50% 50%,
-      var(--ink) 0deg 9deg,
-      transparent 9deg 18deg
-    );
-  }
-  .p-blobs {
-    background-image: radial-gradient(42% 40% at 20% 22%, var(--verm) 0%, transparent 62%),
-      radial-gradient(36% 32% at 78% 18%, var(--pop) 0%, transparent 60%),
-      radial-gradient(52% 46% at 64% 82%, var(--ultra) 0%, transparent 62%),
-      radial-gradient(30% 28% at 16% 84%, var(--verm) 0%, transparent 60%);
-  }
-
-  .grain {
-    position: fixed;
-    inset: -20%;
-    z-index: 80;
-    pointer-events: none;
-    opacity: var(--grain-op);
-    mix-blend-mode: var(--grain-blend);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
   /* --------------------------------------------------------------- rules -- */
   .rule {
     height: 2px;
@@ -651,67 +598,13 @@
     color: var(--gesso);
   }
 
-  /* ---------------------------------------------------------------- hero -- */
-  .diptych {
+  /* ------------------------------------------------------------- nameband -- */
+  /* The one strong field above the fold: a hard split, ultramarine into paper.
+     Kept without the two copy panels that used to sit above it. */
+  .nameband {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  @media (min-width: 900px) {
-    .diptych {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  .diptych__half {
-    position: relative;
-    min-height: 260px;
-    overflow: hidden;
-  }
-  @media (min-width: 900px) {
-    .diptych__half {
-      min-height: 306px;
-    }
-  }
-  .diptych__system {
-    background: var(--ultra);
-    color: var(--gesso);
-  }
-  .diptych__splendour {
-    background: var(--gesso);
-    color: var(--ink);
-  }
-  .diptych__seam {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 3px;
-    background: var(--ink);
-    transform: translateX(-50%);
-    z-index: 5;
-  }
-  @media (max-width: 899px) {
-    .diptych__seam {
-      display: none;
-    }
-    .diptych__splendour {
-      border-top: 3px solid var(--ink);
-    }
-  }
-
-  /* the name row: one line, fitted edge to edge, split across the seam */
-  .diptych__name {
-    grid-column: 1 / -1;
-    position: relative;
-    z-index: 6;
-    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
     background: linear-gradient(to right, var(--ultra) 0 50%, var(--gesso) 50% 100%);
-  }
-  @media (max-width: 899px) {
-    .diptych__name {
-      background: var(--gesso);
-      border-top: 0;
-    }
   }
   .name {
     font-family: var(--font-loud);
@@ -729,12 +622,8 @@
     width: max-content;
     white-space: nowrap;
   }
-  /* at mobile size an outlined cream name muddies: switch to solid ink.
-     Must come after the base rule above — media queries add no specificity. */
   @media (max-width: 899px) {
     .name {
-      color: var(--ink);
-      -webkit-text-stroke-width: 0;
       text-shadow: 4px 4px 0 var(--verm);
     }
   }
@@ -834,7 +723,7 @@
   }
   /* One hang height per row: widths vary with the span, so a narrow span reads
      as a portrait frame and a wide one as a landscape frame. Scoped to .wall so
-     it can never resize a frame elsewhere (the diptych's polaroid, say). */
+     it can never resize a frame elsewhere (the hero polaroid, say). */
   .wall .fig {
     aspect-ratio: 4 / 3;
   }
@@ -964,21 +853,6 @@
   }
 
   /* --------------------------------------------------------- decorative -- */
-  .swatch-row {
-    display: flex;
-    gap: 0;
-    border: 2px solid var(--ink);
-    width: max-content;
-  }
-  .swatch {
-    width: 30px;
-    height: 22px;
-    border-right: 2px solid var(--ink);
-  }
-  .swatch:last-child {
-    border-right: 0;
-  }
-
   .counter {
     display: inline-flex;
     align-items: center;
