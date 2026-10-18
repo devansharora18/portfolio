@@ -1,6 +1,11 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Head from "./Head";
 import { experience } from "../lib/data";
 import { Paperclip, Spark } from "./Art";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const STAMPS = [
   { label: "Ongoing", tone: "stamp--ultra" },
@@ -8,10 +13,44 @@ const STAMPS = [
 ];
 
 export default function Ledger() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  /* This section holds still while the sticker sheet rides up over it. The pin
+     only starts once the ledger has been fully read — on short viewports it is
+     taller than the screen, and pinning from the top would bury its last entry. */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: () => `top+=${Math.max(0, el.offsetHeight - window.innerHeight)} top`,
+        end: "+=100%",
+        pin: true,
+        /* no spacer: the sheet has to travel up over this section, not sit
+           after a reserved gap */
+        pinSpacing: false,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      });
+    }, el);
+
+    const refresh = () => ScrollTrigger.refresh();
+    if (document.fonts) document.fonts.ready.then(refresh).catch(() => {});
+    const t = window.setTimeout(refresh, 900);
+    return () => {
+      window.clearTimeout(t);
+      ctx.revert();
+    };
+  }, []);
+
   return (
     <section
       id="ledger"
       className="relative border-t-2 pt-16 md:pt-24"
+      ref={sectionRef}
       style={{ borderColor: "var(--ink)" }}
     >
       <div className="wrap">

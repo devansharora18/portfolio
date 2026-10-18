@@ -593,14 +593,14 @@
   }
 
   /* ----------------------------------------------------------------- hero -- */
-  /* The cover pins while the wall climbs over it, so it sits *under* the wall
-     in paint order and the wall has to be opaque to hide it. */
-  .hero {
+  /* Section 4 climbs over section 3: the ledger holds still while the sticker
+     sheet rides up over the top of it, so the sheet sits above in paint order
+     and has to be opaque to hide what it covers. */
+  #ledger {
     position: relative;
     z-index: 1;
-    background: var(--gesso);
   }
-  #work {
+  #stickers {
     position: relative;
     z-index: 2;
     background: var(--gesso);

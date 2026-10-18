@@ -1,14 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import pfp from "../assets/pfp.png";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
 import { CONTACT_EMAIL, socials } from "../lib/data";
 import { Asterisk, Bracket, Burst, Spark, Squiggle, Target } from "./Art";
 import { ArrowDown, ArrowUpRight, socialIcons } from "./icons";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const buildList = [
   "Frontend & design systems",
@@ -68,38 +64,6 @@ export default function Diptych() {
     return () => {
       window.clearTimeout(t);
       ro.disconnect();
-    };
-  }, []);
-
-  /* The cover holds still while the wall climbs over the top of it. Pinning
-     only starts once the cover has been fully read — its bottom is below the
-     fold on short viewports, and pinning from the top would bury it — then the
-     wall rides up over it for exactly one viewport. */
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: hero,
-        start: () => `top+=${Math.max(0, hero.offsetHeight - window.innerHeight)} top`,
-        end: "+=100%",
-        pin: true,
-        /* no spacer: the wall has to travel up over the cover, not sit after a
-           reserved gap */
-        pinSpacing: false,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      });
-    }, hero);
-
-    const refresh = () => ScrollTrigger.refresh();
-    if (document.fonts) document.fonts.ready.then(refresh).catch(() => {});
-    const t = window.setTimeout(refresh, 900);
-    return () => {
-      window.clearTimeout(t);
-      ctx.revert();
     };
   }, []);
 
