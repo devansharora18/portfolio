@@ -604,7 +604,21 @@
   .nameband {
     position: relative;
     border-bottom: 3px solid var(--ink);
-    background: linear-gradient(to right, var(--ultra) 0 50%, var(--gesso) 50% 100%);
+    background: var(--ultra);
+  }
+  /* the paper half: its edge is placed past the first name by JS (--split) */
+  .nameband::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - var(--split, 50%));
+    background: var(--gesso);
+  }
+  .nameband > .wrap {
+    position: relative;
+    z-index: 1;
   }
   .name {
     font-family: var(--font-loud);

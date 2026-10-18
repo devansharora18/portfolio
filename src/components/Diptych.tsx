@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import pfp from "../assets/pfp.png";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
@@ -22,6 +22,8 @@ const artList = [
 export default function Diptych() {
   const [ready, setReady] = useState(false);
   const fitRef = useFitText<HTMLHeadingElement>();
+  const bandRef = useRef<HTMLDivElement>(null);
+  const firstRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     let done = false;
@@ -36,6 +38,33 @@ export default function Diptych() {
     return () => window.clearTimeout(t);
   }, []);
 
+  /* The blue field ends just past the first name, whatever the viewport and
+     whatever size the nameplate gets fitted to. */
+  useEffect(() => {
+    const band = bandRef.current;
+    const first = firstRef.current;
+    if (!band || !first) return;
+
+    const apply = () => {
+      const b = band.getBoundingClientRect();
+      const f = first.getBoundingClientRect();
+      if (!b.width || !f.width) return;
+      const pct = ((f.right - b.left + 16) / b.width) * 100;
+      band.style.setProperty("--split", `${Math.min(94, Math.max(6, pct)).toFixed(3)}%`);
+    };
+
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(band);
+    ro.observe(first);
+    const t = window.setTimeout(apply, 700);
+    if (document.fonts) document.fonts.ready.then(apply).catch(() => {});
+    return () => {
+      window.clearTimeout(t);
+      ro.disconnect();
+    };
+  }, []);
+
   return (
     <section
       id="cover"
@@ -47,10 +76,12 @@ export default function Diptych() {
         <Tape tone="ink" />
       </div>
 
-      <div className="nameband">
+      <div className="nameband" ref={bandRef}>
         <div className="wrap py-6 md:py-8">
           <h1 className="name loud" ref={fitRef}>
-            <span data-fit>Devansh Arora</span>
+            <span data-fit>
+              <span ref={firstRef}>Devansh</span> Arora
+            </span>
           </h1>
         </div>
       </div>
