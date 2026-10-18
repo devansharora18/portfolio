@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,38 +8,24 @@
     <title>Devansh Arora — Software Engineer</title>
     <meta
       name="description"
-      content="Devansh Arora — full-stack engineer building compilers, CLIs and interfaces. React, TypeScript, Flutter, Go. Selected work and ledger."
+      content="Devansh Arora — full-stack engineer building compilers, command-line tools and interfaces. React, TypeScript, Flutter, Go. A portfolio in four acts."
     />
     <meta name="author" content="Devansh Arora" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#e9e3d4" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#100e0b" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#04060b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Devansh Arora — Software Engineer" />
     <meta
       property="og:description"
-      content="Full-stack engineer building compilers, CLIs and interfaces."
+      content="Full-stack engineer building compilers, command-line tools and interfaces."
     />
     <meta name="twitter:card" content="summary_large_image" />
-
-    <script>
-      // Set the theme before first paint to avoid a flash. Falls back to the
-      // prefers-color-scheme rules in the stylesheet when JS is unavailable.
-      (function () {
-        try {
-          var stored = localStorage.getItem("da-theme");
-          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          document.documentElement.dataset.theme =
-            stored === "dark" || stored === "light" ? stored : prefersDark ? "dark" : "light";
-        } catch (e) {}
-      })();
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
   </head>

@@ -233,13 +233,15 @@ export const socials: Link[] = [
 ];
 
 export const sections = [
-  { id: "cover", label: "Cover", no: "01" },
-  { id: "work", label: "Work", no: "02" },
-  { id: "ledger", label: "Ledger", no: "03" },
-  { id: "contact", label: "Contact", no: "04" },
+  { id: "cover", label: "Title", no: "I" },
+  { id: "work", label: "Work", no: "II" },
+  { id: "ledger", label: "Credits", no: "III" },
+  { id: "contact", label: "Transmission", no: "IV" },
 ];
 
 export const CONTACT_EMAIL = "hello@devansharora.in";
 /* FormSubmit endpoint — must stay in sync with the activated inbox. */
 export const FORM_ENDPOINT = "https://formsubmit.co/mail@devansharora.in";
-export const EDITION = "VOL. 01 · EDITION 2026";
+export const TAGLINE = "The Long Exposure";
+export const LOCATION = "Vellore, Tamil Nadu";
+export const COORDS = "12.97°N · 79.13°E";

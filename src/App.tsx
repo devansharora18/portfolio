@@ -1,11 +1,12 @@
-import Masthead from "./components/Masthead";
-import Rail from "./components/Rail";
-import Hero from "./components/Hero";
-import Ticker from "./components/Ticker";
-import Work from "./components/Work";
-import Ledger from "./components/Ledger";
-import Correspondence from "./components/Correspondence";
-import Colophon from "./components/Colophon";
+import Nav from "./components/Nav";
+import Hud from "./components/Hud";
+import Starfield from "./components/Starfield";
+import TitleCard from "./components/TitleCard";
+import Stills from "./components/Stills";
+import ContactSheet from "./components/ContactSheet";
+import Credits from "./components/Credits";
+import Transmission from "./components/Transmission";
+import EndCard from "./components/EndCard";
 import SmoothScroll from "./components/SmoothScroll";
 import { useReveal } from "./hooks/useReveal";
 
@@ -14,21 +15,24 @@ function App() {
 
   return (
     <>
-      <div className="paper-fx" aria-hidden="true" />
+      <Starfield />
       <SmoothScroll />
-      <Masthead />
-      <Rail />
 
       <main className="relative z-10">
-        <Hero />
-        <Ticker />
-        <Work />
-        <Ledger />
-        <Correspondence />
+        <TitleCard />
+        <Stills />
+        <ContactSheet />
+        <Credits />
+        <Transmission />
       </main>
 
-      <Colophon />
+      <EndCard />
+
+      <div className="gate" aria-hidden="true" />
+      <Hud />
+      <Nav />
       <div className="grain" aria-hidden="true" />
+      <div className="shutter" aria-hidden="true" />
     </>
   );
 }
