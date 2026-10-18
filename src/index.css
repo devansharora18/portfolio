@@ -406,6 +406,7 @@
   .tape__track {
     display: flex;
     width: max-content;
+    will-change: transform;
     animation: tape-run 30s linear infinite;
   }
   .tape__track--rev {
@@ -962,10 +963,10 @@ html.cursor-hot .cursor__dot {
 
 @keyframes tape-run {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(var(--shift, -50%), 0, 0);
   }
 }
 @keyframes drop-in {
