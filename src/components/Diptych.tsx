@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import pfp from "../assets/pfp.png";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
 import { CONTACT_EMAIL, socials } from "../lib/data";
 import { Asterisk, Bracket, Burst, Spark, Squiggle, Target } from "./Art";
 import { ArrowDown, ArrowUpRight, socialIcons } from "./icons";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const buildList = [
   "Frontend & design systems",
@@ -25,6 +29,7 @@ export default function Diptych() {
   const fitRef = useFitText<HTMLHeadingElement>();
   const bandRef = useRef<HTMLDivElement>(null);
   const firstRef = useRef<HTMLSpanElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     let done = false;
@@ -66,10 +71,48 @@ export default function Diptych() {
     };
   }, []);
 
+  /* The cover acts as a lid: it pins to the top of the viewport and slides up
+     off the screen as you scroll, uncovering the wall underneath it. */
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: hero,
+            start: "top top",
+            /* tie the pin to the panel's own height, so the lid travels at
+               roughly the speed you scroll it on every screen size */
+            end: () => `+=${Math.round(hero.offsetHeight * 0.95)}`,
+            scrub: 0.35,
+            pin: true,
+            /* no spacer: the wall has to travel up *under* the lid, not sit
+               after a reserved gap */
+            pinSpacing: false,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        })
+        .to(hero, { yPercent: -100, ease: "none" });
+    }, hero);
+
+    const refresh = () => ScrollTrigger.refresh();
+    if (document.fonts) document.fonts.ready.then(refresh).catch(() => {});
+    const t = window.setTimeout(refresh, 900);
+    return () => {
+      window.clearTimeout(t);
+      ctx.revert();
+    };
+  }, []);
+
   return (
     <section
       id="cover"
       className="hero relative"
+      ref={heroRef}
       data-ready={ready ? "true" : undefined}
       aria-label="Introduction"
     >

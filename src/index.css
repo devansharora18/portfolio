@@ -592,6 +592,15 @@
     color: var(--gesso);
   }
 
+  /* ----------------------------------------------------------------- hero -- */
+  /* The cover pins and lifts, so it must be an opaque panel with an edge. */
+  .hero {
+    position: relative;
+    z-index: 5;
+    background: var(--paper);
+    box-shadow: 0 22px 44px -32px color-mix(in oklab, var(--ink) 42%, transparent);
+  }
+
   /* ------------------------------------------------------------- nameband -- */
   /* The one strong field above the fold: a hard split, ultramarine into paper.
      Kept without the two copy panels that used to sit above it. */
