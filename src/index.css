@@ -864,6 +864,81 @@
   }
 }
 
+/* ------------------------------------------------------- cursor follower -- */
+/* The native cursor is only hidden once the follower is actually running (the JS
+   adds .cursor-none), so no JS, no real pointer or reduced motion all keep a
+   normal cursor. Text fields keep theirs so typing is never awkward. */
+html.cursor-none,
+html.cursor-none body,
+html.cursor-none a,
+html.cursor-none button,
+html.cursor-none [role="button"] {
+  cursor: none;
+}
+html.cursor-none input,
+html.cursor-none textarea {
+  cursor: text;
+}
+
+/* The z-index has to live on the wrapper. position: fixed already makes the
+   wrapper a stacking context, so a z-index on the children only ordered them
+   inside it — the whole follower was painting below <main>, and was hidden
+   wherever main had an opaque band (the nameband, the tape). */
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+}
+.cursor__dot,
+.cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.3s ease, width 0.28s cubic-bezier(0.34, 1.4, 0.42, 1),
+    height 0.28s cubic-bezier(0.34, 1.4, 0.42, 1), background-color 0.28s ease;
+}
+html.cursor-on .cursor__dot,
+html.cursor-on .cursor__ring {
+  opacity: 1;
+}
+.cursor__dot {
+  width: 9px;
+  height: 9px;
+  background: var(--verm);
+  border: 1.5px solid var(--ink);
+}
+/* Ink ring with a paper halo, so it reads on cream paper, on the ink tape band
+   and on a vermillion frame alike. mix-blend-mode was the first instinct, but
+   blending only reaches the backdrop inside one stacking context and this page
+   has several, so it silently did nothing. */
+.cursor__ring {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--ink);
+  /* a translucent wash plus the ink ring: the ring reads on paper, the wash
+     reads on the ink bands, so the follower never disappears. */
+  background: color-mix(in oklab, var(--paper) 58%, transparent);
+}
+html.cursor-hot .cursor__ring {
+  width: 58px;
+  height: 58px;
+  border-width: 2.5px;
+  background: color-mix(in oklab, var(--paper) 80%, transparent);
+}
+html.cursor-hot .cursor__dot {
+  width: 6px;
+  height: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    display: none;
+  }
+}
+
 /* ---------------------------------------------------------------- reveal -- */
 [data-reveal] {
   opacity: 0;

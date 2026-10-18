@@ -7,6 +7,7 @@ import Postcard from "./components/Postcard";
 import Placard from "./components/Placard";
 import Tape from "./components/Tape";
 import SmoothScroll from "./components/SmoothScroll";
+import CursorFollower from "./components/CursorFollower";
 import { useReveal } from "./hooks/useReveal";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <SmoothScroll />
+      <CursorFollower />
       <Topbar />
 
       <main className="relative z-10">
