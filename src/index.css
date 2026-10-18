@@ -1,43 +1,1039 @@
 @import "tailwindcss";
 
+/* ============================================================================
+   MAXIMALIST ART-POSTER — design system
+   3-ink riso palette on gesso: ultramarine · vermillion · riso pink
+   ========================================================================= */
+
 @theme {
-  --color-surface: #131313;
-  --color-surface-dim: #131313;
-  --color-surface-bright: #393939;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-surface-container-low: #1c1b1b;
-  --color-surface-container: #201f1f;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353534;
-  --color-on-surface: #e5e2e1;
-  --color-on-surface-variant: #c1c8c2;
-  --color-outline: #8b928d;
-  --color-outline-variant: #414844;
-  --color-primary: #a8cfb9;
-  --color-primary-container: #062c1d;
-  --color-on-primary-container: #709581;
-  --color-secondary: #a9d1a8;
-  --color-secondary-container: #2e5132;
-  --color-on-secondary-container: #9bc29b;
-  --color-tertiary: #e9c349;
-  --color-tertiary-container: #cca730;
-  --color-on-tertiary-container: #4e3d00;
-  --color-lavender: #967bb6;
-  --color-error: #ffb4ab;
-  --font-display: "EB Garamond", serif;
-  --font-body: "Inter", sans-serif;
-  --font-mono: "Space Mono", monospace;
+  --color-gesso: var(--gesso);
+  --color-gesso-2: var(--gesso-2);
+  --color-gesso-3: var(--gesso-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ultra: var(--ultra);
+  --color-verm: var(--verm);
+  --color-pop: var(--pop);
+  --color-line: var(--line);
+
+  --font-loud: "Syne", "Arial Black", sans-serif;
+  --font-wonk: "Fraunces", Georgia, serif;
+  --font-anno: "Azeret Mono", ui-monospace, monospace;
 }
 
-html {}
+:root {
+  color-scheme: light;
 
-body {
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
-  font-family: var(--font-body);
-  cursor: none;
+  --gesso: #f2ede0;
+  --gesso-2: #e8e1d0;
+  --gesso-3: #d9d0ba;
+
+  --ink: #14110d;
+  --ink-2: #4b4337;
+  --ink-3: #6e6558;
+
+  --ultra: #1f35d8;
+  --verm: #ff4a17;
+  --pop: #ff4d9d;
+  /* a deeper orange that still passes as *text* on the light ground */
+  --verm-text: #c92f08;
+  /* text sitting on a solid pop/vermilion field stays dark in both themes */
+  --on-pop: #14110d;
+  --on-verm: #14110d;
+
+  --line: color-mix(in oklab, var(--ink) 22%, transparent);
+  --hair: color-mix(in oklab, var(--ink) 14%, transparent);
+
+  --hard: 7px 7px 0 var(--ink);
+  --hard-sm: 4px 4px 0 var(--ink);
+  --hard-verm: 7px 7px 0 var(--verm);
+  --hard-ultra: 7px 7px 0 var(--ultra);
+
+  --grain-op: 0.34;
+  --grain-blend: multiply;
+
+  --e: cubic-bezier(0.22, 0.75, 0.2, 1);
+  --e-bounce: cubic-bezier(0.34, 1.4, 0.42, 1);
+
+  --wrap: 1300px;
+  --nav: 62px;
+
+  --t-micro: clamp(0.6rem, 0.57rem + 0.16vw, 0.7rem);
+  --t-anno: clamp(0.7rem, 0.67rem + 0.16vw, 0.79rem);
+  --t-body: clamp(1rem, 0.96rem + 0.24vw, 1.1rem);
+  --t-lead: clamp(1.22rem, 1rem + 1.05vw, 1.9rem);
+  --t-loud: clamp(2.4rem, 0.9rem + 6.6vw, 6.6rem);
+  --t-mega: clamp(2.9rem, 0.4rem + 11.4vw, 11.5rem);
 }
 
-a, button, input, textarea, [role="button"] {
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --gesso: #14110d;
+  --gesso-2: #1d1913;
+  --gesso-3: #292219;
+
+  --ink: #f4efe2;
+  --ink-2: #c6bda9;
+  --ink-3: #8b8171;
+
+  --ultra: #6b7bff;
+  --verm: #ff6234;
+  --pop: #ff67ac;
+  --verm-text: #ff6234;
+
+  --line: color-mix(in oklab, var(--ink) 26%, transparent);
+  --hair: color-mix(in oklab, var(--ink) 15%, transparent);
+
+  --hard: 7px 7px 0 color-mix(in oklab, var(--ink) 26%, transparent);
+  --hard-sm: 4px 4px 0 color-mix(in oklab, var(--ink) 24%, transparent);
+  --hard-verm: 7px 7px 0 var(--verm);
+  --hard-ultra: 7px 7px 0 var(--ultra);
+
+  --grain-op: 0.24;
+  --grain-blend: screen;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --gesso: #14110d;
+    --gesso-2: #1d1913;
+    --gesso-3: #292219;
+    --ink: #f4efe2;
+    --ink-2: #c6bda9;
+    --ink-3: #8b8171;
+    --ultra: #6b7bff;
+    --verm: #ff6234;
+    --pop: #ff67ac;
+    --verm-text: #ff6234;
+    --line: color-mix(in oklab, var(--ink) 26%, transparent);
+    --hair: color-mix(in oklab, var(--ink) 15%, transparent);
+    --hard: 7px 7px 0 color-mix(in oklab, var(--ink) 26%, transparent);
+    --hard-sm: 4px 4px 0 color-mix(in oklab, var(--ink) 24%, transparent);
+    --hard-verm: 7px 7px 0 var(--verm);
+    --hard-ultra: 7px 7px 0 var(--ultra);
+    --grain-op: 0.24;
+    --grain-blend: screen;
+  }
+}
+
+/* ------------------------------------------------------------------- base -- */
+@layer base {
+  * {
+    min-width: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+    scrollbar-color: var(--ink-3) var(--gesso-2);
+  }
+
+  body {
+    margin: 0;
+    overflow-x: clip;
+    background-color: var(--gesso);
+    color: var(--ink);
+    font-family: var(--font-wonk);
+    font-size: var(--t-body);
+    font-weight: 400;
+    line-height: 1.68;
+    font-variation-settings: "opsz" 16, "wght" 400, "SOFT" 24, "WONK" 0;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--verm);
+    color: var(--gesso);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--verm);
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--gesso-2);
+    border-left: 1px solid var(--hair);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--ink);
+    border: 4px solid var(--gesso-2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--verm);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-loud);
+    font-weight: 800;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  ::placeholder {
+    color: color-mix(in oklab, var(--ink-3) 85%, transparent);
+  }
+}
+
+/* -------------------------------------------------------------- typography -- */
+@layer components {
+  .loud {
+    font-family: var(--font-loud);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+  .wonk {
+    font-family: var(--font-wonk);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "wght" 600, "SOFT" 96, "WONK" 1;
+    letter-spacing: -0.01em;
+    line-height: 0.96;
+  }
+  .wonk-i {
+    font-family: var(--font-wonk);
+    font-style: italic;
+    font-variation-settings: "opsz" 60, "wght" 500, "SOFT" 80, "WONK" 1;
+  }
+  .anno {
+    font-family: var(--font-anno);
+    font-size: var(--t-anno);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .anno-sm {
+    font-family: var(--font-anno);
+    font-size: var(--t-micro);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+  .prose {
+    font-family: var(--font-wonk);
+    font-variation-settings: "opsz" 16, "wght" 400, "SOFT" 22, "WONK" 0;
+    line-height: 1.7;
+    color: var(--ink-2);
+  }
+  .lead {
+    font-family: var(--font-wonk);
+    font-variation-settings: "opsz" 32, "wght" 420, "SOFT" 40, "WONK" 0;
+    font-size: var(--t-lead);
+    line-height: 1.32;
+    color: var(--ink);
+  }
+  .dim {
+    color: var(--ink-3);
+  }
+  .dim-2 {
+    color: var(--ink-2);
+  }
+
+  /* ------------------------------------------------------------- layout -- */
+  .wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    margin-inline: auto;
+    padding-inline: 18px;
+  }
+  @media (min-width: 720px) {
+    .wrap {
+      padding-inline: 40px;
+    }
+  }
+  @media (min-width: 1080px) {
+    .wrap {
+      padding-inline: 56px;
+    }
+  }
+  .edge {
+    padding-inline: 18px;
+  }
+  @media (min-width: 720px) {
+    .edge {
+      padding-inline: 40px;
+    }
+  }
+  @media (min-width: 1080px) {
+    .edge {
+      padding-inline: 56px;
+    }
+  }
+  section[id] {
+    scroll-margin-top: calc(var(--nav) + 46px);
+  }
+
+  /* --------------------------------------------------------------- rules -- */
+  .rule {
+    height: 2px;
+    background: var(--ink);
+  }
+  .rule-hair {
+    height: 1px;
+    background: var(--hair);
+  }
+  .underline-verm {
+    box-shadow: inset 0 -0.34em 0 var(--pop);
+  }
+
+  /* -------------------------------------------------------------- buttons -- */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.4rem;
+    border: 2px solid var(--ink);
+    background: var(--gesso);
+    color: var(--ink);
+    font-family: var(--font-loud);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--hard-sm);
+    transition: transform 0.12s var(--e), box-shadow 0.12s var(--e), background-color 0.2s var(--e);
+  }
+  .btn:hover,
+  .btn:focus-visible {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
+    background: var(--pop);
+    color: var(--on-pop);
+  }
+  .btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+  .btn-verm {
+    background: var(--verm);
+    color: var(--on-verm);
+  }
+  .btn-verm:hover,
+  .btn-verm:focus-visible {
+    background: var(--ultra);
+    color: var(--gesso);
+  }
+  .btn-ultra {
+    background: var(--ultra);
+    color: var(--gesso);
+  }
+  .btn-ultra:hover,
+  .btn-ultra:focus-visible {
+    background: var(--pop);
+    color: var(--on-pop);
+  }
+
+  .tlink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-anno);
+    font-size: var(--t-anno);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 2px;
+    transition: color 0.2s var(--e), border-color 0.2s var(--e), background-color 0.2s var(--e);
+  }
+  .tlink:hover,
+  .tlink:focus-visible {
+    color: var(--on-verm);
+    background: var(--verm);
+    border-color: var(--verm);
+  }
+  .tlink svg {
+    transition: transform 0.25s var(--e-bounce);
+  }
+  .tlink:hover svg {
+    transform: translate(3px, -3px);
+  }
+
+  /* ------------------------------------------------------------- marquee -- */
+  .tape {
+    overflow: hidden;
+    background: var(--ink);
+    color: var(--gesso);
+    border-block: 2px solid var(--ink);
+    padding-block: 0.55rem;
+  }
+  .tape--verm {
+    background: var(--verm);
+    color: var(--on-verm);
+  }
+  .tape--pop {
+    background: var(--pop);
+    color: var(--on-pop);
+  }
+  .tape__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: tape-run 30s linear infinite;
+  }
+  .tape__track--rev {
+    animation-direction: reverse;
+  }
+  .tape:hover .tape__track {
+    animation-play-state: paused;
+  }
+  .tape__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.1rem;
+    padding-inline: 1.1rem;
+    font-family: var(--font-loud);
+    font-weight: 800;
+    font-size: clamp(0.95rem, 0.8rem + 0.7vw, 1.5rem);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tape__item svg {
+    flex: none;
+    opacity: 0.9;
+  }
+
+  /* ------------------------------------------------------------ hard bits -- */
+  .hard {
+    box-shadow: var(--hard);
+  }
+  .hard-sm {
+    box-shadow: var(--hard-sm);
+  }
+  .hard-verm {
+    box-shadow: var(--hard-verm);
+  }
+  .hard-ultra {
+    box-shadow: var(--hard-ultra);
+  }
+  .ink-line {
+    border: 2px solid var(--ink);
+  }
+
+  /* A single strip of tape stuck across the frame's top edge. Tone comes from
+     .washi--verm / --ultra, otherwise the base pink. */
+  .washi--stick {
+    left: 50%;
+    top: -14px;
+    width: 88px;
+    height: 27px;
+    transform: translateX(-50%) rotate(var(--tape-rot, -2.5deg));
+    box-shadow: inset 0 1px 0 color-mix(in oklab, #fff 32%, transparent),
+      inset 0 -1px 0 color-mix(in oklab, var(--ink) 14%, transparent),
+      0 1px 3px color-mix(in oklab, var(--ink) 20%, transparent);
+  }
+
+  /* washi tape */
+  .washi {
+    position: absolute;
+    width: 96px;
+    height: 26px;
+    background: color-mix(in oklab, var(--pop) 72%, transparent);
+    border-left: 1px dashed color-mix(in oklab, var(--ink) 30%, transparent);
+    border-right: 1px dashed color-mix(in oklab, var(--ink) 30%, transparent);
+    opacity: 0.92;
+    z-index: 4;
+  }
+  .washi--verm {
+    background: color-mix(in oklab, var(--verm) 62%, transparent);
+  }
+  .washi--ultra {
+    background: color-mix(in oklab, var(--ultra) 48%, transparent);
+  }
+
+  /* -------------------------------------------------------------- frames -- */
+  .fig {
+    position: relative;
+    background: var(--gesso);
+    overflow: hidden;
+  }
+  .fig img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    background: var(--gesso-2);
+  }
+  .f-thin {
+    border: 3px solid var(--ink);
+    padding: 6px;
+    box-shadow: var(--hard);
+  }
+  .f-fat {
+    border: 13px solid var(--verm);
+    padding: 0;
+    box-shadow: var(--hard);
+  }
+  .f-double {
+    border: 3px solid var(--ink);
+    padding: 6px;
+    outline: 3px solid var(--ink);
+    outline-offset: 6px;
+  }
+  .f-blue {
+    border: 5px solid var(--ultra);
+    padding: 6px;
+    box-shadow: var(--hard-ultra);
+  }
+  .f-pop {
+    border: 5px solid var(--ink);
+    padding: 6px;
+    background: var(--pop);
+    box-shadow: var(--hard-verm);
+  }
+  .f-raw {
+    border: 0;
+    padding: 0;
+    box-shadow: var(--hard-sm);
+  }
+
+  /* museum placard under a hung frame */
+  .placard {
+    position: relative;
+    border: 2px solid var(--ink);
+    background: var(--gesso);
+    padding: 0.7rem 0.8rem;
+    box-shadow: var(--hard-sm);
+    transition: border-color 0.25s var(--e), box-shadow 0.25s var(--e);
+  }
+  .placard--dark {
+    background: var(--ink);
+    color: var(--gesso);
+  }
+
+  /* --------------------------------------------------------------- stamps -- */
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 2px solid currentColor;
+    color: var(--verm-text);
+    padding: 0.2rem 0.5rem;
+    font-family: var(--font-anno);
+    font-size: var(--t-micro);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transform: rotate(-6deg);
+  }
+  .stamp--ultra {
+    color: var(--ultra);
+  }
+  .stamp--ink {
+    color: var(--ink);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--ink);
+    background: var(--gesso);
+    padding: 0.3rem 0.6rem;
+    font-family: var(--font-anno);
+    font-size: var(--t-micro);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tag--verm {
+    background: var(--verm);
+    color: var(--on-verm);
+  }
+  .tag--ultra {
+    background: var(--ultra);
+    color: var(--gesso);
+  }
+  .tag--pop {
+    background: var(--pop);
+    color: var(--on-pop);
+  }
+  .tag--ink {
+    background: var(--ink);
+    color: var(--gesso);
+  }
+
+  /* ----------------------------------------------------------------- hero -- */
+  /* Section 4 climbs over section 3: the ledger holds still while the sticker
+     sheet rides up over the top of it, so the sheet sits above in paint order
+     and has to be opaque to hide what it covers. */
+  #ledger {
+    position: relative;
+    z-index: 1;
+  }
+  /* Everything after the ledger has to be opaque and stacked above it. After the
+     pin releases, ScrollTrigger keeps the ledger visually in place with a
+     translateY equal to the pin distance, so it ends up parked over the
+     following sections — harmless only if they can hide it. */
+  #stickers {
+    position: relative;
+    z-index: 2;
+    background: var(--gesso);
+    box-shadow: 0 -22px 44px -34px color-mix(in oklab, var(--ink) 40%, transparent);
+  }
+  #contact {
+    position: relative;
+    z-index: 3;
+    background: var(--gesso);
+  }
+  #root > footer {
+    position: relative;
+    z-index: 20; /* above <main>, which is z-10 */
+    background: var(--gesso);
+  }
+  /* :last-of-type matches by tag, and the grain div follows it — target the
+     sibling that actually follows the footer instead */
+  #root > footer + .tape {
+    position: relative;
+    z-index: 21;
+  }
+
+  /* ------------------------------------------------------------- nameband -- */
+  /* The one strong field above the fold: a hard split, ultramarine into paper.
+     Kept without the two copy panels that used to sit above it. */
+  .nameband {
+    position: relative;
+    border-bottom: 3px solid var(--ink);
+    background: var(--ultra);
+  }
+  /* the paper half: its edge is placed past the first name by JS (--split) */
+  .nameband::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - var(--split, 50%));
+    background: var(--gesso);
+  }
+  .nameband > .wrap {
+    position: relative;
+    z-index: 1;
+  }
+  .name {
+    font-family: var(--font-loud);
+    font-weight: 800;
+    font-size: 15vw;
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    color: var(--gesso);
+    -webkit-text-stroke: 2px var(--ink);
+    text-shadow: 6px 6px 0 var(--verm);
+  }
+  .name [data-fit] {
+    display: block;
+    width: max-content;
+    white-space: nowrap;
+  }
+  @media (max-width: 899px) {
+    .name {
+      text-shadow: 4px 4px 0 var(--verm);
+    }
+  }
+
+  /* --------------------------------------------------------- sticker sheet -- */
+  .sticker-sheet {
+    position: relative;
+    border: 2px solid var(--ink);
+    padding: 0.75rem 1.25rem 1.5rem;
+    box-shadow: var(--hard);
+    background-color: var(--gesso-2);
+    background-image: linear-gradient(to right, var(--hair) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--hair) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .cut-line {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 2px dashed var(--ink);
+    color: var(--ink-2);
+  }
+  .sticker {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.68rem 1.1rem;
+    border: 2px solid var(--ink);
+    font-family: var(--font-loud);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-size: clamp(0.85rem, 0.78rem + 0.5vw, 1.28rem);
+    box-shadow: var(--hard-sm);
+    white-space: nowrap;
+    transition: transform 0.22s var(--e-bounce), box-shadow 0.22s var(--e);
+  }
+  .sticker:hover {
+    transform: rotate(0deg) scale(1.07) !important;
+    box-shadow: var(--hard);
+    z-index: 2;
+  }
+  .sticker--verm {
+    background: var(--verm);
+    color: var(--on-verm);
+  }
+  .sticker--ultra {
+    background: var(--ultra);
+    color: var(--gesso);
+  }
+  .sticker--pop {
+    background: var(--pop);
+    color: var(--on-pop);
+  }
+  .sticker--ink {
+    background: var(--ink);
+    color: var(--gesso);
+  }
+  .sticker--gesso {
+    background: var(--gesso);
+    color: var(--ink);
+  }
+
+  /* ---------------------------------------------------------------- wall -- */
+  .wall {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 46px 30px;
+  }
+  @media (min-width: 760px) {
+    .wall {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  @media (min-width: 1080px) {
+    .wall {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 62px 34px;
+    }
+  }
+  .wall__item {
+    position: relative;
+    margin: 0;
+  }
+  @media (min-width: 760px) {
+    .wall__item {
+      grid-column: span var(--span-md, 3);
+    }
+  }
+  @media (min-width: 1080px) {
+    .wall__item {
+      grid-column: span var(--span, 6);
+    }
+  }
+  /* One hang height per row: widths vary with the span, so a narrow span reads
+     as a portrait frame and a wide one as a landscape frame. Scoped to .wall so
+     it can never resize a frame elsewhere (the hero polaroid, say). */
+  .wall .fig {
+    aspect-ratio: 4 / 3;
+  }
+  .wall .fig--slab {
+    aspect-ratio: 3 / 4;
+  }
+  /* very wide frames crop vertically: bias away from the header area */
+  .wall .fig--pan img {
+    object-position: 50% 66%;
+  }
+  @media (min-width: 760px) {
+    .wall .fig {
+      aspect-ratio: auto;
+      height: clamp(178px, 24vw, 252px);
+    }
+  }
+  @media (min-width: 1080px) {
+    .wall .fig {
+      height: clamp(220px, 28vw, 350px);
+    }
+  }
+  .hang {
+    position: relative;
+    transform: rotate(var(--rot, 0deg));
+    transition: transform 0.5s var(--e-bounce);
+  }
+  @media (max-width: 759px) {
+    .hang {
+      --rot: 0deg;
+      margin-inline: var(--inset, 0px);
+    }
+  }
+  .wall__item:hover .hang,
+  .wall__item:focus-within .hang {
+    transform: rotate(0deg) translateY(-8px);
+  }
+  .wall__item:hover .placard,
+  .wall__item:focus-within .placard {
+    border-color: var(--pop);
+    box-shadow: 4px 4px 0 var(--pop);
+  }
+
+  /* ------------------------------------------------------------- ledger -- */
+  .ledger {
+    border: 2px solid var(--ink);
+    background: var(--gesso);
+  }
+  .ledger__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 2px solid var(--ink);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 27px,
+      var(--hair) 27px 28px
+    );
+    background-size: 100% 28px;
+  }
+  .ledger__row:first-child {
+    border-top: 0;
+  }
+  @media (min-width: 900px) {
+    .ledger__row {
+      grid-template-columns: 5.5rem minmax(0, 1fr) minmax(0, 1.35fr);
+    }
+  }
+  .ledger__cell {
+    padding: 1.15rem 1.1rem;
+  }
+  @media (min-width: 900px) {
+    .ledger__cell + .ledger__cell {
+      border-left: 2px solid var(--ink);
+    }
+  }
+  .ledger__no {
+    font-family: var(--font-loud);
+    font-weight: 800;
+    font-size: 2.4rem;
+    line-height: 0.8;
+    color: var(--verm-text);
+  }
+
+  /* --------------------------------------------------------- postcard -- */
+  .airmail {
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--verm) 0 11px,
+        transparent 11px 22px
+      ),
+      repeating-linear-gradient(-45deg, var(--ultra) 0 11px, transparent 11px 22px);
+    background-color: var(--gesso);
+  }
+  .field {
+    width: 100%;
+    background: var(--gesso);
+    border: 2px solid var(--ink);
+    padding: 0.8rem 0.85rem;
+    color: var(--ink);
+    font-family: var(--font-anno);
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    box-shadow: inset 3px 3px 0 color-mix(in oklab, var(--ink) 8%, transparent);
+    transition: box-shadow 0.18s var(--e), background-color 0.18s var(--e);
+  }
+  .field:focus {
+    outline: none;
+    background: var(--pop);
+    color: var(--on-pop);
+    box-shadow: inset 0 0 0 2px var(--ink);
+  }
+  .field:focus::placeholder {
+    color: color-mix(in oklab, var(--on-pop) 52%, transparent);
+  }
+  textarea.field {
+    resize: none;
+    line-height: 1.6;
+  }
+
+  /* --------------------------------------------------------- decorative -- */
+  .counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid var(--ink);
+    padding: 0.25rem 0.55rem;
+    background: var(--gesso);
+    font-family: var(--font-anno);
+    font-size: var(--t-micro);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+/* ------------------------------------------------------- cursor follower -- */
+/* The native cursor is only hidden once the follower is actually running (the JS
+   adds .cursor-none), so no JS, no real pointer or reduced motion all keep a
+   normal cursor. Text fields keep theirs so typing is never awkward. */
+html.cursor-none,
+html.cursor-none body,
+html.cursor-none a,
+html.cursor-none button,
+html.cursor-none [role="button"] {
   cursor: none;
+}
+html.cursor-none input,
+html.cursor-none textarea {
+  cursor: text;
+}
+
+/* The z-index has to live on the wrapper. position: fixed already makes the
+   wrapper a stacking context, so a z-index on the children only ordered them
+   inside it — the whole follower was painting below <main>, and was hidden
+   wherever main had an opaque band (the nameband, the tape). */
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+}
+.cursor__dot,
+.cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.3s ease, width 0.28s cubic-bezier(0.34, 1.4, 0.42, 1),
+    height 0.28s cubic-bezier(0.34, 1.4, 0.42, 1), background-color 0.28s ease;
+}
+html.cursor-on .cursor__dot,
+html.cursor-on .cursor__ring {
+  opacity: 1;
+}
+.cursor__dot {
+  width: 9px;
+  height: 9px;
+  background: var(--verm);
+  border: 1.5px solid var(--ink);
+}
+/* Ink ring with a paper halo, so it reads on cream paper, on the ink tape band
+   and on a vermillion frame alike. mix-blend-mode was the first instinct, but
+   blending only reaches the backdrop inside one stacking context and this page
+   has several, so it silently did nothing. */
+.cursor__ring {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--ink);
+  /* a translucent wash plus the ink ring: the ring reads on paper, the wash
+     reads on the ink bands, so the follower never disappears. */
+  background: color-mix(in oklab, var(--paper) 58%, transparent);
+}
+html.cursor-hot .cursor__ring {
+  width: 58px;
+  height: 58px;
+  border-width: 2.5px;
+  background: color-mix(in oklab, var(--paper) 80%, transparent);
+}
+html.cursor-hot .cursor__dot {
+  width: 6px;
+  height: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- reveal -- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px) rotate(var(--rot-in, -1.2deg));
+  transition: opacity 0.7s var(--e), transform 0.7s var(--e-bounce);
+  transition-delay: var(--d, 0ms);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+[data-rule] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.9s var(--e);
+  transition-delay: var(--d, 0ms);
+}
+[data-rule].is-in {
+  transform: scaleX(1);
+}
+
+@keyframes tape-run {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(var(--shift, -50%), 0, 0);
+  }
+}
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-26px) rotate(0deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rot, 0deg)) scale(1);
+  }
+}
+
+.hero[data-ready="true"] .hang {
+  animation: drop-in 0.95s var(--e-bounce) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal],
+  .hero .hang {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero .hang {
+    transform: rotate(var(--rot, 0deg)) !important;
+  }
 }
