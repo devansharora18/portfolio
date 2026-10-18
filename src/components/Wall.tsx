@@ -74,11 +74,12 @@ export default function Wall() {
               }}
             >
               <div className="hang">
-                <span className="wire" aria-hidden="true" />
                 <span
                   className={`pin${i % 3 === 0 ? " pin--ultra" : i % 3 === 2 ? " pin--pop" : ""}`}
                   aria-hidden="true"
-                />
+                >
+                  <i />
+                </span>
                 <div
                   className={`fig ${FRAMES[i % FRAMES.length]}${
                     project.shape === "slab" ? " fig--slab" : ""

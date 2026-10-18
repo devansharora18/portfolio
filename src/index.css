@@ -448,24 +448,85 @@
     border: 2px solid var(--ink);
   }
 
+  /* A pushpin seen from above at an angle: a tilted disc, a domed grip, a
+     tapered steel needle and the soft contact shadow where it enters the board.
+     Colour comes from --pin-c. The needle tip sits at box (31, 40). */
   .pin {
+    --pin-c: var(--verm);
     position: absolute;
-    top: -9px;
     left: 50%;
-    width: 16px;
-    height: 16px;
+    top: -44px;
+    width: 46px;
+    height: 42px;
+    margin-left: -31px;
+    z-index: 4;
+    pointer-events: none;
+    background: radial-gradient(
+      12px 5px at 33px 42px,
+      color-mix(in oklab, var(--ink) 46%, transparent),
+      transparent 72%
+    );
+  }
+  .pin > i {
+    /* starts well inside the disc so the steel emerges from it, tip at (31.5,40) */
+    position: absolute;
+    left: 29.7px;
+    top: 12.3px;
+    width: 3.6px;
+    height: 27.7px;
+    transform-origin: 50% 100%;
+    transform: rotate(20deg);
+    background: linear-gradient(
+      to right,
+      #efefef 0%,
+      #c9c9c9 26%,
+      #8a8a8a 60%,
+      #4b4b4b 100%
+    );
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+  }
+  .pin::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 1.5px;
+    top: 8px;
+    width: 30px;
+    height: 24px;
     border-radius: 50%;
-    background: radial-gradient(circle at 34% 32%, #fff, var(--verm) 62%, color-mix(in oklab, var(--verm) 60%, #000) 100%);
-    border: 1.5px solid var(--ink);
-    transform: translateX(-50%);
-    z-index: 3;
-    box-shadow: 0 2px 0 color-mix(in oklab, var(--ink) 40%, transparent);
+    transform: rotate(-10deg);
+    background: radial-gradient(
+      circle at 32% 26%,
+      color-mix(in oklab, var(--pin-c) 34%, #fff) 0%,
+      var(--pin-c) 48%,
+      color-mix(in oklab, var(--pin-c) 34%, #000) 100%
+    );
+    box-shadow: inset 0 0 0 0.5px color-mix(in oklab, var(--pin-c) 32%, #000),
+      0 1px 2px color-mix(in oklab, var(--ink) 30%, transparent);
+  }
+  .pin::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 3px;
+    top: 1.5px;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 31% 23%,
+      #fff 0%,
+      color-mix(in oklab, var(--pin-c) 42%, #fff) 22%,
+      var(--pin-c) 60%,
+      color-mix(in oklab, var(--pin-c) 46%, #000) 100%
+    );
+    box-shadow: inset -1px -2px 3px color-mix(in oklab, var(--pin-c) 30%, #000);
   }
   .pin--ultra {
-    background: radial-gradient(circle at 34% 32%, #fff, var(--ultra) 62%, color-mix(in oklab, var(--ultra) 60%, #000) 100%);
+    --pin-c: var(--ultra);
   }
   .pin--pop {
-    background: radial-gradient(circle at 34% 32%, #fff, var(--pop) 62%, color-mix(in oklab, var(--pop) 55%, #000) 100%);
+    --pin-c: var(--pop);
   }
 
   /* washi tape */
@@ -778,16 +839,6 @@
   .wall__item:focus-within .placard {
     border-color: var(--pop);
     box-shadow: 4px 4px 0 var(--pop);
-  }
-  .wire {
-    position: absolute;
-    left: 50%;
-    top: -26px;
-    width: 2px;
-    height: 26px;
-    background: var(--ink);
-    transform: translateX(-50%);
-    opacity: 0.55;
   }
 
   /* ------------------------------------------------------------- ledger -- */
