@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import pfp from "../assets/pfp.png";
+import pfp from "../assets/pfp.jpg";
 import Tape from "./Tape";
 import { useFitText } from "../hooks/useFitText";
 import { CONTACT_EMAIL, socials } from "../lib/data";
