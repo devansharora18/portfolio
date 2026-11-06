@@ -593,28 +593,6 @@
   }
 
   /* ----------------------------------------------------------------- hero -- */
-  /* Section 4 climbs over section 3: the ledger holds still while the sticker
-     sheet rides up over the top of it, so the sheet sits above in paint order
-     and has to be opaque to hide what it covers. */
-  #ledger {
-    position: relative;
-    z-index: 1;
-  }
-  /* Everything after the ledger has to be opaque and stacked above it. After the
-     pin releases, ScrollTrigger keeps the ledger visually in place with a
-     translateY equal to the pin distance, so it ends up parked over the
-     following sections — harmless only if they can hide it. */
-  #stickers {
-    position: relative;
-    z-index: 2;
-    background: var(--gesso);
-    box-shadow: 0 -22px 44px -34px color-mix(in oklab, var(--ink) 40%, transparent);
-  }
-  #contact {
-    position: relative;
-    z-index: 3;
-    background: var(--gesso);
-  }
   #root > footer {
     position: relative;
     z-index: 20; /* above <main>, which is z-10 */

@@ -1,11 +1,6 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Head from "./Head";
 import { experience } from "../lib/data";
 import { Paperclip, Spark } from "./Art";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const STAMPS = [
   { label: "Ongoing", tone: "stamp--ultra" },
@@ -13,56 +8,10 @@ const STAMPS = [
 ];
 
 export default function Ledger() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  /* This section holds still while the sticker sheet rides up over it. The pin
-     only starts once the ledger has been fully read — on short viewports it is
-     taller than the screen, and pinning from the top would bury its last entry. */
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const ctx = gsap.context(() => {
-      const next = document.getElementById("stickers");
-      const st = ScrollTrigger.create({
-        trigger: el,
-        start: () => `top+=${Math.max(0, el.offsetHeight - window.innerHeight)} top`,
-        end: "+=100%",
-        pin: true,
-        /* keep the spacing: without it ScrollTrigger leaves the pinned section
-           displaced down the page by the pin distance, so its tail ends up
-           rendering *after* the sticker sheet. Instead reserve the space and
-           pull the next section up by exactly that distance, which slides it
-           over the pinned ledger and lands it cleanly afterwards. */
-        pinSpacing: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onRefresh: (self) => {
-          if (next) next.style.marginTop = `${-Math.round(self.end - self.start)}px`;
-        },
-      });
-
-      return () => {
-        if (next) next.style.marginTop = "";
-        st.kill();
-      };
-    }, el);
-
-    const refresh = () => ScrollTrigger.refresh();
-    if (document.fonts) document.fonts.ready.then(refresh).catch(() => {});
-    const t = window.setTimeout(refresh, 900);
-    return () => {
-      window.clearTimeout(t);
-      ctx.revert();
-    };
-  }, []);
-
   return (
     <section
       id="ledger"
       className="relative border-t-2 pt-16 md:pt-24"
-      ref={sectionRef}
       style={{ borderColor: "var(--ink)" }}
     >
       <div className="wrap">
