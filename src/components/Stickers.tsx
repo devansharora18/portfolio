@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Head from "./Head";
 import { skills } from "../lib/data";
-import { Asterisk, Scissors, Spark, Target } from "./Art";
+import { Asterisk, Scissors, Target } from "./Art";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -182,9 +182,7 @@ export default function Stickers() {
             <span className="anno flex items-center gap-2">
               <Target size={14} /> Favourite medium: TypeScript
             </span>
-            <span className="anno flex items-center gap-2 dim">
-              <Spark size={13} /> Favourite tool: a graph notebook
-            </span>
+           
           </div>
         </div>
       </div>

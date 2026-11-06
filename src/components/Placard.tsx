@@ -1,5 +1,5 @@
 import { CONTACT_EMAIL, sections, socials } from "../lib/data";
-import { Spark, Target } from "./Art";
+import { Spark } from "./Art";
 import { ArrowUp } from "./icons";
 
 function backToTop() {
@@ -17,14 +17,14 @@ export default function Placard() {
         {/* museum placard */}
         <div className="grid gap-10 md:grid-cols-[1.25fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
+            {/* <div className="flex items-center gap-2.5">
               <Target size={16} />
               <span className="anno">Wall text</span>
-            </div>
+            </div> */}
             <h3 className="loud mt-4" style={{ fontSize: "clamp(1.4rem, 0.9rem + 1.7vw, 2.4rem)" }}>
               Devansh Arora
             </h3>
-            <dl className="mt-5 max-w-[42ch] space-y-2.5">
+            {/* <dl className="mt-5 max-w-[42ch] space-y-2.5">
               <div className="flex gap-3">
                 <dt className="anno-sm dim w-20 shrink-0">Medium</dt>
                 <dd className="anno-sm">TypeScript, Go, Dart, colour, paper</dd>
@@ -37,7 +37,7 @@ export default function Placard() {
                 <dt className="anno-sm dim w-20 shrink-0">Edition</dt>
                 <dd className="anno-sm">{year} · open to commissions</dd>
               </div>
-            </dl>
+            </dl> */}
             <p className="prose mt-6 max-w-[46ch]">
               If a project of yours needs equal parts engineering and stubborn
               attention to how it feels, that&rsquo;s the work I want.
@@ -82,7 +82,7 @@ export default function Placard() {
         >
           <span className="anno-sm dim">© {year} Devansh Arora — all rights reserved</span>
           <span className="anno-sm dim flex items-center gap-2">
-            <Spark size={12} /> React · Vite · GSAP · one very long notebook
+            <Spark size={12} /> React · Vite · GSAP 
           </span>
           <button type="button" onClick={backToTop} className="tlink">
             <ArrowUp size={13} />

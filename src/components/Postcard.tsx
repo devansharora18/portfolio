@@ -1,7 +1,7 @@
 import Head from "./Head";
 import { CONTACT_EMAIL, FORM_ENDPOINT, socials } from "../lib/data";
 import { ArrowUpRight, socialIcons } from "./icons";
-import { Asterisk, Postmark, Spark } from "./Art";
+import { Asterisk, Postmark } from "./Art";
 
 const direct: { label: string; value: string; href?: string }[] = [
   { label: "Email", value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
@@ -86,9 +86,7 @@ export default function Postcard() {
                   Post it
                   <ArrowUpRight size={15} />
                 </button>
-                <span className="anno-sm dim flex items-center gap-2">
-                  <Spark size={12} /> Routed via FormSubmit
-                </span>
+                
               </div>
             </form>
 
@@ -163,9 +161,7 @@ export default function Postcard() {
                 })}
               </ul>
 
-              <p className="anno-sm mt-auto dim">
-                No trackers, no newsletter — just a reply.
-              </p>
+              
             </aside>
           </div>
         </div>

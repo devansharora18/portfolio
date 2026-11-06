@@ -61,11 +61,8 @@ export default function Wall() {
             </>
           }
         >
-          <p className="prose mt-5 max-w-[54ch]">
-            Fourteen pieces, each in its own frame. An encrypted chat app, a
-            frontend framework, a layout tool, an EPUB reader, a colour tool, an
-            npm package and a couple of hackathon sites. Hover a piece to
-            straighten it.
+          <p className="prose mt-5 max-w-[54ch] min-h-10">
+            
           </p>
         </Head>
       </div>
